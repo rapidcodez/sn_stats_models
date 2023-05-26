@@ -13,3 +13,24 @@ var LEAGUE_BY_SPORT = map[string][]string{
 	"olympics":   {"OLY_MHK", "OLY_WHK", "OLY_WSOC", "OLY_MSOC", "OLY_WBK", "OLY_MBK"},
 	"lacrosse":   {"NLL"},
 }
+
+var SEASON_TYPES = map[string]int{
+	"PRE":            1,
+	"REG":            2,
+	"PST":            3,
+	"playoffs":       3,
+	"regular season": 2,
+	"pre-season":     1,
+	"pre season":     1,
+	"qualification":  1,
+	"SIM":            10,
+	"PIT":            5,
+}
+
+var SEASON_TYPES_R = map[int]string{
+	1:  "PRE",
+	2:  "REG",
+	3:  "PST",
+	10: "SIM",
+	5:  "PIT",
+}
