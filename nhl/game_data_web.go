@@ -2,6 +2,14 @@ package nhl
 
 import "github.com/digitalmedia/sn_stats_models/common"
 
+type GameDataWeb struct {
+	Sequence     int64      `json:"sequence"`
+	Details      DetailsWeb `json:"details"`
+	VisitingTeam TeamWeb    `json:"visiting_team"`
+	HomeTeam     TeamWeb    `json:"home_team"`
+	Periods      []Periods  `json:"periods"`
+}
+
 type ImageUrl struct {
 	Lg string `json:"lg"`
 	Md string `json:"md"`
@@ -218,56 +226,6 @@ type DetailsWeb struct {
 	CurrentLine         CurrentLine            `json:"current_line"`
 }
 
-type DetailsMobile struct {
-	LeagueShortName     string                 `json:"league_short_name"`
-	ID                  int                    `json:"id"`
-	SrGameUuid          string                 `json:"sr_game_uuid"`
-	Period              int                    `json:"period"`
-	IsActive            bool                   `json:"is_active"`
-	Clock               string                 `json:"clock"`
-	Type                string                 `json:"type"`
-	Timestamp           int64                  `json:"timestamp"`
-	Status              string                 `json:"status"`
-	Location            string                 `json:"location"`
-	LocationImageURL    string                 `json:"location_image_url"`
-	Broadcast           []common.GameBroadcast `json:"broadcast"`
-	Overtime            int                    `json:"overtime"`
-	HasShootout         bool                   `json:"has_shootout"`
-	HomeSeriesWins      int                    `json:"home_series_wins"`
-	VisitingSeriesWins  int                    `json:"visiting_series_wins"`
-	IsAllStar           bool                   `json:"is_all_star"`
-	Stars               []Stars                `json:"stars"`
-	LocationImageMed    string                 `json:"location_image_med"`
-	LocationImageSml    string                 `json:"location_image_sml"`
-	StartingGoalies     []StartingGoalies      `json:"starting_goalies"`
-	Story               Story                  `json:"story"`
-	Attendance          int                    `json:"attendance"`
-	Arena               string                 `json:"arena"`
-	Referee1            string                 `json:"referee1"`
-	Referee2            string                 `json:"referee2"`
-	Linesman1           string                 `json:"linesman1"`
-	Linesman2           string                 `json:"linesman2"`
-	Last5Meetings       []Last5Meetings        `json:"last_5_meetings"`
-	WinningGoalies      []WinningGoalies       `json:"winning_goalies"`
-	LosingGoalies       []LosingGoalies        `json:"losing_goalies"`
-	PpMin               int                    `json:"pp_min"`
-	PpSec               int                    `json:"pp_sec"`
-	Last9Events         []Last9Events          `json:"last_9_events"`
-	GameWinningGoal     GameWinningGoal        `json:"game_winning_goal"`
-	SeasonSeries        []SeasonSeries         `json:"season_series"`
-	City                string                 `json:"city"`
-	Country             string                 `json:"country"`
-	GameNumber          int                    `json:"game_number"`
-	Round               int                    `json:"round"`
-	Conference          string                 `json:"conference"`
-	IfNecessary         bool                   `json:"if_necessary"`
-	HomePlayoffSeed     int                    `json:"home_playoff_seed"`
-	VisitingPlayoffSeed int                    `json:"visiting_playoff_seed"`
-	NhlID               int                    `json:"nhl_id"`
-	State               string                 `json:"state"`
-	OpeningLine         OpeningLine            `json:"opening_line"`
-	CurrentLine         CurrentLine            `json:"current_line"`
-}
 type Division struct {
 	ID        int    `json:"id"`
 	Name      string `json:"name"`
@@ -421,7 +379,7 @@ type TeamStandings struct {
 	VisitingShootoutWins   int    `json:"visiting_shootout_wins"`
 	VisitingShootoutLosses int    `json:"visiting_shootout_losses"`
 }
-type VisitingTeam struct {
+type TeamWeb struct {
 	ID            int           `json:"id"`
 	Name          string        `json:"name"`
 	ShortName     string        `json:"short_name"`
