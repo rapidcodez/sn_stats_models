@@ -596,6 +596,7 @@ type TeamWeb struct {
 
 type DetailsMobile struct {
 	Id              int    `json:"id"`
+	SrGameUuid      string `json:"sr_game_uuid"`
 	LeagueShortName string `json:"league_short_name"`
 	Quarter         int    `json:"quarter"`
 	IsActive        bool   `json:"is_active"`

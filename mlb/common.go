@@ -26,8 +26,8 @@ type SeasonSeries struct {
 	HomeTeamID        int    `json:"home_team_id"`
 }
 type CurrentAtBat struct {
-	Batter  Batter  `json:"batter"`
-	Pitcher Pitcher `json:"pitcher"`
+	Batter  Player  `json:"batter"`
+	Pitcher Player  `json:"pitcher"`
 	Pitch   []Pitch `json:"pitch"`
 }
 type Pitch struct {
@@ -113,18 +113,20 @@ type OpeningLine struct {
 }
 
 type Division struct {
-	ID        int    `json:"id"`
-	Name      string `json:"name"`
-	ShortName string `json:"short_name"`
-	Rank      int    `json:"rank"`
+	ID             int    `json:"id"`
+	SrDivisionUuid string `json:"sr_division_uuid"`
+	Name           string `json:"name"`
+	ShortName      string `json:"short_name"`
+	Rank           int    `json:"rank"`
 }
 type Conference struct {
-	ID        int    `json:"id"`
-	Name      string `json:"name"`
-	ShortName string `json:"short_name"`
-	Rank      int    `json:"rank"`
-	ImageURL  string `json:"image_url"`
-	Color     string `json:"color"`
+	ID               int    `json:"id"`
+	SrConferenceUuid string `json:"sr_conference_uuid"`
+	Name             string `json:"name"`
+	ShortName        string `json:"short_name"`
+	Rank             int    `json:"rank"`
+	ImageURL         string `json:"image_url"`
+	Color            string `json:"color"`
 }
 type GameStats struct {
 	Hits              int `json:"hits"`
@@ -149,28 +151,22 @@ type SeasonStats struct {
 	Saves              int     `json:"saves"`
 	Errors             int     `json:"errors"`
 }
-type HomeRunLeader struct {
-	ID        int    `json:"id"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	ImageURL  string `json:"image_url"`
-	Total     int    `json:"total"`
+
+type SeasonLeader struct {
+	ID           int       `json:"id"`
+	SrPlayerUUID string    `json:"sr_player_uuid"`
+	FirstName    string    `json:"first_name"`
+	LastName     string    `json:"last_name"`
+	ImageURL     string    `json:"image_url"`
+	Total        string    `json:"total"`
+	ImageUrls    ImageUrls `json:"image_urls"`
+
+	Position      string `json:"position,omitempty"`
+	ShortPosition string `json:"short_position,omitempty"`
+	Number        int    `json:"number,omitempty"`
+	HomeRuns      int    `json:"home_runs,omitempty"`
 }
-type BattingAverageLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     float64   `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type RunsBattedInLeader struct {
-	ID        int    `json:"id"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	ImageURL  string `json:"image_url"`
-	Total     int    `json:"total"`
-}
+
 type Homeruns struct {
 	ID            int       `json:"id"`
 	FirstName     string    `json:"first_name"`
@@ -182,106 +178,74 @@ type Homeruns struct {
 	HomeRuns      int       `json:"home_runs"`
 	ImageUrls     ImageUrls `json:"image_urls"`
 }
-type Batter struct {
-	ID                 int       `json:"id"`
-	FirstName          string    `json:"first_name"`
-	LastName           string    `json:"last_name"`
-	ImageURL           string    `json:"image_url"`
-	Position           string    `json:"position"`
-	ShortPosition      string    `json:"short_position"`
-	Number             int       `json:"number"`
-	AtBats             int       `json:"at_bats"`
-	Runs               int       `json:"runs"`
-	HomeRuns           int       `json:"home_runs"`
-	Hits               int       `json:"hits"`
-	RunsBattedIn       int       `json:"runs_batted_in"`
-	Walks              int       `json:"walks"`
-	StrikeOuts         int       `json:"strike_outs"`
-	LeftOnBase         int       `json:"left_on_base"`
-	BattingAverage     string    `json:"batting_average"`
-	StolenBases        int       `json:"stolen_bases"`
-	Uniform            int       `json:"uniform"`
-	Batting            string    `json:"batting"`
-	SeasonHomeRuns     int       `json:"season_home_runs"`
-	SeasonRunsBattedIn int       `json:"season_runs_batted_in"`
-	Doubles            int       `json:"doubles"`
-	Triples            int       `json:"triples"`
-	OnBasePercentage   string    `json:"on_base_percentage"`
-	IsSeasonStat       bool      `json:"is_season_stat"`
-	StartedGame        bool      `json:"started_game"`
-	SacrificeFlies     int       `json:"sacrifice_flies"`
-	HitByPitch         int       `json:"hit_by_pitch"`
-	ImageUrls          ImageUrls `json:"image_urls"`
-	DisplayID          int       `json:"display_id"`
-	DisplayName        string    `json:"display_name"`
-	PlayerCodeID       int       `json:"player_code_id"`
-	BattingSlot        int       `json:"batting_slot"`
-	SluggingPercentage string    `json:"slugging_percentage"`
-	RunsBattedInSeason int       `json:"runs_batted_in_season"`
-}
-type Pitcher struct {
-	ID                        int       `json:"id"`
-	FirstName                 string    `json:"first_name"`
-	LastName                  string    `json:"last_name"`
-	ImageURL                  string    `json:"image_url"`
-	Position                  string    `json:"position"`
-	ShortPosition             string    `json:"short_position"`
-	Number                    int       `json:"number"`
-	InningsPitched            string    `json:"innings_pitched"`
-	Hits                      int       `json:"hits"`
-	Runs                      int       `json:"runs"`
-	EarnedRuns                int       `json:"earned_runs"`
-	HomeRunsAllowed           int       `json:"home_runs_allowed"`
-	PitchCount                int       `json:"pitch_count"`
-	Strikes                   int       `json:"strikes"`
-	BattersFaced              int       `json:"batters_faced"`
-	GroundBalls               int       `json:"ground_balls"`
-	FlyBalls                  int       `json:"fly_balls"`
-	WildPitches               int       `json:"wild_pitches"`
-	EarnedRunAverage          string    `json:"earned_run_average"`
-	Walks                     int       `json:"walks"`
-	StrikeOuts                int       `json:"strike_outs"`
-	Wins                      int       `json:"wins"`
-	Losses                    int       `json:"losses"`
-	Saves                     int       `json:"saves"`
-	Home                      bool      `json:"home"`
-	PitcherID                 int       `json:"pitcher_id"`
-	PitcherFirstName          string    `json:"pitcher_first_name"`
-	PitcherLastName           string    `json:"pitcher_last_name"`
-	PitcherNumber             int       `json:"pitcher_number"`
-	Uniform                   int       `json:"uniform"`
-	Throwing                  string    `json:"throwing"`
-	IsSeasonStat              bool      `json:"is_season_stat"`
-	Holds                     int       `json:"holds"`
-	GameCreditedWin           bool      `json:"game_credited_win,omitempty"`
-	BlownSaves                int       `json:"blown_saves"`
-	ImageUrls                 ImageUrls `json:"image_urls"`
-	DisplayID                 int       `json:"display_id"`
-	DisplayName               string    `json:"display_name"`
-	PlayerCodeID              int       `json:"player_code_id"`
-	SequenceNumber            int       `json:"sequence_number"`
-	OpponentBattingAverage    string    `json:"opponent_batting_average"`
-	StrikeOutsSeason          int       `json:"strike_outs_season"`
-	WalksHitsPerInningAverage string    `json:"walks_hits_per_inning_average"`
-	GameCreditedLoss          bool      `json:"game_credited_loss,omitempty"`
+type Player struct {
+	ID            int    `json:"id"`
+	SrPlayerUUID  string `json:"sr_player_uuid"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	ImageURL      string `json:"image_url"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	Number        int    `json:"number"`
+
+	AtBats             int       `json:"at_bats,omitempty"`
+	Runs               int       `json:"runs,omitempty"`
+	HomeRuns           int       `json:"home_runs,omitempty"`
+	Hits               int       `json:"hits,omitempty"`
+	RunsBattedIn       int       `json:"runs_batted_in,omitempty"`
+	Walks              int       `json:"walks,omitempty"`
+	StrikeOuts         int       `json:"strike_outs,omitempty"`
+	LeftOnBase         int       `json:"left_on_base,omitempty"`
+	BattingAverage     string    `json:"batting_average,omitempty"`
+	StolenBases        int       `json:"stolen_bases,omitempty"`
+	Uniform            int       `json:"uniform,omitempty"`
+	Batting            string    `json:"batting,omitempty"`
+	SeasonHomeRuns     int       `json:"season_home_runs,omitempty"`
+	SeasonRunsBattedIn int       `json:"season_runs_batted_in,omitempty"`
+	Doubles            int       `json:"doubles,omitempty"`
+	Triples            int       `json:"triples,omitempty"`
+	OnBasePercentage   string    `json:"on_base_percentage,omitempty"`
+	IsSeasonStat       bool      `json:"is_season_stat,omitempty"`
+	StartedGame        bool      `json:"started_game,omitempty"`
+	SacrificeFlies     int       `json:"sacrifice_flies,omitempty"`
+	HitByPitch         int       `json:"hit_by_pitch,omitempty"`
+	ImageUrls          ImageUrls `json:"image_urls,omitempty"`
+	DisplayID          int       `json:"display_id,omitempty"`
+	DisplayName        string    `json:"display_name,omitempty"`
+	PlayerCodeID       int       `json:"player_code_id,omitempty"`
+	BattingSlot        int       `json:"batting_slot,omitempty"`
+	SluggingPercentage string    `json:"slugging_percentage,omitempty"`
+	RunsBattedInSeason int       `json:"runs_batted_in_season,omitempty"`
+
+	//pitchers
+	InningsPitched            string `json:"innings_pitched,omitempty"`
+	EarnedRuns                int    `json:"earned_runs,omitempty"`
+	HomeRunsAllowed           int    `json:"home_runs_allowed,omitempty"`
+	PitchCount                int    `json:"pitch_count,omitempty"`
+	Strikes                   int    `json:"strikes,omitempty"`
+	BattersFaced              int    `json:"batters_faced,omitempty"`
+	GroundBalls               int    `json:"ground_balls,omitempty"`
+	FlyBalls                  int    `json:"fly_balls,omitempty"`
+	WildPitches               int    `json:"wild_pitches,omitempty"`
+	EarnedRunAverage          string `json:"earned_run_average,omitempty"`
+	Wins                      int    `json:"wins,omitempty"`
+	Losses                    int    `json:"losses,omitempty"`
+	Saves                     int    `json:"saves,omitempty"`
+	Home                      bool   `json:"home,omitempty"`
+	PitcherID                 int    `json:"pitcher_id,omitempty"`
+	PitcherFirstName          string `json:"pitcher_first_name,omitempty"`
+	PitcherLastName           string `json:"pitcher_last_name,omitempty"`
+	Throwing                  string `json:"throwing,omitempty"`
+	Holds                     int    `json:"holds,omitempty"`
+	GameCreditedWin           bool   `json:"game_credited_win,omitempty,omitempty"`
+	BlownSaves                int    `json:"blown_saves,omitempty"`
+	SequenceNumber            int    `json:"sequence_number,omitempty"`
+	OpponentBattingAverage    string `json:"opponent_batting_average,omitempty"`
+	StrikeOutsSeason          int    `json:"strike_outs_season,omitempty"`
+	WalksHitsPerInningAverage string `json:"walks_hits_per_inning_average,omitempty"`
+	GameCreditedLoss          bool   `json:"game_credited_loss,omitempty,omitempty"`
 }
 
-type WinsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type SavesLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
 type Batting struct {
 	Doubles                 []string `json:"doubles"`
 	HomeRuns                []string `json:"home_runs"`
@@ -292,7 +256,6 @@ type Batting struct {
 	TeamLob                 int      `json:"team_lob"`
 }
 type Pitching struct {
-	WinningPitcher    string   `json:"winning_pitcher"`
 	BattersFaced      []string `json:"batters_faced"`
 	GroundFlyBalls    []string `json:"ground_fly_balls"`
 	HitByPitch        []string `json:"hit_by_pitch"`
@@ -300,14 +263,6 @@ type Pitching struct {
 	PitchCountStrikes []string `json:"pitch_count_strikes"`
 }
 
-type StrikeoutsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
 type SeasonStatsStr struct {
 	RunsPerGame        string `json:"runs_per_game"`
 	TeamBattingAverage string `json:"team_batting_average"`
@@ -319,13 +274,13 @@ type SeasonStatsStr struct {
 	OnBasePercentage   string `json:"on_base_percentage"`
 	Saves              int    `json:"saves"`
 	Errors             int    `json:"errors"`
-	GamesBehind        int    `json:"games_behind"`
+	GamesBehind        string `json:"games_behind"`
 }
 type TeamStandings struct {
 	Wins          int     `json:"wins"`
 	Losses        int     `json:"losses"`
-	GamesBehind   int     `json:"games_behind"`
-	WcGamesBehind int     `json:"wc_games_behind"`
+	GamesBehind   string  `json:"games_behind"`
+	WcGamesBehind string  `json:"wc_games_behind"`
 	WinPercentage float64 `json:"win_percentage"`
 	Last10Record  string  `json:"last_10_record"`
 	HomeRecord    string  `json:"home_record"`
@@ -335,7 +290,7 @@ type TeamStandings struct {
 	RoadRecord    string  `json:"road_record"`
 	RunsScored    int     `json:"runs_scored"`
 	RunsAllowed   int     `json:"runs_allowed"`
-	StreakGames   int     `json:"streak_games"`
+	StreakGames   string  `json:"streak_games"`
 	HomeWins      int     `json:"home_wins"`
 	HomeLosses    int     `json:"home_losses"`
 	AwayWins      int     `json:"away_wins"`
@@ -356,6 +311,7 @@ type Injuries struct {
 
 type StartingPitcher struct {
 	ID               int       `json:"id"`
+	SrPlayerUUID     string    `json:"sr_player_uuid"`
 	FirstName        string    `json:"first_name"`
 	LastName         string    `json:"last_name"`
 	ImageURL         string    `json:"image_url"`
