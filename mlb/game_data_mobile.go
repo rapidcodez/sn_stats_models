@@ -16,6 +16,7 @@ type DetailsMobile struct {
 	InningStatus       string `json:"inning_status"`
 	Outs               int    `json:"outs"`
 	IsActive           bool   `json:"is_active"`
+	Sequence           int64  `json:"sequence"`
 	RunnerOnFirstBase  bool   `json:"runner_on_first_base"`
 	RunnerOnSecondBase bool   `json:"runner_on_second_base"`
 	RunnerOnThirdBase  bool   `json:"runner_on_third_base"`
