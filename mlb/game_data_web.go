@@ -54,7 +54,7 @@ type DetailsWeb struct {
 	OpeningLine          *OpeningLine            `json:"opening_line,omitempty"`
 	CurrentLine          *CurrentLine            `json:"current_line,omitempty"`
 	Broadcast            *[]common.GameBroadcast `json:"broadcast,omitempty"`
-	Story                *Story                  `json:"story"`
+	Story                *Story                  `json:"story,omitempty"`
 	CurrentInningPbp     *[]CurrentInningPbp     `json:"current_inning_pbp,omitempty"`
 	CipbpInning          string                  `json:"cipbp_inning"`
 	RunnersOnBase        *RunnersOnBase          `json:"runners_on_base,omitempty"`

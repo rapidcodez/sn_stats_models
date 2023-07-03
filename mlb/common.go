@@ -146,7 +146,7 @@ type SeasonStats struct {
 	FieldPercent       float64 `json:"field_percent"`
 	Wins               int     `json:"wins"`
 	Losses             int     `json:"losses"`
-	GamesBack          int     `json:"games_back"`
+	GamesBack          float64 `json:"games_back"`
 	OnBasePercentage   float64 `json:"on_base_percentage"`
 	Saves              int     `json:"saves"`
 	Errors             int     `json:"errors"`
