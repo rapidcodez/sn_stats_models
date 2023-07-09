@@ -601,7 +601,9 @@ type DetailsMobile struct {
 	Quarter         int    `json:"quarter"`
 	IsActive        bool   `json:"is_active"`
 	Timestamp       int    `json:"timestamp"`
+	Overtime        int    `json:"overtime"`
 	Status          string `json:"status"`
+	Clock           string `json:"clock"`
 }
 
 type DetailsWeb struct {
