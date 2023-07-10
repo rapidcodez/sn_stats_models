@@ -16,6 +16,7 @@ type TeamMobile struct {
 	Id        int    `json:"id"`
 	Name      string `json:"name"`
 	ShortName string `json:"short_name"`
+	HasBall   bool   `json:"has_ball"`
 	City      string `json:"city"`
 	Score     int    `json:"score"`
 }
@@ -602,6 +603,11 @@ type DetailsMobile struct {
 	IsActive        bool   `json:"is_active"`
 	Timestamp       int    `json:"timestamp"`
 	Status          string `json:"status"`
+	Overtime        int    `json:"overtime"`
+	IsIntermission  bool   `json:"is_intermission"`
+	Downs           int    `json:"downs"`
+	Distance        int    `json:"distance"`
+	Clock           string `json:"clock"`
 }
 
 type DetailsWeb struct {
