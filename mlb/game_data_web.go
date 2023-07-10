@@ -78,7 +78,7 @@ type TeamWeb struct {
 	HomeRunLeader        *SeasonLeader    `json:"home_run_leader"`
 	BattingAverageLeader *SeasonLeader    `json:"batting_average_leader"`
 	RunsBattedInLeader   *SeasonLeader    `json:"runs_batted_in_leader"`
-	Homeruns             *[]SeasonLeader  `json:"homeruns"`
+	Homeruns             *[]Player        `json:"homeruns"`
 	Batters              *[]Player        `json:"batters"`
 	Pitchers             *[]Player        `json:"pitchers"`
 	StartingPitcher      *StartingPitcher `json:"starting_pitcher,omitempty"`

@@ -160,24 +160,8 @@ type SeasonLeader struct {
 	ImageURL     string    `json:"image_url"`
 	Total        string    `json:"total"`
 	ImageUrls    ImageUrls `json:"image_urls"`
-
-	Position      string `json:"position,omitempty"`
-	ShortPosition string `json:"short_position,omitempty"`
-	Number        int    `json:"number,omitempty"`
-	HomeRuns      int    `json:"home_runs,omitempty"`
 }
 
-type Homeruns struct {
-	ID            int       `json:"id"`
-	FirstName     string    `json:"first_name"`
-	LastName      string    `json:"last_name"`
-	ImageURL      string    `json:"image_url"`
-	Position      string    `json:"position"`
-	ShortPosition string    `json:"short_position"`
-	Number        int       `json:"number"`
-	HomeRuns      int       `json:"home_runs"`
-	ImageUrls     ImageUrls `json:"image_urls"`
-}
 type Player struct {
 	ID            int    `json:"id"`
 	SrPlayerUUID  string `json:"sr_player_uuid"`
