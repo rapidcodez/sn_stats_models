@@ -21,6 +21,8 @@ type DetailsMobile struct {
 	RunnerOnFirstBase  bool   `json:"runner_on_first_base"`
 	RunnerOnSecondBase bool   `json:"runner_on_second_base"`
 	RunnerOnThirdBase  bool   `json:"runner_on_third_base"`
+	HomeSeriesWins     int    `json:"home_series_wins"`
+	VisitingSeriesWins int    `json:"visiting_series_wins"`
 }
 
 type TeamMobile struct {
