@@ -7,6 +7,7 @@ type GameDataWeb struct {
 	VisitingTeam TeamWeb    `json:"visiting_team"`
 	HomeTeam     TeamWeb    `json:"home_team"`
 	Innings      []Inning   `json:"innings"`
+	Sequence     int64      `json:"sequence"`
 }
 
 type DetailsWeb struct {
