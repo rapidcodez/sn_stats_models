@@ -605,6 +605,8 @@ type DetailsMobile struct {
 	Status          string `json:"status"`
 	Overtime        int    `json:"overtime"`
 	IsIntermission  bool   `json:"is_intermission"`
+	Sequence        int64  `json:"sequence"`
+	ScoreSequence   int64  `json:"score_sequence"`
 	Downs           int    `json:"downs"`
 	Distance        int    `json:"distance"`
 	Clock           string `json:"clock"`
