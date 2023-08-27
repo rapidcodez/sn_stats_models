@@ -596,20 +596,20 @@ type TeamWeb struct {
 }
 
 type DetailsMobile struct {
-	Id                  int    `json:"id"`
-	SrGameUuid          string `json:"sr_game_uuid"`
-	LeagueShortName     string `json:"league_short_name"`
-	Quarter             int    `json:"quarter"`
-	IsActive            bool   `json:"is_active"`
-	Timestamp           int    `json:"timestamp"`
-	Overtime            int    `json:"overtime"`
-	IsIntermission      bool   `json:"is_intermission"`
-	Sequence            int64  `json:"sequence"`
-	Downs               int    `json:"downs"`
-	Distance            int    `json:"distance"`
-	Status              string `json:"status"`
-	Clock               string `json:"clock"`
-	ScoresLastChangedAt string `json:"scores_last_changed_at"`
+	Id              int    `json:"id"`
+	SrGameUuid      string `json:"sr_game_uuid"`
+	LeagueShortName string `json:"league_short_name"`
+	Quarter         int    `json:"quarter"`
+	IsActive        bool   `json:"is_active"`
+	Timestamp       int    `json:"timestamp"`
+	Overtime        int    `json:"overtime"`
+	IsIntermission  bool   `json:"is_intermission"`
+	Sequence        int64  `json:"sequence"`
+	ScoreSequence   int64  `json:"score_sequence"`
+	Downs           int    `json:"downs"`
+	Distance        int    `json:"distance"`
+	Status          string `json:"status"`
+	Clock           string `json:"clock"`
 }
 
 type DetailsWeb struct {
