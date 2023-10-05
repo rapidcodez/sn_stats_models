@@ -9,6 +9,7 @@ type GameDataMobile struct {
 
 type DetailsMobile struct {
 	ID                 int     `json:"id"`
+	IsTBD              bool    `json:"is_tbd"`
 	SrGameUuid         string  `json:"sr_game_uuid"`
 	LeagueShortName    string  `json:"league_short_name"`
 	Status             string  `json:"status"`
