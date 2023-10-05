@@ -17,6 +17,7 @@ type DetailsWeb struct {
 	Status               string                  `json:"status"`
 	Timestamp            int                     `json:"timestamp"`
 	Type                 string                  `json:"type"`
+	IsTBD                bool                    `json:"is_tbd"`
 	IsAllStar            bool                    `json:"is_all_star"`
 	IsPreseason          bool                    `json:"is_preseason"`
 	Inning               int                     `json:"inning"`
