@@ -22,9 +22,10 @@ type DetailsMobile struct {
 }
 
 type TeamMobile struct {
-	ID        int    `json:"id"`
-	Name      string `json:"name"`
-	ShortName string `json:"short_name"`
-	City      string `json:"city"`
-	Score     int    `json:"score"`
+	ID         int    `json:"id"`
+	SrTeamUUID string `json:"sr_team_uuid"`
+	Name       string `json:"name"`
+	ShortName  string `json:"short_name"`
+	City       string `json:"city"`
+	Score      int    `json:"score"`
 }
