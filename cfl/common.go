@@ -13,12 +13,13 @@ type Quarter struct {
 }
 
 type TeamMobile struct {
-	Id        int    `json:"id"`
-	Name      string `json:"name"`
-	ShortName string `json:"short_name"`
-	HasBall   bool   `json:"has_ball"`
-	City      string `json:"city"`
-	Score     int    `json:"score"`
+	Id         int    `json:"id"`
+	SrTeamUUID string `json:"sr_team_uuid"`
+	Name       string `json:"name"`
+	ShortName  string `json:"short_name"`
+	HasBall    bool   `json:"has_ball"`
+	City       string `json:"city"`
+	Score      int    `json:"score"`
 }
 
 type TeamWeb struct {
