@@ -1,4 +1,4 @@
-package ncaaf
+package ncaafb
 
 type GameDataMobile struct {
 	Details      DetailsMobile `json:"details"`
