@@ -1,4 +1,4 @@
-package ncaaf
+package ncaafb
 
 type GameDataWeb struct {
 	Details      DetailsWeb `json:"details"`

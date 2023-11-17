@@ -1,4 +1,4 @@
-package ncaaf
+package ncaafb
 
 type Quarter struct {
 	Plays []struct {
