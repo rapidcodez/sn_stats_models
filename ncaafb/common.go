@@ -610,8 +610,9 @@ type DetailsMobile struct {
 	ConferenceChampionshipTitle string `json:"conference_championship_title"`
 	IsPlayoffGame               bool   `json:"is_playoff_game"`
 	PlayoffGameType             string `json:"playoff_game_type"`
+	PlayoffGameTitle            string `json:"playoff_game_title"`
 	IsBowlGame                  bool   `json:"is_bowl_game"`
-	BowlGameType                string `json:"bowl_game_type"`
+	BowlGameTitle               string `json:"bowl_game_title"`
 	Timestamp                   int    `json:"timestamp"`
 	Status                      string `json:"status"`
 	Overtime                    int    `json:"overtime"`
