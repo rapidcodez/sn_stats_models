@@ -598,21 +598,30 @@ type TeamWeb struct {
 	} `json:"team_standings"`
 }
 
+// conference_championship
+
 type DetailsMobile struct {
-	Id              int    `json:"id"`
-	SrGameUuid      string `json:"sr_game_uuid"`
-	LeagueShortName string `json:"league_short_name"`
-	Quarter         int    `json:"quarter"`
-	IsActive        bool   `json:"is_active"`
-	Timestamp       int    `json:"timestamp"`
-	Status          string `json:"status"`
-	Overtime        int    `json:"overtime"`
-	IsIntermission  bool   `json:"is_intermission"`
-	Sequence        int64  `json:"sequence"`
-	ScoreSequence   int64  `json:"score_sequence"`
-	Downs           int    `json:"downs"`
-	Distance        int    `json:"distance"`
-	Clock           string `json:"clock"`
+	Id                          int    `json:"id"`
+	SrGameUuid                  string `json:"sr_game_uuid"`
+	LeagueShortName             string `json:"league_short_name"`
+	Quarter                     int    `json:"quarter"`
+	IsActive                    bool   `json:"is_active"`
+	IsConferenceChampionship    bool   `json:"is_conference_championship"`
+	ConferenceChampionshipTitle string `json:"conference_championship_title"`
+	IsPlayoffGame               bool   `json:"is_playoff_game"`
+	PlayoffGameType             string `json:"playoff_game_type"`
+	PlayoffGameTitle            string `json:"playoff_game_title"`
+	IsBowlGame                  bool   `json:"is_bowl_game"`
+	BowlGameTitle               string `json:"bowl_game_title"`
+	Timestamp                   int    `json:"timestamp"`
+	Status                      string `json:"status"`
+	Overtime                    int    `json:"overtime"`
+	IsIntermission              bool   `json:"is_intermission"`
+	Sequence                    int64  `json:"sequence"`
+	ScoreSequence               int64  `json:"score_sequence"`
+	Downs                       int    `json:"downs"`
+	Distance                    int    `json:"distance"`
+	Clock                       string `json:"clock"`
 }
 
 type DetailsWeb struct {
