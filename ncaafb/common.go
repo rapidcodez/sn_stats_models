@@ -632,6 +632,7 @@ type DetailsWeb struct {
 	Clock            string `json:"clock"`
 	Type             string `json:"type"`
 	Timestamp        int    `json:"timestamp"`
+	Overtime         int    `json:"overtime"`
 	Status           string `json:"status"`
 	BallLocation     string `json:"ball_location"`
 	TeamPossessionId int    `json:"team_possession_id"`
