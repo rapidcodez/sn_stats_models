@@ -222,8 +222,9 @@ type DetailsWeb struct {
 	VisitingPlayoffSeed int                    `json:"visiting_playoff_seed"`
 	NhlID               int                    `json:"nhl_id"`
 	State               string                 `json:"state"`
-	OpeningLine         OpeningLine            `json:"opening_line"`
-	CurrentLine         CurrentLine            `json:"current_line"`
+	OpeningLine         *OpeningLine           `json:"opening_line"`
+	CurrentLine         *CurrentLine           `json:"current_line"`
+	Tba                 bool                   `json:"tba"`
 }
 
 type Division struct {
@@ -381,6 +382,7 @@ type TeamStandings struct {
 }
 type TeamWeb struct {
 	ID            int           `json:"id"`
+	SrTeamUUID    string        `json:"sr_team_uuid"`
 	Name          string        `json:"name"`
 	ShortName     string        `json:"short_name"`
 	City          string        `json:"city"`
