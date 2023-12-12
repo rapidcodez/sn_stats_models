@@ -39,16 +39,17 @@ type Stars struct {
 	Faceoffs         int      `json:"faceoffs"`
 	ImageUrls        ImageUrl `json:"image_urls"`
 }
-type StartingGoalies struct {
-	ID                      int      `json:"id"`
+type StartingGoalie struct {
+	ID                      string   `json:"id"`
+	SnPlayerId              int      `json:"sn_player_id"`
 	FirstName               string   `json:"first_name"`
 	LastName                string   `json:"last_name"`
 	GameID                  int      `json:"game_id"`
 	GameDate                string   `json:"game_date"`
-	TeamID                  int      `json:"team_id"`
+	TeamID                  string   `json:"team_id"`
 	TeamShortName           string   `json:"team_short_name"`
 	Record                  string   `json:"record"`
-	Gaa                     float64  `json:"gaa"`
+	Gaa                     string   `json:"gaa"`
 	Svpct                   string   `json:"svpct"`
 	So                      int      `json:"so"`
 	Status                  int      `json:"status"`
@@ -196,7 +197,7 @@ type DetailsWeb struct {
 	Stars               []Stars                `json:"stars"`
 	LocationImageMed    string                 `json:"location_image_med"`
 	LocationImageSml    string                 `json:"location_image_sml"`
-	StartingGoalies     []StartingGoalies      `json:"starting_goalies"`
+	StartingGoalies     []StartingGoalie       `json:"starting_goalies"`
 	Story               Story                  `json:"story"`
 	Attendance          int                    `json:"attendance"`
 	Arena               string                 `json:"arena"`
