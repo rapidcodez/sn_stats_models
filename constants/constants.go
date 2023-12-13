@@ -2,7 +2,7 @@ package constants
 
 var LEAGUE_BY_SPORT = map[string][]string{
 	"hockey":     {"OLY_MHK", "OLY_WHK", "NHL", "OHL", "WHL", "CHL", "WCOH", "WHC", "WWHC", "AHL", "WJC", "QMJHL"},
-	"basketball": {"NBA", "WNBA", "OLY_WBK", "OLY_MBK", "NCAAB"},
+	"basketball": {"NBA", "WNBA", "OLY_WBK", "OLY_MBK", "NCAAM"},
 	"baseball":   {"MLB", "WBC"},
 	"football":   {"NFL", "CFL", "NCAAF"},
 	"soccer":     {"ENG_FA_CUP", "OLY_WSOC", "OLY_MSOC", "EPL", "BPL", "MLS", "BUND", "CHLG", "NATL", "WWC", "FRAN", "SERI", "LIGA", "EURO"},
