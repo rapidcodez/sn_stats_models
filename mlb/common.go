@@ -263,8 +263,8 @@ type SeasonStatsStr struct {
 type TeamStandings struct {
 	Wins          int     `json:"wins"`
 	Losses        int     `json:"losses"`
-	GamesBehind   string  `json:"games_behind"`
-	WcGamesBehind string  `json:"wc_games_behind"`
+	GamesBehind   float64 `json:"games_behind"`
+	WcGamesBehind float64 `json:"wc_games_behind"`
 	WinPercentage float64 `json:"win_percentage"`
 	Last10Record  string  `json:"last_10_record"`
 	HomeRecord    string  `json:"home_record"`
