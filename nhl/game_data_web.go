@@ -229,13 +229,13 @@ type DetailsWeb struct {
 }
 
 type Division struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	Name      string `json:"name"`
 	ShortName string `json:"short_name"`
 	Rank      int    `json:"rank"`
 }
 type Conference struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	Name      string `json:"name"`
 	ShortName string `json:"short_name"`
 	Rank      int    `json:"rank"`
@@ -382,7 +382,7 @@ type TeamStandings struct {
 	VisitingShootoutLosses int    `json:"visiting_shootout_losses"`
 }
 type TeamWeb struct {
-	ID            int           `json:"id"`
+	ID            string        `json:"id"`
 	SrTeamUUID    string        `json:"sr_team_uuid"`
 	Name          string        `json:"name"`
 	ShortName     string        `json:"short_name"`
