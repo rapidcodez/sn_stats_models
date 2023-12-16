@@ -291,7 +291,7 @@ type WinLeader struct {
 	ImageUrls ImageUrl `json:"image_urls"`
 }
 type Skaters struct {
-	ID                int      `json:"id"`
+	ID                string   `json:"id"`
 	FirstName         string   `json:"first_name"`
 	LastName          string   `json:"last_name"`
 	ImageURL          string   `json:"image_url"`
@@ -317,7 +317,7 @@ type Skaters struct {
 	ImageUrls         ImageUrl `json:"image_urls"`
 }
 type Goalies struct {
-	ID             int      `json:"id"`
+	ID             string   `json:"id"`
 	FirstName      string   `json:"first_name"`
 	LastName       string   `json:"last_name"`
 	ImageURL       string   `json:"image_url"`
