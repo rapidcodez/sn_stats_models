@@ -312,16 +312,9 @@ type Goalies struct {
 	Saves          int      `json:"saves"`
 	ImageUrls      ImageUrl `json:"image_urls"`
 }
-type PointLeader struct {
-	ID        int      `json:"id"`
-	FirstName string   `json:"first_name"`
-	LastName  string   `json:"last_name"`
-	ImageURL  string   `json:"image_url"`
-	Total     int      `json:"total"`
-	ImageUrls ImageUrl `json:"image_urls"`
-}
+
 type Lineup struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
 	Type      string `json:"type"`
@@ -381,7 +374,7 @@ type TeamWeb struct {
 	Skaters       []Skaters     `json:"skaters"`
 	Goalies       []Goalies     `json:"goalies"`
 	Color         string        `json:"color"`
-	PointLeader   PointLeader   `json:"point_leader"`
+	PointLeader   Leader        `json:"point_leader"`
 	Strength      int           `json:"strength"`
 	Lineup        []Lineup      `json:"lineup"`
 	ImageURL25    string        `json:"image_url_25"`
@@ -420,7 +413,7 @@ type HomeTeam struct {
 	Skaters       []Skaters     `json:"skaters"`
 	Goalies       []Goalies     `json:"goalies"`
 	Color         string        `json:"color"`
-	PointLeader   PointLeader   `json:"point_leader"`
+	PointLeader   Leader        `json:"point_leader"`
 	Strength      int           `json:"strength"`
 	Lineup        []Lineup      `json:"lineup"`
 	ImageURL25    string        `json:"image_url_25"`
