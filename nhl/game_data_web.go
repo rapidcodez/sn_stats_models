@@ -260,24 +260,8 @@ type GameStats struct {
 	TurnoverTakeaways      int    `json:"turnover_takeaways"`
 	Powerplay              string `json:"powerplay"`
 }
-type GoalLeader struct {
-	ID        int      `json:"id"`
-	FirstName string   `json:"first_name"`
-	LastName  string   `json:"last_name"`
-	ImageURL  string   `json:"image_url"`
-	Total     int      `json:"total"`
-	ImageUrls ImageUrl `json:"image_urls"`
-}
-type AssistLeader struct {
-	ID        int      `json:"id"`
-	FirstName string   `json:"first_name"`
-	LastName  string   `json:"last_name"`
-	ImageURL  string   `json:"image_url"`
-	Total     int      `json:"total"`
-	ImageUrls ImageUrl `json:"image_urls"`
-}
-type WinLeader struct {
-	ID        int      `json:"id"`
+type Leader struct {
+	ID        string   `json:"id"`
 	FirstName string   `json:"first_name"`
 	LastName  string   `json:"last_name"`
 	ImageURL  string   `json:"image_url"`
@@ -390,9 +374,9 @@ type TeamWeb struct {
 	Injuries      []Injuries    `json:"injuries"`
 	SeasonStats   SeasonStats   `json:"season_stats"`
 	GameStats     GameStats     `json:"game_stats"`
-	GoalLeader    GoalLeader    `json:"goal_leader"`
-	AssistLeader  AssistLeader  `json:"assist_leader"`
-	WinLeader     WinLeader     `json:"win_leader"`
+	GoalLeader    Leader        `json:"goal_leader"`
+	AssistLeader  Leader        `json:"assist_leader"`
+	WinLeader     Leader        `json:"win_leader"`
 	Skaters       []Skaters     `json:"skaters"`
 	Goalies       []Goalies     `json:"goalies"`
 	Color         string        `json:"color"`
@@ -429,9 +413,9 @@ type HomeTeam struct {
 	Injuries      []Injuries    `json:"injuries"`
 	SeasonStats   SeasonStats   `json:"season_stats"`
 	GameStats     GameStats     `json:"game_stats"`
-	GoalLeader    GoalLeader    `json:"goal_leader"`
-	AssistLeader  AssistLeader  `json:"assist_leader"`
-	WinLeader     WinLeader     `json:"win_leader"`
+	GoalLeader    Leader        `json:"goal_leader"`
+	AssistLeader  Leader        `json:"assist_leader"`
+	WinLeader     Leader        `json:"win_leader"`
 	Skaters       []Skaters     `json:"skaters"`
 	Goalies       []Goalies     `json:"goalies"`
 	Color         string        `json:"color"`
