@@ -105,15 +105,15 @@ type LosingGoalies struct {
 	ImageUrls      ImageUrl `json:"image_urls"`
 }
 type Last9Events struct {
-	PlayerID          int      `json:"player_id"`
+	PlayerID          string   `json:"player_id"`
 	PlayerFirstName   string   `json:"player_first_name"`
 	PlayerLastName    string   `json:"player_last_name"`
 	Description       string   `json:"description"`
 	Period            int      `json:"period"`
 	Time              string   `json:"time"`
-	TeamID            int      `json:"team_id"`
+	TeamID            string   `json:"team_id"`
 	PlayerDisplayName string   `json:"player_display_name"`
-	EventID           int      `json:"event_id"`
+	EventID           string   `json:"event_id"`
 	Event             string   `json:"event"`
 	DetailID          int      `json:"detail_id"`
 	Detail            string   `json:"detail"`
@@ -125,8 +125,9 @@ type Last9Events struct {
 	HomeScoreBefore   int      `json:"home_score_before"`
 	HomeScoreAfter    int      `json:"home_score_after"`
 	ImageURL          string   `json:"image_url"`
-	ID                int      `json:"id"`
+	ID                string   `json:"id"`
 	ImageUrls         ImageUrl `json:"image_urls"`
+	Sequence          int64    `json:"sequence"`
 }
 type GameWinningGoal struct {
 	ID        int    `json:"id"`
