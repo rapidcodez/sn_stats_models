@@ -65,15 +65,7 @@ type Story struct {
 	Headline string `json:"headline"`
 	Content  string `json:"content"`
 }
-type Last5Meetings struct {
-	Date              string `json:"date"`
-	Location          string `json:"location"`
-	GameID            int    `json:"game_id"`
-	HomeTeam          int    `json:"home_team"`
-	VisitingTeam      int    `json:"visiting_team"`
-	VisitingTeamScore int    `json:"visiting_team_score"`
-	HomeTeamScore     int    `json:"home_team_score"`
-}
+
 type WinningGoalies struct {
 	ID             int      `json:"id"`
 	FirstName      string   `json:"first_name"`
@@ -141,15 +133,7 @@ type GameWinningGoal struct {
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
 }
-type SeasonSeries struct {
-	Date              string `json:"date"`
-	Location          string `json:"location"`
-	GameID            int    `json:"game_id"`
-	HomeTeam          int    `json:"home_team"`
-	VisitingTeam      int    `json:"visiting_team"`
-	VisitingTeamScore int    `json:"visiting_team_score"`
-	HomeTeamScore     int    `json:"home_team_score"`
-}
+
 type OpeningLine struct {
 	FavID         int     `json:"fav_id"`
 	Name          string  `json:"name"`
@@ -205,14 +189,14 @@ type DetailsWeb struct {
 	Referee2            string                 `json:"referee2"`
 	Linesman1           string                 `json:"linesman1"`
 	Linesman2           string                 `json:"linesman2"`
-	Last5Meetings       []Last5Meetings        `json:"last_5_meetings"`
+	Last5Meetings       []RecentGames          `json:"last_5_meetings"`
 	WinningGoalies      []WinningGoalies       `json:"winning_goalies"`
 	LosingGoalies       []LosingGoalies        `json:"losing_goalies"`
 	PpMin               int                    `json:"pp_min"`
 	PpSec               int                    `json:"pp_sec"`
 	Last9Events         []Last9Events          `json:"last_9_events"`
 	GameWinningGoal     GameWinningGoal        `json:"game_winning_goal"`
-	SeasonSeries        []SeasonSeries         `json:"season_series"`
+	SeasonSeries        []RecentGames          `json:"season_series"`
 	City                string                 `json:"city"`
 	Country             string                 `json:"country"`
 	GameNumber          int                    `json:"game_number"`
@@ -226,6 +210,16 @@ type DetailsWeb struct {
 	OpeningLine         *OpeningLine           `json:"opening_line"`
 	CurrentLine         *CurrentLine           `json:"current_line"`
 	Tba                 bool                   `json:"tba"`
+}
+
+type RecentGames struct {
+	Date              string `json:"date"`
+	Location          string `json:"location"`
+	GameID            string `json:"game_id"`
+	HomeTeam          string `json:"home_team"`
+	VisitingTeam      string `json:"visiting_team"`
+	VisitingTeamScore int    `json:"visiting_team_score"`
+	HomeTeamScore     int    `json:"home_team_score"`
 }
 
 type Division struct {
