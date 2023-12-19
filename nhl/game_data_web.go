@@ -17,8 +17,8 @@ type ImageUrl struct {
 	Xs string `json:"xs"`
 }
 type Stars struct {
-	ID               int      `json:"id"`
-	TeamID           int      `json:"team_id"`
+	ID               string   `json:"id"`
+	TeamID           string   `json:"team_id"`
 	FirstName        string   `json:"first_name"`
 	LastName         string   `json:"last_name"`
 	ImageURL         string   `json:"image_url"`
@@ -179,7 +179,7 @@ type DetailsWeb struct {
 	HomeSeriesWins      int                    `json:"home_series_wins"`
 	VisitingSeriesWins  int                    `json:"visiting_series_wins"`
 	IsAllStar           bool                   `json:"is_all_star"`
-	Stars               []Stars                `json:"stars"`
+	Stars               []Skaters              `json:"stars"`
 	LocationImageMed    string                 `json:"location_image_med"`
 	LocationImageSml    string                 `json:"location_image_sml"`
 	StartingGoalies     []StartingGoalie       `json:"starting_goalies"`
