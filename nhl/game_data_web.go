@@ -66,44 +66,6 @@ type Story struct {
 	Content  string `json:"content"`
 }
 
-type WinningGoalies struct {
-	ID             int      `json:"id"`
-	FirstName      string   `json:"first_name"`
-	LastName       string   `json:"last_name"`
-	ImageURL       string   `json:"image_url"`
-	Position       string   `json:"position"`
-	ShortPosition  string   `json:"short_position"`
-	Number         int      `json:"number"`
-	Status         bool     `json:"status"`
-	ShotsAgainst   int      `json:"shots_against"`
-	GoalsAgainst   int      `json:"goals_against"`
-	SavePercentage float64  `json:"save_percentage"`
-	Minutes        int      `json:"minutes"`
-	Seconds        int      `json:"seconds"`
-	Saves          int      `json:"saves"`
-	Decision       string   `json:"decision"`
-	Record         string   `json:"record"`
-	ImageUrls      ImageUrl `json:"image_urls"`
-}
-type LosingGoalies struct {
-	ID             int      `json:"id"`
-	FirstName      string   `json:"first_name"`
-	LastName       string   `json:"last_name"`
-	ImageURL       string   `json:"image_url"`
-	Position       string   `json:"position"`
-	ShortPosition  string   `json:"short_position"`
-	Number         int      `json:"number"`
-	Status         bool     `json:"status"`
-	ShotsAgainst   int      `json:"shots_against"`
-	GoalsAgainst   int      `json:"goals_against"`
-	SavePercentage float64  `json:"save_percentage"`
-	Minutes        int      `json:"minutes"`
-	Seconds        int      `json:"seconds"`
-	Saves          int      `json:"saves"`
-	Decision       string   `json:"decision"`
-	Record         string   `json:"record"`
-	ImageUrls      ImageUrl `json:"image_urls"`
-}
 type Last9Events struct {
 	PlayerID          string   `json:"player_id"`
 	PlayerFirstName   string   `json:"player_first_name"`
@@ -130,7 +92,7 @@ type Last9Events struct {
 	Sequence          int64    `json:"sequence"`
 }
 type GameWinningGoal struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
 }
@@ -191,8 +153,8 @@ type DetailsWeb struct {
 	Linesman1           string                 `json:"linesman1"`
 	Linesman2           string                 `json:"linesman2"`
 	Last5Meetings       []RecentGames          `json:"last_5_meetings"`
-	WinningGoalies      []WinningGoalies       `json:"winning_goalies"`
-	LosingGoalies       []LosingGoalies        `json:"losing_goalies"`
+	WinningGoalies      []Goalies              `json:"winning_goalies"`
+	LosingGoalies       []Goalies              `json:"losing_goalies"`
 	PpMin               int                    `json:"pp_min"`
 	PpSec               int                    `json:"pp_sec"`
 	Last9Events         []Last9Events          `json:"last_9_events"`
@@ -311,6 +273,8 @@ type Goalies struct {
 	Seconds        int      `json:"seconds"`
 	Saves          int      `json:"saves"`
 	ImageUrls      ImageUrl `json:"image_urls"`
+	Decision       string   `json:"decision"`
+	Record         string   `json:"record"`
 }
 
 type Lineup struct {
@@ -421,7 +385,7 @@ type HomeTeam struct {
 	TeamStandings TeamStandings `json:"team_standings"`
 }
 type AssistingPlayers struct {
-	ID           int    `json:"id"`
+	ID           string `json:"id"`
 	FirstName    string `json:"first_name"`
 	LastName     string `json:"last_name"`
 	ImageURL     string `json:"image_url"`
@@ -437,8 +401,8 @@ type Goals struct {
 	Minutes          int                `json:"minutes"`
 	Seconds          int                `json:"seconds"`
 	TeamStrength     string             `json:"team_strength"`
-	TeamID           int                `json:"team_id"`
-	PlayerID         int                `json:"player_id"`
+	TeamID           string             `json:"team_id"`
+	PlayerID         string             `json:"player_id"`
 	FirstName        string             `json:"first_name"`
 	LastName         string             `json:"last_name"`
 	GoalNumber       int                `json:"goal_number"`
@@ -451,16 +415,16 @@ type Goals struct {
 	PlayerImgUrls    PlayerImgUrls      `json:"player_img_urls"`
 }
 type Penalties struct {
-	ID            int    `json:"id"`
+	ID            string `json:"id"`
 	Description   string `json:"description"`
 	FirstName     string `json:"first_name"`
 	LastName      string `json:"last_name"`
-	PlayerID      int    `json:"player_id"`
+	PlayerID      string `json:"player_id"`
 	UniformNumber int    `json:"uniform_number"`
 	TeamName      string `json:"team_name"`
 	TeamAlias     string `json:"team_alias"`
 	TeamCity      string `json:"team_city"`
-	TeamCode      int    `json:"team_code"`
+	TeamCode      string `json:"team_code"`
 	Time          string `json:"time"`
 	Length        int    `json:"length"`
 	ServedBy      string `json:"served_by"`
