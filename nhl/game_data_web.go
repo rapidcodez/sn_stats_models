@@ -346,7 +346,7 @@ type TeamWeb struct {
 	TeamStandings TeamStandings `json:"team_standings"`
 }
 type Injuries struct {
-	PlayerID             int    `json:"player_id"`
+	PlayerID             string `json:"player_id"`
 	FirstName            string `json:"first_name"`
 	LastName             string `json:"last_name"`
 	Position             string `json:"position"`
