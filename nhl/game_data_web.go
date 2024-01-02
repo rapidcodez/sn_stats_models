@@ -125,8 +125,7 @@ type CurrentLine struct {
 }
 type DetailsWeb struct {
 	LeagueShortName     string                 `json:"league_short_name"`
-	ID                  int                    `json:"id"`
-	SrGameUuid          string                 `json:"sr_game_uuid"`
+	ID                  string                 `json:"id"`
 	Period              int                    `json:"period"`
 	IsActive            bool                   `json:"is_active"`
 	Clock               string                 `json:"clock"`
