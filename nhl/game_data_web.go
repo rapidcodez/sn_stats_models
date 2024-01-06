@@ -430,6 +430,8 @@ type Penalties struct {
 	TeamImgURL    string `json:"team_img_url"`
 }
 type Periods struct {
+	Number            int         `json:"number"`
+	Length            int         `json:"length"`
 	VisitingTeamScore int         `json:"visiting_team_score"`
 	HomeTeamScore     int         `json:"home_team_score"`
 	Goals             []Goals     `json:"goals"`
