@@ -19,7 +19,6 @@ type Venue struct {
 }
 type DetailsMobile struct {
 	LeagueShortName  string `json:"league_short_name"`
-	ID               int    `json:"id"`
 	SrGameUuid       string `json:"sr_game_uuid"`
 	Half             int    `json:"half"`
 	Clock            string `json:"clock"`
@@ -38,40 +37,37 @@ type DetailsMobile struct {
 }
 
 type TeamMobile struct {
-	ID         int     `json:"id"`
-	SrTeamUUID string  `json:"sr_team_uuid"`
-	Name       string  `json:"name"`
-	ShortName  string  `json:"short_name"`
-	City       string  `json:"city"`
-	Market     string  `json:"market"`
-	Points     int     `json:"points"`
-	Scoring    Scoring `json:"scoring"`
+	SrTeamUUID        string    `json:"sr_team_uuid"`
+	Name              string    `json:"name"`
+	ShortName         string    `json:"short_name"`
+	Market            string    `json:"market"`
+	Points            int       `json:"points"`
+	Scoring           Scoring   `json:"scoring"`
+	GameStats         GameStats `json:"game_stats"`
+	RemainingTimeouts int       `json:"remaining_timeouts"`
 }
 
 type DetailsWeb struct {
-	LeagueShortName  string    `json:"league_short_name"`
-	ID               int       `json:"id"`
-	SrGameUuid       string    `json:"sr_game_uuid"`
-	Half             int       `json:"half"`
-	Clock            string    `json:"clock"`
-	Timestamp        int       `json:"timestamp"`
-	Status           string    `json:"status"`
-	IsActive         bool      `json:"is_active"`
-	Overtime         int       `json:"overtime"`
-	Sequence         int       `json:"sequence"`
-	Type             string    `json:"type"`
-	IsConferenceGame bool      `json:"is_conference_game"`
-	Timeout          string    `json:"timeout"`
-	TimesTied        int       `json:"times_tied"`
-	LeadChanges      int       `json:"lead_changes"`
-	EntryMode        string    `json:"entry_mode"`
-	Attendance       int       `json:"attendance"`
-	Venue            Venue     `json:"venue"`
-	GameStats        GameStats `json:"game_stats"`
+	LeagueShortName  string `json:"league_short_name"`
+	SrGameUuid       string `json:"sr_game_uuid"`
+	Half             int    `json:"half"`
+	Clock            string `json:"clock"`
+	Timestamp        int    `json:"timestamp"`
+	Status           string `json:"status"`
+	IsActive         bool   `json:"is_active"`
+	Overtime         int    `json:"overtime"`
+	Sequence         int    `json:"sequence"`
+	Type             string `json:"type"`
+	IsConferenceGame bool   `json:"is_conference_game"`
+	Timeout          string `json:"timeout"`
+	TimesTied        int    `json:"times_tied"`
+	LeadChanges      int    `json:"lead_changes"`
+	EntryMode        string `json:"entry_mode"`
+	Attendance       int    `json:"attendance"`
+	Venue            Venue  `json:"venue"`
 }
 
 type TeamWeb struct {
-	ID                int       `json:"id"`
 	SrTeamUUID        string    `json:"sr_team_uuid"`
 	Name              string    `json:"name"`
 	ShortName         string    `json:"short_name"`
