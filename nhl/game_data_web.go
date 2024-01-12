@@ -172,6 +172,7 @@ type DetailsWeb struct {
 	OpeningLine         *OpeningLine           `json:"opening_line"`
 	CurrentLine         *CurrentLine           `json:"current_line"`
 	Tba                 bool                   `json:"tba"`
+	SimMode             bool                   `json:"sim_mode"`
 }
 
 type RecentGames struct {
