@@ -132,6 +132,7 @@ type DetailsWeb struct {
 	Type                string                 `json:"type"`
 	Timestamp           int64                  `json:"timestamp"`
 	Status              string                 `json:"status"`
+	SrStatus            string                 `json:"sr_status"`
 	Location            string                 `json:"location"`
 	LocationImageURL    string                 `json:"location_image_url"`
 	Broadcast           []common.GameBroadcast `json:"broadcast"`
