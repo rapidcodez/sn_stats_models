@@ -13,6 +13,7 @@ type DetailsMobile struct {
 	SrGameUuid         string `json:"sr_game_uuid"`
 	Period             int    `json:"period"`
 	IsActive           bool   `json:"is_active"`
+	Title              string `json:"title"`
 	Clock              string `json:"clock"`
 	Timestamp          int64  `json:"timestamp"`
 	Status             string `json:"status"`

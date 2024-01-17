@@ -130,6 +130,7 @@ type DetailsWeb struct {
 	IsActive            bool                   `json:"is_active"`
 	Clock               string                 `json:"clock"`
 	Type                string                 `json:"type"`
+	Title               string                 `json:"title"`
 	Timestamp           int64                  `json:"timestamp"`
 	Status              string                 `json:"status"`
 	SrStatus            string                 `json:"sr_status"`
