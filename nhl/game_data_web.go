@@ -131,7 +131,6 @@ type DetailsWeb struct {
 	Clock               string                 `json:"clock"`
 	Type                string                 `json:"type"`
 	Title               string                 `json:"title"`
-	IsAllStarGame       bool                   `json:"isAllStarGame"`
 	Timestamp           int64                  `json:"timestamp"`
 	Status              string                 `json:"status"`
 	SrStatus            string                 `json:"sr_status"`
