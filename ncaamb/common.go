@@ -1,10 +1,10 @@
 package ncaamb
 
-type Scoring []struct {
+type Half struct {
 	Type     string `json:"type"`
 	Number   int    `json:"number"`
 	Sequence int    `json:"sequence"`
-	Points   int    `json:"points"`
+	Score    int    `json:"score"`
 }
 
 type Venue struct {
@@ -18,33 +18,36 @@ type Venue struct {
 	Country  string `json:"country"`
 }
 type DetailsMobile struct {
-	LeagueShortName  string `json:"league_short_name"`
-	SrGameUuid       string `json:"sr_game_uuid"`
-	Half             int    `json:"half"`
-	Clock            string `json:"clock"`
-	Timestamp        int    `json:"timestamp"`
-	Status           string `json:"status"`
-	IsActive         bool   `json:"is_active"`
-	Overtime         int    `json:"overtime"`
-	Sequence         int    `json:"sequence"`
-	IsConferenceGame bool   `json:"is_conference_game"`
-	Timeout          string `json:"timeout"`
-	TimesTied        int    `json:"times_tied"`
-	LeadChanges      int    `json:"lead_changes"`
-	EntryMode        string `json:"entry_mode"`
-	Attendance       int    `json:"attendance"`
-	Venue            Venue  `json:"venue"`
+	ID                 int    `json:"id"`
+	LeagueShortName    string `json:"league_short_name"`
+	SrGameUuid         string `json:"sr_game_uuid"`
+	Half               int    `json:"half"`
+	Clock              string `json:"clock"`
+	Timestamp          int    `json:"timestamp"`
+	Status             string `json:"status"`
+	IsActive           bool   `json:"is_active"`
+	Overtime           int    `json:"overtime"`
+	Sequence           int    `json:"sequence"`
+	IsConferenceGame   bool   `json:"is_conference_game"`
+	Timeout            string `json:"timeout"`
+	TimesTied          int    `json:"times_tied"`
+	LeadChanges        int    `json:"lead_changes"`
+	EntryMode          string `json:"entry_mode"`
+	Attendance         int    `json:"attendance"`
+	Venue              Venue  `json:"venue"`
+	HomeSeriesWins     int    `json:"home_series_wins"`
+	VisitingSeriesWins int    `json:"visiting_series_wins"`
 }
 
 type TeamMobile struct {
-	SrTeamUUID        string    `json:"sr_team_uuid"`
-	Name              string    `json:"name"`
-	ShortName         string    `json:"short_name"`
-	Market            string    `json:"market"`
-	Points            int       `json:"points"`
-	Scoring           Scoring   `json:"scoring"`
-	GameStats         GameStats `json:"game_stats"`
-	RemainingTimeouts int       `json:"remaining_timeouts"`
+	ID         int       `json:"id"`
+	SrTeamUUID string    `json:"sr_team_uuid"`
+	Name       string    `json:"name"`
+	ShortName  string    `json:"short_name"`
+	City       string    `json:"city"`
+	Score      int       `json:"score"`
+	Halfs      []Half    `json:"halfs"`
+	GameStats  GameStats `json:"game_stats"`
 }
 
 type DetailsWeb struct {
@@ -68,15 +71,13 @@ type DetailsWeb struct {
 }
 
 type TeamWeb struct {
-	SrTeamUUID        string    `json:"sr_team_uuid"`
-	Name              string    `json:"name"`
-	ShortName         string    `json:"short_name"`
-	City              string    `json:"city"`
-	Market            string    `json:"market"`
-	Points            int       `json:"points"`
-	Scoring           Scoring   `json:"scoring"`
-	GameStats         GameStats `json:"game_stats"`
-	RemainingTimeouts int       `json:"remaining_timeouts"`
+	SrTeamUUID string    `json:"sr_team_uuid"`
+	Name       string    `json:"name"`
+	ShortName  string    `json:"short_name"`
+	City       string    `json:"city"`
+	Score      int       `json:"score"`
+	Halfs      []Half    `json:"halfs"`
+	GameStats  GameStats `json:"game_stats"`
 }
 
 type GameStats struct {
