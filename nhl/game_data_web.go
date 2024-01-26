@@ -142,7 +142,7 @@ type DetailsWeb struct {
 	HomeSeriesWins      int                    `json:"home_series_wins"`
 	VisitingSeriesWins  int                    `json:"visiting_series_wins"`
 	IsAllStar           bool                   `json:"is_all_star"`
-	Stars               []Skaters              `json:"stars"`
+	Stars               []any                  `json:"stars"`
 	LocationImageMed    string                 `json:"location_image_med"`
 	LocationImageSml    string                 `json:"location_image_sml"`
 	StartingGoalies     []StartingGoalie       `json:"starting_goalies"`
