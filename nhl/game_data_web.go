@@ -1,6 +1,8 @@
 package nhl
 
-import "github.com/digitalmedia/sn_stats_models/common"
+import (
+	"github.com/digitalmedia/sn_stats_models/common"
+)
 
 type GameDataWeb struct {
 	Sequence     int64      `json:"sequence"`
@@ -429,6 +431,8 @@ type Penalties struct {
 	TeamCode      string `json:"team_code"`
 	Time          string `json:"time"`
 	Length        int    `json:"length"`
+	Official      bool   `json:"official"`
+	Strength      string `json:"strength"`
 	ServedBy      string `json:"served_by"`
 	TeamImgURL    string `json:"team_img_url"`
 }
