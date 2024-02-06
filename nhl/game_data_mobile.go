@@ -26,8 +26,9 @@ type DetailsMobile struct {
 }
 
 type TeamMobile struct {
-	ID           int    `json:"id"`
-	SrTeamUUID   string `json:"sr_team_uuid"`
+	ID           int    `json:"id"`           // this will be deprecated
+	TeamID       string `json:"team_id"`      // this will be the config Team Id and will be the PK going forward
+	SrTeamUUID   string `json:"sr_team_uuid"` // this will be vendor SRspecific information. Each vendor will have their own reference
 	Name         string `json:"name"`
 	ShortName    string `json:"short_name"`
 	City         string `json:"city"`
