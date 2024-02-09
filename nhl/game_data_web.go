@@ -260,6 +260,10 @@ type Skaters struct {
 	TurnoverGiveaways int      `json:"turnover_giveaways"`
 	TurnoverTakeaways int      `json:"turnover_takeaways"`
 	ImageUrls         ImageUrl `json:"image_urls"`
+	PowerPlayGoals    int      `json:"power_play_goals"`
+	PowerPlayAssists  int      `json:"power_play_assists"`
+	ShortHandedGoals  int      `json:"short_handed_goals"`
+	ShootingPct       string   `json:"shooting_pct"`
 }
 type Goalies struct {
 	ID             string   `json:"id"`
@@ -279,6 +283,13 @@ type Goalies struct {
 	ImageUrls      ImageUrl `json:"image_urls"`
 	Decision       string   `json:"decision"`
 	Record         string   `json:"record"`
+
+	Points              int     `json:"points"`
+	Wins                int     `json:"wins"`
+	Losses              int     `json:"losses"`
+	OvertimeLosses      int     `json:"overtime_losses"`
+	GoalsAgainstAverage float64 `json:"goals_against_average"`
+	Shutouts            int     `json:"shutouts"`
 }
 
 type Lineup struct {
