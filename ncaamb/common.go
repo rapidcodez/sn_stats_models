@@ -8,14 +8,17 @@ type Half struct {
 }
 
 type Venue struct {
-	ID       string `json:"id"`
-	Name     string `json:"name"`
-	Capacity int    `json:"capacity"`
-	Address  string `json:"address"`
-	City     string `json:"city"`
-	State    string `json:"state"`
-	Zip      string `json:"zip"`
-	Country  string `json:"country"`
+	ID               string `json:"id"`
+	Name             string `json:"name"`
+	Capacity         int    `json:"capacity"`
+	Address          string `json:"address"`
+	City             string `json:"city"`
+	State            string `json:"state"`
+	Zip              string `json:"zip"`
+	Country          string `json:"country"`
+	LocationImageURL string `json:"location_image_url"`
+	LocationImageMed string `json:"location_image_med"`
+	LocationImageSml string `json:"location_image_sml"`
 }
 type DetailsMobile struct {
 	ID                 int    `json:"id"`
@@ -75,6 +78,10 @@ type TeamWeb struct {
 	Name       string    `json:"name"`
 	ShortName  string    `json:"short_name"`
 	City       string    `json:"city"`
+	ImageURL   string    `json:"image_url"`
+	ImageURL90 string    `json:"image_url_90"`
+	ImageURL59 string    `json:"image_url_59"`
+	ImageURL25 string    `json:"image_url_25"`
 	Score      int       `json:"score"`
 	Halfs      []Half    `json:"halfs"`
 	GameStats  GameStats `json:"game_stats"`
