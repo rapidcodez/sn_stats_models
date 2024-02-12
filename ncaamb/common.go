@@ -71,7 +71,6 @@ type DetailsWeb struct {
 }
 
 type TeamWeb struct {
-	ID         int       `json:"id"`
 	SrTeamUUID string    `json:"sr_team_uuid"`
 	Name       string    `json:"name"`
 	ShortName  string    `json:"short_name"`
