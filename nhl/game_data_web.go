@@ -247,6 +247,7 @@ type Skaters struct {
 	Goals             int      `json:"goals"`
 	Assists           int      `json:"assists"`
 	Points            int      `json:"points"`
+	Shots             int      `json:"shots"`
 	PlusMinusRatio    int      `json:"plus_minus_ratio"`
 	PenaltyInMinutes  int      `json:"penalty_in_minutes"`
 	Minutes           int      `json:"minutes"`
@@ -351,7 +352,7 @@ type TeamWeb struct {
 	AssistLeader  Leader        `json:"assist_leader"`
 	WinLeader     Leader        `json:"win_leader"`
 	Skaters       []Skaters     `json:"skaters"`
-	Goalies       []Goalies     `json:"goalies"`
+	Goalies       []*Goalies    `json:"goalies"`
 	Color         string        `json:"color"`
 	PointLeader   Leader        `json:"point_leader"`
 	Strength      int           `json:"strength"`
