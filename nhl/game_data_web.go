@@ -448,6 +448,23 @@ type Penalties struct {
 	ServedBy      string `json:"served_by"`
 	TeamImgURL    string `json:"team_img_url"`
 }
+
+type ShootoutGoalie struct {
+	Id        string `json:"id"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+}
+
+type Shootout struct {
+	IsGoal    bool           `json:"is_goal"`
+	Round     int            `json:"round"`
+	TeamId    string         `json:"team_id"`
+	PlayerId  string         `json:"player_id"`
+	FirstName string         `json:"first_name"`
+	LastName  string         `json:"last_name"`
+	Goalie    ShootoutGoalie `json:"goalie"`
+}
+
 type Periods struct {
 	Number            int         `json:"number"`
 	Length            int         `json:"length"`
@@ -455,4 +472,5 @@ type Periods struct {
 	HomeTeamScore     int         `json:"home_team_score"`
 	Goals             []Goals     `json:"goals"`
 	Penalties         []Penalties `json:"penalties"`
+	Shootouts         []Shootout  `json:"shootouts"`
 }
