@@ -20,6 +20,21 @@ type Venue struct {
 	LocationImageMed string `json:"location_image_med"`
 	LocationImageSml string `json:"location_image_sml"`
 }
+
+type Division struct {
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	ShortName string `json:"short_name"`
+}
+
+type Conference struct {
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	ShortName string `json:"short_name"`
+	Rank      int    `json:"rank"`
+	ImageURL  string `json:"image_url"`
+}
+
 type DetailsMobile struct {
 	ID                 int    `json:"id"`
 	LeagueShortName    string `json:"league_short_name"`
@@ -76,17 +91,19 @@ type DetailsWeb struct {
 }
 
 type TeamWeb struct {
-	SrTeamUUID string    `json:"sr_team_uuid"`
-	Name       string    `json:"name"`
-	ShortName  string    `json:"short_name"`
-	City       string    `json:"city"`
-	ImageURL   string    `json:"image_url"`
-	ImageURL90 string    `json:"image_url_90"`
-	ImageURL59 string    `json:"image_url_59"`
-	ImageURL25 string    `json:"image_url_25"`
-	Score      int       `json:"score"`
-	Halfs      []Half    `json:"halfs"`
-	GameStats  GameStats `json:"game_stats"`
+	SrTeamUUID string     `json:"sr_team_uuid"`
+	Name       string     `json:"name"`
+	ShortName  string     `json:"short_name"`
+	City       string     `json:"city"`
+	ImageURL   string     `json:"image_url"`
+	ImageURL90 string     `json:"image_url_90"`
+	ImageURL59 string     `json:"image_url_59"`
+	ImageURL25 string     `json:"image_url_25"`
+	Score      int        `json:"score"`
+	Division   Division   `json:"division"`
+	Conference Conference `json:"conference"`
+	Halfs      []Half     `json:"halfs"`
+	GameStats  GameStats  `json:"game_stats"`
 }
 
 type GameStats struct {
