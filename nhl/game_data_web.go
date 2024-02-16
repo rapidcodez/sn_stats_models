@@ -406,6 +406,7 @@ type AssistingPlayers struct {
 	LastName     string `json:"last_name"`
 	ImageURL     string `json:"image_url"`
 	AssistNumber int    `json:"assist_number"`
+	AssistType   string `json:"assist_type"`
 }
 type PlayerImgUrls struct {
 	Lg string `json:"lg"`
