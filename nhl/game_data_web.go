@@ -237,6 +237,7 @@ type Leader struct {
 }
 type Skaters struct {
 	ID                string   `json:"id"`
+	TeamId            string   `json:"team_id"`
 	FirstName         string   `json:"first_name"`
 	LastName          string   `json:"last_name"`
 	ImageURL          string   `json:"image_url"`
@@ -268,6 +269,7 @@ type Skaters struct {
 }
 type Goalies struct {
 	ID             string   `json:"id"`
+	TeamId         string   `json:"team_id"`
 	FirstName      string   `json:"first_name"`
 	LastName       string   `json:"last_name"`
 	ImageURL       string   `json:"image_url"`
