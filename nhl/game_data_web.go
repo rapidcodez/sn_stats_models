@@ -161,7 +161,7 @@ type DetailsWeb struct {
 	PpMin               int                    `json:"pp_min"`
 	PpSec               int                    `json:"pp_sec"`
 	Last9Events         []Last9Events          `json:"last_9_events"`
-	GameWinningGoal     GameWinningGoal        `json:"game_winning_goal"`
+	GameWinningGoal     *GameWinningGoal       `json:"game_winning_goal,omitempty"`
 	SeasonSeries        []RecentGames          `json:"season_series"`
 	City                string                 `json:"city"`
 	Country             string                 `json:"country"`
