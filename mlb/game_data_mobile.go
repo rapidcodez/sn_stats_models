@@ -13,6 +13,7 @@ type DetailsMobile struct {
 	SrGameUuid         string  `json:"sr_game_uuid"`
 	LeagueShortName    string  `json:"league_short_name"`
 	Status             string  `json:"status"`
+	SeriesStatus       string  `json:"seriesStatus"`
 	Timestamp          int     `json:"timestamp"`
 	Inning             int     `json:"inning"`
 	InningStatus       string  `json:"inning_status"`
