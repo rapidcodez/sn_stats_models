@@ -604,7 +604,6 @@ type DetailsMobile struct {
 	IsActive        bool   `json:"is_active"`
 	Timestamp       int    `json:"timestamp"`
 	Status          string `json:"status"`
-	SeriesStatus    string `json:"seriesStatus"`
 	Overtime        int    `json:"overtime"`
 	IsIntermission  bool   `json:"is_intermission"`
 	Sequence        int64  `json:"sequence"`

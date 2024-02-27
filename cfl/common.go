@@ -610,7 +610,6 @@ type DetailsMobile struct {
 	Downs           int    `json:"downs"`
 	Distance        int    `json:"distance"`
 	Status          string `json:"status"`
-	SeriesStatus    string `json:"seriesStatus"`
 	Clock           string `json:"clock"`
 }
 

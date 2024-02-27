@@ -43,7 +43,6 @@ type DetailsMobile struct {
 	Clock              string `json:"clock"`
 	Timestamp          int    `json:"timestamp"`
 	Status             string `json:"status"`
-	SeriesStatus       string `json:"seriesStatus"`
 	Coverage           string `json:"coverage"`
 	IsActive           bool   `json:"is_active"`
 	Overtime           int    `json:"overtime"`

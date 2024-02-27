@@ -16,5 +16,4 @@ type DetailsMobile struct {
 	SrGameUuid      string `json:"sr_game_uuid"`
 	Timestamp       int    `json:"timestamp"`
 	Status          string `json:"status"`
-	SeriesStatus    string `json:"seriesStatus"`
 }

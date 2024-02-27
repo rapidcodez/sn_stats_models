@@ -18,7 +18,6 @@ type DetailsMobile struct {
 	StoppageTime       int    `json:"stoppage_time"`  // "stoppage_time":45,
 	Timestamp          int    `json:"timestamp"`
 	Status             string `json:"status"`
-	SeriesStatus       string `json:"seriesStatus"`
 	IsHalfTime         bool   `json:"ishalftime"`
 	HasAggregateScores bool   `json:"hasAggregateScores"`
 	Overtime           int    `json:"overtime"`
