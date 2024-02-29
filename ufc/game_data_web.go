@@ -1,4 +1,4 @@
-package ncaamb
+package ufc
 
 type GameDataWeb struct {
 	Details      DetailsBase `json:"details"`

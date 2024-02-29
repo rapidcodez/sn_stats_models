@@ -1,4 +1,4 @@
-package ncaamb
+package ufc
 
 type GameDataMobile struct {
 	Details      DetailsBase `json:"details"`

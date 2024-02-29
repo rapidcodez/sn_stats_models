@@ -1,4 +1,4 @@
-package ncaamb
+package ufc
 
 import "time"
 
