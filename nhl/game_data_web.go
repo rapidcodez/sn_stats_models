@@ -46,7 +46,7 @@ type StartingGoalie struct {
 	SnPlayerId              int      `json:"sn_player_id"`
 	FirstName               string   `json:"first_name"`
 	LastName                string   `json:"last_name"`
-	GameID                  int      `json:"game_id"`
+	GameID                  string   `json:"game_id"`
 	GameDate                string   `json:"game_date"`
 	TeamID                  string   `json:"team_id"`
 	TeamShortName           string   `json:"team_short_name"`
