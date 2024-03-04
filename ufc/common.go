@@ -44,11 +44,13 @@ type Venue struct {
 }
 
 type Competitor struct {
-	Id           string `json:"id"`
-	Name         string `json:"name"`
-	Abbreviation string `json:"abbreviation"`
-	Qualifier    string `json:"qualifier"`
-	Gender       string `json:"gender"`
+	Id               int    `json:"id"`
+	CompetitorId     string `json:"team_id"`          // To be sourced from config when it supports competitor data, serialized as team_id for backwards compat reasons.
+	SrCompetitorUUID string `json:"sr_competitor_id"` // Vendor-specific id.
+	Name             string `json:"name"`
+	Abbreviation     string `json:"abbreviation"`
+	Qualifier        string `json:"qualifier"`
+	Gender           string `json:"gender"`
 	// Additional data we pull from the competitor profile
 	Nickname              string             `json:"nickname"`
 	FightingOutOfLocation CompetitorLocation `json:"fighting_out_of_location"`
