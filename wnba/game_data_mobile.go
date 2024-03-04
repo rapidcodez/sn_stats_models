@@ -15,6 +15,7 @@ type DetailsMobile struct {
 	Clock              string `json:"clock"`
 	Timestamp          int    `json:"timestamp"`
 	Status             string `json:"status"`
+	SeriesStatus       string `json:"seriesStatus"`
 	Overtime           int    `json:"overtime"`
 	Sequence           int64  `json:"sequence"`
 	HomeSeriesWins     int    `json:"home_series_wins"`
