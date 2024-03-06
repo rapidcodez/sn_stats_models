@@ -14,36 +14,33 @@ type Venue struct {
 }
 
 type Competitor struct {
-	Id               int    `json:"id"`
-	CompetitorId     string `json:"team_id"`          // To be sourced from config when it supports competitor data, serialized as team_id for backwards compat reasons.
-	SrCompetitorUUID string `json:"sr_competitor_id"` // Vendor-specific id.
-	Name             string `json:"name"`
-	Abbreviation     string `json:"abbreviation"`
-	Qualifier        string `json:"qualifier"`
-	Gender           string `json:"gender"`
-	// Additional data we pull from the competitor profile
-	Nickname              string             `json:"nickname"`
-	FightingOutOfLocation CompetitorLocation `json:"fighting_out_of_location"`
-	BirthLocation         CompetitorLocation `json:"birth_location"`
-	BirthDate             string             `json:"birth_date"`
-	Reach                 string             `json:"reach"`
-	Height                string             `json:"height"`
-	Weight                string             `json:"weight"`
-	Record                CompetitorRecord   `json:"record"`
+	Id               int                  `json:"id"`
+	CompetitorId     string               `json:"team_id"`          // To be sourced from config when it supports competitor data, serialized as team_id for backwards compat reasons.
+	SrCompetitorUUID string               `json:"sr_competitor_id"` // Vendor-specific id.
+	Name             string               `json:"name"`
+	Abbreviation     string               `json:"abbreviation"`
+	Gender           string               `json:"gender"`
+	Qualifier        string               `json:"qualifier"`
+	AgeGroup         string               `json:"age_group"`
+	Country          string               `json:"country"`
+	CountryCode      string               `json:"country_code"`
+	Virtual          bool                 `json:"virtual"`
+	Statistics       CompetitorStatistics `json:"statistics"`
 }
 
-type CompetitorLocation struct {
-	City        string `json:"city"`
-	State       string `json:"state"`
-	Country     string `json:"country"`
-	CountryCode string `json:"country_code"`
-}
-
-type CompetitorRecord struct {
-	Wins       int `json:"wins"`
-	Draws      int `json:"draws"`
-	Losses     int `json:"losses"`
-	NoContests int `json:"no_contest"`
+type CompetitorStatistics struct {
+	Control                     string  `json:"control"`
+	Knockdowns                  int     `json:"knockdowns"`
+	SignificantStrikePercentage float32 `json:"significant_strike_percentage"`
+	SignificantStrikes          int     `json:"significant_strikes"`
+	SignificantStrikesAttempted int     `json:"significant_strikes_attempted"`
+	SubmissionAttempts          int     `json:"submission_attempts"`
+	TakedownPercentage          float32 `json:"takedown_percentage"`
+	Takedowns                   int     `json:"takedowns"`
+	TakedownsAttempted          int     `json:"takedowns_attempted"`
+	TotalStrikePercentage       float32 `json:"total_strike_percentage"`
+	TotalStrikes                int     `json:"total_strikes"`
+	TotalStrikesAttempted       int     `json:"total_strikes_attempted"`
 }
 
 type SportEventStatus struct {
