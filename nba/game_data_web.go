@@ -5,6 +5,7 @@ type GameDataWeb struct {
 	VisitingTeam TeamWeb    `json:"visiting_team"`
 	HomeTeam     TeamWeb    `json:"home_team"`
 	Quarters     []Quarters `json:"quarters"`
+	Sequence     int64      `json:"sequence,omitempty"`
 }
 type Story struct {
 	Type     string `json:"type"`
@@ -14,9 +15,10 @@ type Story struct {
 type Last5Meetings struct {
 	Date              string `json:"date"`
 	Location          string `json:"location"`
-	GameID            int    `json:"game_id"`
-	HomeTeam          int    `json:"home_team"`
-	VisitingTeam      int    `json:"visiting_team"`
+	GameID            string `json:"game_id"`
+	SRGameID          string `json:"sr_game_id"`
+	HomeTeam          string `json:"home_team"`
+	VisitingTeam      string `json:"visiting_team"`
 	VisitingTeamScore int    `json:"visiting_team_score"`
 	HomeTeamScore     int    `json:"home_team_score"`
 }
@@ -131,7 +133,7 @@ type CurrentLine struct {
 }
 type DetailsWeb struct {
 	LeagueShortName      string           `json:"league_short_name"`
-	ID                   int              `json:"id"`
+	ID                   string           `json:"id"`
 	SrGameUuid           string           `json:"sr_game_uuid"`
 	Quarter              int              `json:"quarter"`
 	IsActive             bool             `json:"is_active"`
@@ -178,7 +180,7 @@ type Conference struct {
 	Color     string `json:"color"`
 }
 type Injuries struct {
-	PlayerID  int    `json:"player_id"`
+	PlayerID  string `json:"player_id"`
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
 	Position  string `json:"position"`
@@ -190,7 +192,7 @@ type SeasonStats struct {
 	Wins                      int     `json:"wins"`
 	Losses                    int     `json:"losses"`
 	PointsPerGame             float64 `json:"points_per_game"`
-	OffenseReboundsPerGame    int     `json:"offense_rebounds_per_game"`
+	OffenseReboundsPerGame    float64 `json:"offense_rebounds_per_game"`
 	DefenseReboundsPerGame    float64 `json:"defense_rebounds_per_game"`
 	PointsAllowedPerGame      float64 `json:"points_allowed_per_game"`
 	FieldGoalPercent          float64 `json:"field_goal_percent"`
@@ -334,13 +336,23 @@ type FieldGoalPercentageLeader struct {
 	Total     float64   `json:"total"`
 	ImageUrls ImageUrls `json:"image_urls"`
 }
+type PerGameLeader struct {
+	ID        string    `json:"id"`
+	FirstName string    `json:"first_name"`
+	LastName  string    `json:"last_name"`
+	ImageURL  string    `json:"image_url"`
+	Total     float64   `json:"total"`
+	ImageUrls ImageUrls `json:"image_urls"`
+}
 type SeasonLeaders struct {
-	PointsPerGameLeader       PointsPerGameLeader       `json:"points_per_game_leader"`
-	AssistsPerGameLeader      AssistsPerGameLeader      `json:"assists_per_game_leader"`
-	ReboundsPerGameLeader     ReboundsPerGameLeader     `json:"rebounds_per_game_leader"`
-	BlocksPerGameLeader       BlocksPerGameLeader       `json:"blocks_per_game_leader"`
-	StealsPerGameLeader       StealsPerGameLeader       `json:"steals_per_game_leader"`
-	FieldGoalPercentageLeader FieldGoalPercentageLeader `json:"field_goal_percentage_leader"`
+	AssistsPerGameLeader      PerGameLeader `json:"assists_per_game_leader"`
+	BlocksPerGameLeader       PerGameLeader `json:"blocks_per_game_leader"`
+	FieldGoalPercentageLeader PerGameLeader `json:"field_goal_percentage_leader"`
+	FreeThrowPCTLeader        PerGameLeader `json:"free_throw_percentage_leader"`
+	PointsPerGameLeader       PerGameLeader `json:"points_per_game_leader"`
+	ReboundsPerGameLeader     PerGameLeader `json:"rebounds_per_game_leader"`
+	StealsPerGameLeader       PerGameLeader `json:"steals_per_game_leader"`
+	ThreePointPCTLeader       PerGameLeader `json:"three_point_percentage_leader"`
 }
 type Starters struct {
 	ID                     int       `json:"id"`
