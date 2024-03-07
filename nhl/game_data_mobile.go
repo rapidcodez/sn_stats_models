@@ -8,22 +8,24 @@ type GameDataMobile struct {
 }
 
 type DetailsMobile struct {
-	LeagueShortName    string `json:"league_short_name"`
-	ID                 int    `json:"id"`
-	SrGameUuid         string `json:"sr_game_uuid"`
-	Period             int    `json:"period"`
-	IsActive           bool   `json:"is_active"`
-	IsAllStar          bool   `json:"is_all_star"`
-	Title              string `json:"title"`
-	Clock              string `json:"clock"`
-	Timestamp          int64  `json:"timestamp"`
-	Status             string `json:"status"`
-	SeriesStatus       string `json:"seriesStatus"`
-	Overtime           int    `json:"overtime"`
-	Sequence           int64  `json:"sequence"`
-	HasShootout        bool   `json:"has_shootout"`
-	HomeSeriesWins     int    `json:"home_series_wins"`
-	VisitingSeriesWins int    `json:"visiting_series_wins"`
+	LeagueShortName    string  `json:"league_short_name"`
+	ID                 int     `json:"id"`
+	SrGameUuid         string  `json:"sr_game_uuid"`
+	Period             int     `json:"period"`
+	IsActive           bool    `json:"is_active"`
+	IsAllStar          bool    `json:"is_all_star"`
+	Title              string  `json:"title"`
+	Clock              string  `json:"clock"`
+	Timestamp          int64   `json:"timestamp"`
+	Status             string  `json:"status"`
+	SeriesStatus       string  `json:"seriesStatus"`
+	Overtime           int     `json:"overtime"`
+	Sequence           int64   `json:"sequence"`
+	HasShootout        bool    `json:"has_shootout"`
+	HomeSeriesWins     int     `json:"home_series_wins"`
+	VisitingSeriesWins int     `json:"visiting_series_wins"`
+	Round              int     `json:"round"`
+	SeriesWinner       *string `json:"seriesWinner"`
 }
 
 type TeamMobile struct {
