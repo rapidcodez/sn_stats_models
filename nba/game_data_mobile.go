@@ -7,19 +7,21 @@ type GameDataMobile struct {
 }
 
 type DetailsMobile struct {
-	LeagueShortName    string `json:"league_short_name"`
-	ID                 int    `json:"id"`
-	SrGameUuid         string `json:"sr_game_uuid"`
-	Quarter            int    `json:"quarter"`
-	IsActive           bool   `json:"is_active"`
-	Clock              string `json:"clock"`
-	Timestamp          int    `json:"timestamp"`
-	Status             string `json:"status"`
-	SeriesStatus       string `json:"seriesStatus"`
-	Overtime           int    `json:"overtime"`
-	Sequence           int64  `json:"sequence"`
-	HomeSeriesWins     int    `json:"home_series_wins"`
-	VisitingSeriesWins int    `json:"visiting_series_wins"`
+	LeagueShortName    string  `json:"league_short_name"`
+	ID                 int     `json:"id"`
+	SrGameUuid         string  `json:"sr_game_uuid"`
+	Quarter            int     `json:"quarter"`
+	IsActive           bool    `json:"is_active"`
+	Clock              string  `json:"clock"`
+	Timestamp          int     `json:"timestamp"`
+	Status             string  `json:"status"`
+	SeriesStatus       string  `json:"seriesStatus"`
+	Overtime           int     `json:"overtime"`
+	Sequence           int64   `json:"sequence"`
+	HomeSeriesWins     int     `json:"home_series_wins"`
+	VisitingSeriesWins int     `json:"visiting_series_wins"`
+	Round              int     `json:"round"`
+	SeriesWinner       *string `json:"seriesWinner"`
 }
 
 type TeamMobile struct {
