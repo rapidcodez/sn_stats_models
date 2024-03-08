@@ -26,6 +26,7 @@ type DetailsMobile struct {
 	VisitingSeriesWins int     `json:"visiting_series_wins"`
 	Round              int     `json:"round"`
 	SeriesWinner       *string `json:"seriesWinner"`
+	FinalWinner        *string `json:"finalWinner"`
 }
 
 type TeamMobile struct {
