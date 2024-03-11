@@ -42,17 +42,3 @@ type CompetitorStatistics struct {
 	TotalStrikes                int     `json:"total_strikes"`
 	TotalStrikesAttempted       int     `json:"total_strikes_attempted"`
 }
-
-type SportEventStatus struct {
-	Status           string `json:"status"`
-	MatchStatus      string `json:"match_status"`
-	WinnerId         string `json:"winner_id"`
-	FinalRound       int    `json:"final_round"`
-	FinalRoundLength string `json:"final_round_length"`
-	Method           string `json:"method"`
-	Winner           string `json:"winner"`
-	ScheduledLength  int    `json:"scheduled_length"`
-	WeightClass      string `json:"weight_class"`
-	TitleFight       bool   `json:"title_fight"`
-	MainEvent        bool   `json:"main_event"`
-}
