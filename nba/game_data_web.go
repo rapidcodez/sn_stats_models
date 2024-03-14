@@ -135,6 +135,7 @@ type DetailsWeb struct {
 	LeagueShortName      string           `json:"league_short_name"`
 	ID                   string           `json:"id"`
 	SrGameUuid           string           `json:"sr_game_uuid"`
+	SrGameId             string           `json:"sr_game_id"`
 	Quarter              int              `json:"quarter"`
 	IsActive             bool             `json:"is_active"`
 	Clock                string           `json:"clock"`
@@ -166,13 +167,13 @@ type DetailsWeb struct {
 	CurrentLine          CurrentLine      `json:"current_line"`
 }
 type Division struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	Name      string `json:"name"`
 	ShortName string `json:"short_name"`
 	Rank      int    `json:"rank"`
 }
 type Conference struct {
-	ID        int    `json:"id"`
+	ID        string `json:"id"`
 	Name      string `json:"name"`
 	ShortName string `json:"short_name"`
 	Rank      int    `json:"rank"`
@@ -204,7 +205,7 @@ type SeasonStats struct {
 	FreeThrowPct              float64 `json:"free_throw_pct"`
 	TurnoversPerGame          float64 `json:"turnovers_per_game"`
 	ReboundsPerGame           float64 `json:"rebounds_per_game"`
-	GamesBack                 int     `json:"games_back"`
+	GamesBack                 float64 `json:"games_back"`
 }
 type GameStats struct {
 	FieldGoalsMade           int    `json:"field_goals_made"`
@@ -444,7 +445,7 @@ type TeamStandings struct {
 	Streak                string  `json:"streak"`
 }
 type TeamWeb struct {
-	ID               int            `json:"id"`
+	ID               string         `json:"id"`
 	SrTeamUUID       string         `json:"sr_team_uuid"`
 	Name             string         `json:"name"`
 	ShortName        string         `json:"short_name"`
