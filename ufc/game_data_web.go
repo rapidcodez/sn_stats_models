@@ -17,7 +17,7 @@ type DetailsWeb struct {
 	Clock               string    `json:"clock"`
 	TitleFight          bool      `json:"title_fight"`
 	MainEvent           bool      `json:"main_event"`
-	Stage               int       `json:"stage"`
+	Stage               string    `json:"stage"`
 	SrSeasonID          string    `json:"sr_season_id"`
 	Status              string    `json:"status"`
 	WeightClass         string    `json:"weight_class"`
