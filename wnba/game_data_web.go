@@ -1,4 +1,4 @@
-package nba
+package wnba
 
 type GameDataWeb struct {
 	Details      DetailsWeb `json:"details"`
