@@ -10,6 +10,8 @@ type GameDataMobile struct {
 
 type DetailsMobile struct {
 	ID                  int       `json:"id"`
+	IsActive            bool      `json:"is_active"`
+	SrGameUuid          string    `json:"sr_game_uuid"`
 	LeagueShortName     string    `json:"league_short_name"`
 	SrSportEventID      string    `json:"sr_sport_event_id"`
 	SrCompetitionID     string    `json:"sr_competition_id"`
@@ -20,8 +22,10 @@ type DetailsMobile struct {
 	Stage               string    `json:"stage"`
 	SrSeasonID          string    `json:"sr_season_id"`
 	Status              string    `json:"status"`
-	WeightClass         string    `json:"weight_class"`
-	Method              string    `json:"method"`
+	WeightClass         string    `json:"weight_class"` // This will store the enum code
+	WeightClassTitle    string    `json:"weight_class_title"`
+	Method              string    `json:"method"` // This will store the enum code
+	MethodTitle         string    `json:"method_title"`
 	Timestamp           int       `json:"timestamp"`
 	Venue               Venue     `json:"venue"`
 	StartTime           time.Time `json:"start_time"`
