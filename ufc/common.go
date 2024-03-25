@@ -26,6 +26,7 @@ type Competitor struct {
 	CountryCode      string               `json:"country_code"`
 	Virtual          bool                 `json:"virtual"`
 	Statistics       CompetitorStatistics `json:"statistics"`
+	IsWinner         bool                 `json:"is_winner"`
 }
 
 type CompetitorStatistics struct {
