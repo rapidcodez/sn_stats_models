@@ -22,8 +22,8 @@ type DetailsMobile struct {
 	Overtime           int     `json:"overtime"`
 	Sequence           int64   `json:"sequence"`
 	HasShootout        bool    `json:"has_shootout"`
-	HomeSeriesWins     int     `json:"home_series_wins"`
-	VisitingSeriesWins int     `json:"visiting_series_wins"`
+	HomeSeriesWins     *int    `json:"home_series_wins"`
+	VisitingSeriesWins *int    `json:"visiting_series_wins"`
 	Round              int     `json:"round"`
 	SeriesWinner       *string `json:"seriesWinner"`
 	FinalWinner        *string `json:"finalWinner"`

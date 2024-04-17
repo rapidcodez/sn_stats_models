@@ -55,8 +55,8 @@ type DetailsMobile struct {
 	EntryMode          string `json:"entry_mode"`
 	Attendance         int    `json:"attendance"`
 	Venue              Venue  `json:"venue"`
-	HomeSeriesWins     int    `json:"home_series_wins"`
-	VisitingSeriesWins int    `json:"visiting_series_wins"`
+	HomeSeriesWins     *int   `json:"home_series_wins"`
+	VisitingSeriesWins *int   `json:"visiting_series_wins"`
 }
 
 type TeamMobile struct {
