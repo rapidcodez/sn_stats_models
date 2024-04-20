@@ -1,5 +1,11 @@
 package ncaamb
 
+type WeeklyRank struct {
+	Week     string `json:"week"`
+	PrevRank string `json:"prev_rank"`
+	Rank     string `json:"rank"`
+}
+
 type Half struct {
 	Type     string `json:"type"`
 	Number   int    `json:"number"`

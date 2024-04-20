@@ -31,12 +31,14 @@ type DetailsMobile struct {
 }
 
 type TeamMobile struct {
-	ID         int       `json:"id"`
-	SrTeamUUID string    `json:"sr_team_uuid"`
-	Name       string    `json:"name"`
-	ShortName  string    `json:"short_name"`
-	City       string    `json:"city"`
-	Score      int       `json:"score"`
-	Halfs      []Half    `json:"halfs"`
-	GameStats  GameStats `json:"game_stats"`
+	ID          int          `json:"id"`
+	SrTeamUUID  string       `json:"sr_team_uuid"`
+	Name        string       `json:"name"`
+	ShortName   string       `json:"short_name"`
+	City        string       `json:"city"`
+	Score       int          `json:"score"`
+	Halfs       []Half       `json:"halfs"`
+	GameStats   GameStats    `json:"game_stats"`
+	Rank        string       `json:"rank"`
+	WeeklyRanks []WeeklyRank `json:"ranks"`
 }
