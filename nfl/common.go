@@ -14,6 +14,7 @@ type Quarter struct {
 
 type TeamMobile struct {
 	Id         int    `json:"id"`
+	TeamID     string `json:"team_id"`
 	Name       string `json:"name"`
 	SrTeamUUID string `json:"sr_team_uuid"`
 	ShortName  string `json:"short_name"`
