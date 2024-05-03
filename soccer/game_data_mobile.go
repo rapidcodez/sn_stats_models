@@ -25,7 +25,8 @@ type DetailsMobile struct {
 }
 
 type TeamMobile struct {
-	ID             int    `json:"id"`
+	ID             int    `json:"id"`      // this will be deprecated
+	TeamID         string `json:"team_id"` // this will be the config Team Id and will be the PK going forward
 	SrTeamUUID     string `json:"sr_team_uuid"`
 	Name           string `json:"name"`
 	ShortName      string `json:"short_name"`
