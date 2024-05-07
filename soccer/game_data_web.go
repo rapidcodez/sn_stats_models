@@ -50,7 +50,7 @@ type GameDataWeb struct {
 
 type DetailsWeb struct {
 	LeagueShortName    string `json:"league_short_name"`
-	ID                 int    `json:"id"`
+	ID                 string `json:"id"`
 	SrGameUuid         string `json:"sr_game_uuid"`
 	Period             int    `json:"period"`
 	IsActive           bool   `json:"is_active"`
