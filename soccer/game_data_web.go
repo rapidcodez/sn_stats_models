@@ -115,20 +115,7 @@ type TeamWeb struct {
 			Shots int `json:"shots"`
 		} `json:"halfs"`
 	} `json:"linescore"`
-	GameStats struct {
-		PossessionPercentage int `json:"possession_percentage"`
-		Goals                int `json:"goals"`
-		Assists              int `json:"assists"`
-		Shots                int `json:"shots"`
-		ShotsOnGoal          int `json:"shots_on_goal"`
-		CornerKicks          int `json:"corner_kicks"`
-		Fouls                int `json:"fouls"`
-		Crosses              int `json:"crosses"`
-		YellowCards          int `json:"yellow_cards"`
-		RedCards             int `json:"red_cards"`
-		Offsides             int `json:"offsides"`
-		Saves                int `json:"saves"`
-	} `json:"game_stats"`
+	GameStats   GameStatistics `json:"game_stats"`
 	Goalkeepers []struct {
 		ID            int    `json:"id"`
 		FirstName     string `json:"first_name"`
@@ -234,4 +221,30 @@ type TeamWeb struct {
 		Shutouts                int    `json:"shutouts"`
 		ShutoutsRank            int    `json:"shutouts_rank"`
 	} `json:"team_stats"`
+}
+
+type GameStatistics struct {
+	PossessionPercentage int `json:"possession_percentage"`
+	CardsGiven           int `json:"cards_given"`
+	Goals                int `json:"goals"`
+	Assists              int `json:"assists"`
+	Shots                int `json:"shots"`
+	ShotsOnGoal          int `json:"shots_on_goal"`
+	ShotsBlocked         int `json:"shots_blocked"`
+	ShotsOffTarget       int `json:"shots_off_target"`
+	ShotsOnTarget        int `json:"shots_on_target"`
+	ShotsSaved           int `json:"shots_saved"`
+	ShotsTotal           int `json:"shots_total"`
+	CornerKicks          int `json:"corner_kicks"`
+	FreeKicks            int `json:"free_kicks"`
+	GoalKicks            int `json:"goal_kicks"`
+	Injuries             int `json:"injuries"`
+	Offsides             int `json:"offsides"`
+	Fouls                int `json:"fouls"`
+	Crosses              int `json:"crosses"`
+	YellowCards          int `json:"yellow_cards"`
+	RedCards             int `json:"red_cards"`
+	Substitutions        int `json:"substitutions"`
+	YellowRedCards       int `json:"yellow_red_cards"`
+	ThrowIns             int `json:"throw_ins"`
 }
