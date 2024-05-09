@@ -2,6 +2,9 @@ package common
 
 type GameBroadcast struct {
 	Name                  string `json:"name"`
+	TMSID                 string `json:"tmsid"`
+	EventID               string `json:"event_id"`
+	SourceFeed            string `json:"source_feed"`
 	ImageURL              string `json:"image_url"`
 	BlackImageURL         string `json:"black_image_url"`
 	HrImageURL            string `json:"hr_image_url"`
