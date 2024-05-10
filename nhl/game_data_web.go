@@ -62,11 +62,6 @@ type StartingGoalie struct {
 	Number                  int      `json:"number"`
 	ImageUrls               ImageUrl `json:"image_urls"`
 }
-type Story struct {
-	Type     string `json:"type"`
-	Headline string `json:"headline"`
-	Content  string `json:"content"`
-}
 
 type Last9Events struct {
 	PlayerID          string   `json:"player_id"`
@@ -148,21 +143,21 @@ type DetailsWeb struct {
 	LocationImageMed     string                 `json:"location_image_med"`
 	LocationImageSml     string                 `json:"location_image_sml"`
 	StartingGoalies      []StartingGoalie       `json:"starting_goalies"`
-	Story                Story                  `json:"story"`
+	Story                *common.Story          `json:"story"`
 	Attendance           int                    `json:"attendance"`
 	Arena                string                 `json:"arena"`
 	Referee1             string                 `json:"referee1"`
 	Referee2             string                 `json:"referee2"`
 	Linesman1            string                 `json:"linesman1"`
 	Linesman2            string                 `json:"linesman2"`
-	Last5Meetings        []RecentGames          `json:"last_5_meetings"`
+	Last5Meetings        []common.RecentGames   `json:"last_5_meetings"`
 	WinningGoalies       []Goalies              `json:"winning_goalies"`
 	LosingGoalies        []Goalies              `json:"losing_goalies"`
 	PpMin                int                    `json:"pp_min"`
 	PpSec                int                    `json:"pp_sec"`
 	Last9Events          []Last9Events          `json:"last_9_events"`
 	GameWinningGoal      *GameWinningGoal       `json:"game_winning_goal,omitempty"`
-	SeasonSeries         []RecentGames          `json:"season_series"`
+	SeasonSeries         []common.RecentGames   `json:"season_series"`
 	City                 string                 `json:"city"`
 	Country              string                 `json:"country"`
 	GameNumber           int                    `json:"game_number"`
@@ -178,17 +173,6 @@ type DetailsWeb struct {
 	CurrentLine          *CurrentLine           `json:"current_line"`
 	Tba                  bool                   `json:"tba"`
 	SimMode              bool                   `json:"sim_mode"`
-}
-
-type RecentGames struct {
-	Date              string `json:"date"`
-	Location          string `json:"location"`
-	GameID            string `json:"game_id"`
-	SrGameId          string `json:"sr_game_id"`
-	HomeTeam          string `json:"home_team"`
-	VisitingTeam      string `json:"visiting_team"`
-	VisitingTeamScore int    `json:"visiting_team_score"`
-	HomeTeamScore     int    `json:"home_team_score"`
 }
 
 type Division struct {
@@ -229,14 +213,7 @@ type GameStats struct {
 	TurnoverTakeaways      int    `json:"turnover_takeaways"`
 	Powerplay              string `json:"powerplay"`
 }
-type Leader struct {
-	ID        string   `json:"id"`
-	FirstName string   `json:"first_name"`
-	LastName  string   `json:"last_name"`
-	ImageURL  string   `json:"image_url"`
-	Total     int      `json:"total"`
-	ImageUrls ImageUrl `json:"image_urls"`
-}
+
 type Skaters struct {
 	ID                string   `json:"id"`
 	TeamId            string   `json:"team_id"`
@@ -338,72 +315,43 @@ type TeamStandings struct {
 	VisitingShootoutLosses int    `json:"visiting_shootout_losses"`
 }
 type TeamWeb struct {
-	ID            string        `json:"id"`
-	SrTeamUUID    string        `json:"sr_team_uuid"`
-	Name          string        `json:"name"`
-	ShortName     string        `json:"short_name"`
-	City          string        `json:"city"`
-	ImageURL      string        `json:"image_url"`
-	Score         int           `json:"score"`
-	ImageURL90    string        `json:"image_url_90"`
-	StrengthType  string        `json:"strength_type"`
-	Division      Division      `json:"division"`
-	Conference    Conference    `json:"conference"`
-	Injuries      []Injuries    `json:"injuries"`
-	SeasonStats   SeasonStats   `json:"season_stats"`
-	GameStats     GameStats     `json:"game_stats"`
-	GoalLeader    Leader        `json:"goal_leader"`
-	AssistLeader  Leader        `json:"assist_leader"`
-	WinLeader     Leader        `json:"win_leader"`
-	Skaters       []Skaters     `json:"skaters"`
-	Goalies       []*Goalies    `json:"goalies"`
-	Color         string        `json:"color"`
-	PointLeader   Leader        `json:"point_leader"`
-	Strength      int           `json:"strength"`
-	Lineup        []Lineup      `json:"lineup"`
-	ImageURL25    string        `json:"image_url_25"`
-	ImageURL59    string        `json:"image_url_59"`
-	TeamStandings TeamStandings `json:"team_standings"`
+	ID            string            `json:"id"`
+	SrTeamUUID    string            `json:"sr_team_uuid"`
+	Name          string            `json:"name"`
+	ShortName     string            `json:"short_name"`
+	City          string            `json:"city"`
+	ImageURL      string            `json:"image_url"`
+	Score         int               `json:"score"`
+	ImageURL90    string            `json:"image_url_90"`
+	StrengthType  string            `json:"strength_type"`
+	Division      Division          `json:"division"`
+	Conference    Conference        `json:"conference"`
+	Injuries      []common.Injuries `json:"injuries"`
+	SeasonStats   SeasonStats       `json:"season_stats"`
+	GameStats     GameStats         `json:"game_stats"`
+	GoalLeader    Leader            `json:"goal_leader"`
+	AssistLeader  Leader            `json:"assist_leader"`
+	WinLeader     Leader            `json:"win_leader"`
+	Skaters       []Skaters         `json:"skaters"`
+	Goalies       []*Goalies        `json:"goalies"`
+	Color         string            `json:"color"`
+	PointLeader   Leader            `json:"point_leader"`
+	Strength      int               `json:"strength"`
+	Lineup        []Lineup          `json:"lineup"`
+	ImageURL25    string            `json:"image_url_25"`
+	ImageURL59    string            `json:"image_url_59"`
+	TeamStandings TeamStandings     `json:"team_standings"`
 }
-type Injuries struct {
-	PlayerID             string `json:"player_id"`
-	FirstName            string `json:"first_name"`
-	LastName             string `json:"last_name"`
-	Position             string `json:"position"`
-	Status               string `json:"status"`
-	Timestamp            int    `json:"timestamp"`
-	Type                 string `json:"type"`
-	ShortPosition        string `json:"short_position,omitempty"`
-	Number               int    `json:"number,omitempty"`
-	DisabilityListStatus string `json:"disability_list_status,omitempty"`
+
+type Leader struct {
+	ID        string          `json:"id"`
+	FirstName string          `json:"first_name"`
+	LastName  string          `json:"last_name"`
+	ImageURL  string          `json:"image_url"`
+	Total     int             `json:"total"`
+	ImageUrls common.ImageUrl `json:"image_urls"`
 }
-type HomeTeam struct {
-	ID            int           `json:"id"`
-	Name          string        `json:"name"`
-	ShortName     string        `json:"short_name"`
-	City          string        `json:"city"`
-	ImageURL      string        `json:"image_url"`
-	Score         int           `json:"score"`
-	ImageURL90    string        `json:"image_url_90"`
-	StrengthType  string        `json:"strength_type"`
-	Division      Division      `json:"division"`
-	Conference    Conference    `json:"conference"`
-	Injuries      []Injuries    `json:"injuries"`
-	SeasonStats   SeasonStats   `json:"season_stats"`
-	GameStats     GameStats     `json:"game_stats"`
-	GoalLeader    Leader        `json:"goal_leader"`
-	AssistLeader  Leader        `json:"assist_leader"`
-	WinLeader     Leader        `json:"win_leader"`
-	Skaters       []Skaters     `json:"skaters"`
-	Goalies       []Goalies     `json:"goalies"`
-	Color         string        `json:"color"`
-	PointLeader   Leader        `json:"point_leader"`
-	Strength      int           `json:"strength"`
-	Lineup        []Lineup      `json:"lineup"`
-	ImageURL25    string        `json:"image_url_25"`
-	ImageURL59    string        `json:"image_url_59"`
-	TeamStandings TeamStandings `json:"team_standings"`
-}
+
 type AssistingPlayers struct {
 	ID           string `json:"id"`
 	FirstName    string `json:"first_name"`

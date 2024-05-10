@@ -21,3 +21,43 @@ type GameBroadcast struct {
 	IsRegional            bool   `json:"is_regional"`
 	FreeBroadcast         bool   `json:"free_broadcast"`
 }
+
+type RecentGames struct {
+	Date              string `json:"date"`
+	Location          string `json:"location"`
+	GameID            string `json:"game_id,omitempty"`
+	ID                string `json:"id"`
+	SrGameId          string `json:"sr_game_id"`
+	VisitingTeamScore int    `json:"visiting_team_score"`
+	HomeTeamScore     int    `json:"home_team_score"`
+	VisitingTeam      string `json:"visiting_team,omitempty"`
+	VisitingTeamID    string `json:"visiting_team_id,omitempty"`
+	HomeTeam          string `json:"home_team,omitempty"`
+	HomeTeamID        string `json:"home_team_id,omitempty"`
+}
+
+type Story struct {
+	Type     string `json:"type"`
+	Headline string `json:"headline"`
+	Content  string `json:"content"`
+}
+
+type Injuries struct {
+	PlayerID             string `json:"player_id"`
+	FirstName            string `json:"first_name"`
+	LastName             string `json:"last_name"`
+	Position             string `json:"position"`
+	Status               string `json:"status"`
+	Timestamp            int    `json:"timestamp"`
+	Type                 string `json:"type"`
+	ShortPosition        string `json:"short_position,omitempty"`
+	Number               int    `json:"number,omitempty"`
+	DisabilityListStatus string `json:"disability_list_status,omitempty"`
+}
+
+type ImageUrl struct {
+	Lg string `json:"lg"`
+	Md string `json:"md"`
+	Sm string `json:"sm"`
+	Xs string `json:"xs"`
+}

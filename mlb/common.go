@@ -7,42 +7,41 @@ type ImageUrls struct {
 	Xs string `json:"xs"`
 }
 
-type Story struct {
-	Type     string `json:"type"`
-	Headline string `json:"headline"`
-	Content  string `json:"content"`
-}
 type Umpires struct {
 	Position string `json:"position"`
 	FullName string `json:"full_name"`
 }
-type SeasonSeries struct {
+type RecentGames struct {
 	Date              string `json:"date"`
 	Location          string `json:"location"`
 	VisitingTeamScore int    `json:"visiting_team_score"`
 	HomeTeamScore     int    `json:"home_team_score"`
-	ID                int    `json:"id"`
-	VisitingTeamID    int    `json:"visiting_team_id"`
-	HomeTeamID        int    `json:"home_team_id"`
+	ID                string `json:"id,omitempty"`
+	VisitingTeamID    string `json:"visiting_team_id,omitempty"`
+	HomeTeamID        string `json:"home_team_id,omitempty"`
+	GameID            string `json:"game_id"`
+	SrGameId          string `json:"sr_game_id"`
+	HomeTeam          string `json:"home_team,omitempty"`
+	VisitingTeam      string `json:"visiting_team,omitempty"`
 }
 type CurrentAtBat struct {
 	Batter  Player  `json:"batter"`
 	Pitcher Player  `json:"pitcher"`
-	Pitch   []Pitch `json:"pitch"`
+	Pitches []Pitch `json:"pitches"`
 }
 type Pitch struct {
-	PitchType     string `json:"pitch_type"`
-	PitchTypeText string `json:"pitch_type_text"`
-	PitchTypeDesc string `json:"pitch_type_desc"`
-	PitchVelocity int    `json:"pitch_velocity"`
-	PitchX        int    `json:"pitch_x"`
-	PitchY        string `json:"pitch_y"`
-	Strikes       int    `json:"strikes"`
-	Balls         int    `json:"balls"`
-	CurrentCount  string `json:"current_count"`
+	PitchType     string  `json:"pitch_type"`
+	PitchTypeText string  `json:"pitch_type_text"`
+	PitchTypeDesc string  `json:"pitch_type_desc"`
+	PitchVelocity float64 `json:"pitch_velocity"`
+	PitchX        float64 `json:"pitch_x"`
+	PitchY        float64 `json:"pitch_y"`
+	Strikes       int     `json:"strikes"`
+	Balls         int     `json:"balls"`
+	CurrentCount  string  `json:"current_count"`
 }
 type CurrentInningPbp struct {
-	EventID       int       `json:"event_id"`
+	EventID       string    `json:"event_id"`
 	EventCode     int       `json:"event_code"`
 	FirstName     string    `json:"first_name"`
 	LastName      string    `json:"last_name"`
@@ -52,39 +51,18 @@ type CurrentInningPbp struct {
 	Description   string    `json:"description"`
 	PlayType      string    `json:"play_type"`
 	Pitches       []Pitch   `json:"pitches,omitempty"`
-	SnEventID     string    `json:"sn_event_id"`
 	ImageUrls     ImageUrls `json:"image_urls,omitempty"`
-	PlayerID      int       `json:"player_id"`
+}
+
+type RunnersOnBaseNames struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
 }
 
 type RunnersOnBase struct {
-	First struct {
-		FirstName string `json:"first_name"`
-		LastName  string `json:"last_name"`
-	} `json:"first"`
-	Second struct {
-		FirstName string `json:"first_name"`
-		LastName  string `json:"last_name"`
-	} `json:"second"`
-	Third struct {
-		FirstName string `json:"first_name"`
-		LastName  string `json:"last_name"`
-	} `json:"third"`
-}
-type LastOut struct {
-	EventID       int       `json:"event_id"`
-	EventCode     int       `json:"event_code"`
-	FirstName     string    `json:"first_name"`
-	LastName      string    `json:"last_name"`
-	ImageURL      string    `json:"image_url"`
-	TeamShortName string    `json:"team_short_name"`
-	TeamLogoURL   string    `json:"team_logo_url"`
-	Description   string    `json:"description"`
-	PlayType      string    `json:"play_type"`
-	Pitches       []Pitch   `json:"pitches"`
-	SnEventID     string    `json:"sn_event_id"`
-	ImageUrls     ImageUrls `json:"image_urls"`
-	PlayerID      int       `json:"player_id"`
+	First  RunnersOnBaseNames `json:"first"`
+	Second RunnersOnBaseNames `json:"second"`
+	Third  RunnersOnBaseNames `json:"third"`
 }
 type CurrentLine struct {
 	FavID      int     `json:"fav_id"`
@@ -113,20 +91,18 @@ type OpeningLine struct {
 }
 
 type Division struct {
-	ID             int    `json:"id"`
-	SrDivisionUuid string `json:"sr_division_uuid"`
-	Name           string `json:"name"`
-	ShortName      string `json:"short_name"`
-	Rank           int    `json:"rank"`
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	ShortName string `json:"short_name"`
+	Rank      int    `json:"rank"`
 }
 type Conference struct {
-	ID               int    `json:"id"`
-	SrConferenceUuid string `json:"sr_conference_uuid"`
-	Name             string `json:"name"`
-	ShortName        string `json:"short_name"`
-	Rank             int    `json:"rank"`
-	ImageURL         string `json:"image_url"`
-	Color            string `json:"color"`
+	ID        string `json:"id"`
+	Name      string `json:"name"`
+	ShortName string `json:"short_name"`
+	Rank      int    `json:"rank"`
+	ImageURL  string `json:"image_url"`
+	Color     string `json:"color"`
 }
 type GameStats struct {
 	Hits              int `json:"hits"`
@@ -163,45 +139,43 @@ type SeasonLeader struct {
 }
 
 type Player struct {
-	ID            int    `json:"id"`
-	SrPlayerUUID  string `json:"sr_player_uuid"`
-	FirstName     string `json:"first_name"`
-	LastName      string `json:"last_name"`
-	ImageURL      string `json:"image_url"`
-	Position      string `json:"position"`
-	ShortPosition string `json:"short_position"`
-	Number        int    `json:"number"`
+	ID            string    `json:"id"`
+	FirstName     string    `json:"first_name"`
+	LastName      string    `json:"last_name"`
+	ImageURL      string    `json:"image_url"`
+	Position      string    `json:"position"`
+	ShortPosition string    `json:"short_position"`
+	Number        int       `json:"number"`
+	DisplayID     int       `json:"display_id"`
+	DisplayName   string    `json:"display_name"`
+	PlayerCodeID  int       `json:"player_code_id"`
+	Uniform       int       `json:"uniform"`
+	ImageUrls     ImageUrls `json:"image_urls"`
 
-	AtBats             int       `json:"at_bats,omitempty"`
-	Runs               int       `json:"runs,omitempty"`
-	HomeRuns           int       `json:"home_runs,omitempty"`
-	Hits               int       `json:"hits,omitempty"`
-	RunsBattedIn       int       `json:"runs_batted_in,omitempty"`
-	Walks              int       `json:"walks,omitempty"`
-	StrikeOuts         int       `json:"strike_outs,omitempty"`
-	LeftOnBase         int       `json:"left_on_base,omitempty"`
-	BattingAverage     string    `json:"batting_average,omitempty"`
-	StolenBases        int       `json:"stolen_bases,omitempty"`
-	Uniform            int       `json:"uniform,omitempty"`
-	Batting            string    `json:"batting,omitempty"`
-	SeasonHomeRuns     int       `json:"season_home_runs,omitempty"`
-	SeasonRunsBattedIn int       `json:"season_runs_batted_in,omitempty"`
-	Doubles            int       `json:"doubles,omitempty"`
-	Triples            int       `json:"triples,omitempty"`
-	OnBasePercentage   string    `json:"on_base_percentage,omitempty"`
-	IsSeasonStat       bool      `json:"is_season_stat,omitempty"`
-	StartedGame        bool      `json:"started_game,omitempty"`
-	SacrificeFlies     int       `json:"sacrifice_flies,omitempty"`
-	HitByPitch         int       `json:"hit_by_pitch,omitempty"`
-	ImageUrls          ImageUrls `json:"image_urls,omitempty"`
-	DisplayID          int       `json:"display_id,omitempty"`
-	DisplayName        string    `json:"display_name,omitempty"`
-	PlayerCodeID       int       `json:"player_code_id,omitempty"`
-	BattingSlot        int       `json:"batting_slot,omitempty"`
-	SluggingPercentage string    `json:"slugging_percentage,omitempty"`
-	RunsBattedInSeason int       `json:"runs_batted_in_season,omitempty"`
+	AtBats             int    `json:"at_bats"`
+	Runs               int    `json:"runs"`
+	HomeRuns           int    `json:"home_runs"`
+	Hits               int    `json:"hits"`
+	RunsBattedIn       int    `json:"runs_batted_in"`
+	Walks              int    `json:"walks"`
+	StrikeOuts         int    `json:"strike_outs"`
+	LeftOnBase         int    `json:"left_on_base"`
+	BattingAverage     string `json:"batting_average"`
+	StolenBases        int    `json:"stolen_bases"`
+	Batting            string `json:"batting"`
+	SeasonHomeRuns     int    `json:"season_home_runs"`
+	SeasonRunsBattedIn int    `json:"season_runs_batted_in"`
+	Doubles            int    `json:"doubles"`
+	Triples            int    `json:"triples"`
+	OnBasePercentage   string `json:"on_base_percentage"`
+	IsSeasonStat       bool   `json:"is_season_stat"`
+	StartedGame        bool   `json:"started_game"`
+	SacrificeFlies     int    `json:"sacrifice_flies"`
+	HitByPitch         int    `json:"hit_by_pitch"`
+	BattingSlot        int    `json:"batting_slot"`
+	SluggingPercentage string `json:"slugging_percentage"`
+	RunsBattedInSeason int    `json:"runs_batted_in_season"`
 
-	//pitchers
 	InningsPitched            string `json:"innings_pitched,omitempty"`
 	EarnedRuns                int    `json:"earned_runs,omitempty"`
 	HomeRunsAllowed           int    `json:"home_runs_allowed,omitempty"`
@@ -230,35 +204,52 @@ type Player struct {
 	GameCreditedLoss          bool   `json:"game_credited_loss,omitempty,omitempty"`
 }
 
-type Batting struct {
-	Doubles                 []string `json:"doubles"`
-	HomeRuns                []string `json:"home_runs"`
-	RunsBattedIn            []string `json:"runs_batted_in"`
-	TwoOutRBI               []string `json:"two_out_RBI"`
-	GroundedIntoDoublePlays []string `json:"grounded_into_double_plays"`
-	TeamRisp                string   `json:"team_risp"`
-	TeamLob                 int      `json:"team_lob"`
+type BaseRunning struct {
+	CaughtStealing []string `json:"caught_stealing,omitempty"`
+	StolenBases    []string `json:"stolen_bases,omitempty"`
 }
+
+type Batting struct {
+	Doubles                 []string `json:"doubles,omitempty"`
+	Tripples                []string `json:"tripples,omitempty"`
+	HomeRuns                []string `json:"home_runs,omitempty"`
+	SacrificeHits           []string `json:"sacrifice_hits,omitempty"`
+	RunsBattedIn            []string `json:"runs_batted_in,omitempty"`
+	TwoOutRBI               []string `json:"two_out_RBI,omitempty"`
+	GroundedIntoDoublePlays []string `json:"grounded_into_double_plays,omitempty"`
+	TeamRisp                string   `json:"team_risp,omitempty"`
+	TeamLob                 int      `json:"team_lob,omitempty"`
+}
+
 type Pitching struct {
-	BattersFaced      []string `json:"batters_faced"`
-	GroundFlyBalls    []string `json:"ground_fly_balls"`
-	HitByPitch        []string `json:"hit_by_pitch"`
-	CsSsFbIps         []string `json:"cs_ss_fb_ips"`
-	PitchCountStrikes []string `json:"pitch_count_strikes"`
+	IntentionalWalks  []string `json:"intentional_walks,omitempty"`
+	Pickoffs          []string `json:"intentional_walks,omitempty"`
+	HitByPitch        []string `json:"hit_by_pitch,omitempty"`
+	BattersFaced      []string `json:"batters_faced,omitempty"`
+	GroundFlyBalls    []string `json:"ground_fly_balls,omitempty"`
+	CsSsFbIps         []string `json:"cs_ss_fb_ips,omitempty"`
+	PitchCountStrikes []string `json:"pitch_count_strikes,omitempty"`
+	WinningPitcher    []string `json:"winning_pitcher,omitempty"`
+	Balks             []string `json:"balks,omitempty"`
+	WildPitches       []string `json:"wild_pitches,omitempty"`
+	CompleteGame      []string `json:"complete_game,omitempty"`
+	BlownSave         []string `json:"blown_save,omitempty"`
+	Hold              []string `json:"hold,omitempty"`
+	PassedBalls       []string `json:"passed_balls,omitempty"`
 }
 
 type SeasonStatsStr struct {
-	RunsPerGame        string `json:"runs_per_game"`
-	TeamBattingAverage string `json:"team_batting_average"`
-	HomeRuns           int    `json:"home_runs"`
-	EarnedRunAverage   string `json:"earned_run_average"`
-	Wins               int    `json:"wins"`
-	Losses             int    `json:"losses"`
-	FieldPercent       string `json:"field_percent"`
-	OnBasePercentage   string `json:"on_base_percentage"`
-	Saves              int    `json:"saves"`
-	Errors             int    `json:"errors"`
-	GamesBehind        string `json:"games_behind"`
+	RunsPerGame        string  `json:"runs_per_game"`
+	TeamBattingAverage string  `json:"team_batting_average"`
+	HomeRuns           int     `json:"home_runs"`
+	EarnedRunAverage   string  `json:"earned_run_average"`
+	Wins               int     `json:"wins"`
+	Losses             int     `json:"losses"`
+	FieldPercent       string  `json:"field_percent"`
+	OnBasePercentage   string  `json:"on_base_percentage"`
+	Saves              int     `json:"saves"`
+	Errors             int     `json:"errors"`
+	GamesBehind        float64 `json:"games_behind"`
 }
 type TeamStandings struct {
 	Wins          int     `json:"wins"`
@@ -294,8 +285,7 @@ type Injuries struct {
 }
 
 type StartingPitcher struct {
-	ID               int       `json:"id"`
-	SrPlayerUUID     string    `json:"sr_player_uuid"`
+	ID               string    `json:"id"`
 	FirstName        string    `json:"first_name"`
 	LastName         string    `json:"last_name"`
 	ImageURL         string    `json:"image_url"`
@@ -315,23 +305,23 @@ type StartingPitcher struct {
 }
 
 type Fielding struct {
-	DoublePlays []string `json:"double_plays"`
-	Errors      []string `json:"errors"`
+	DoublePlays []string `json:"double_plays,omitempty"`
+	Errors      []string `json:"errors,omitempty"`
 }
-type Plays struct {
-	EventID     int    `json:"event_id"`
+type Play struct {
+	EventID     string `json:"event_id"`
 	EventCode   int    `json:"event_code"`
 	Description string `json:"description"`
 	IsOut       string `json:"is_out"`
 }
 type Inning struct {
-	Inning             int     `json:"inning"`
-	InningName         string  `json:"inning_name"`
-	VisitingTeamScore  int     `json:"visiting_team_score,omitempty"`
-	VisitingTeamHits   int     `json:"visiting_team_hits,omitempty"`
-	VisitingTeamErrors int     `json:"visiting_team_errors,omitempty"`
-	Plays              []Plays `json:"plays"`
-	HomeTeamScore      int     `json:"home_team_score,omitempty"`
-	HomeTeamHits       int     `json:"home_team_hits,omitempty"`
-	HomeTeamErrors     int     `json:"home_team_errors,omitempty"`
+	Inning             int    `json:"inning"`
+	InningName         string `json:"inning_name"`
+	VisitingTeamScore  int    `json:"visiting_team_score"`
+	VisitingTeamHits   int    `json:"visiting_team_hits"`
+	VisitingTeamErrors int    `json:"visiting_team_errors"`
+	Plays              []Play `json:"plays"`
+	HomeTeamScore      int    `json:"home_team_score"`
+	HomeTeamHits       int    `json:"home_team_hits"`
+	HomeTeamErrors     int    `json:"home_team_errors"`
 }
