@@ -47,7 +47,7 @@ type Last9Events struct {
 	Position          string    `json:"position"`
 }
 type PlayersOnCourt struct {
-	ID                     int       `json:"id"`
+	ID                     string    `json:"id"`
 	FirstName              string    `json:"first_name"`
 	LastName               string    `json:"last_name"`
 	ImageURL               string    `json:"image_url"`
@@ -72,7 +72,7 @@ type PlayersOnCourt struct {
 	PersonalFouls          int       `json:"personal_fouls"`
 	Games                  int       `json:"games"`
 	Reason                 string    `json:"reason"`
-	TeamID                 int       `json:"team_id"`
+	TeamID                 string    `json:"team_id"`
 	ImageUrls              ImageUrls `json:"image_urls"`
 }
 type PlayersList struct {
@@ -165,6 +165,7 @@ type DetailsWeb struct {
 	State                string           `json:"state"`
 	OpeningLine          OpeningLine      `json:"opening_line"`
 	CurrentLine          CurrentLine      `json:"current_line"`
+	SimMode              bool             `json:"sim_mode"`
 }
 type Division struct {
 	ID        string `json:"id"`
@@ -230,51 +231,9 @@ type GameStats struct {
 	ThreePointGoalsPct       string `json:"three_point_goals_pct"`
 	Minutes                  int    `json:"minutes"`
 }
-type PointsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Points    int       `json:"points"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type ReboundLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Rebounds  int       `json:"rebounds"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type AssistLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Assists   int       `json:"assists"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type BlockedShotsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type StealsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type TurnoversLeader struct {
-	ID        int       `json:"id"`
+
+type GameLeaderStat struct {
+	ID        string       `json:"id"`
 	FirstName string    `json:"first_name"`
 	LastName  string    `json:"last_name"`
 	ImageURL  string    `json:"image_url"`
@@ -282,12 +241,12 @@ type TurnoversLeader struct {
 	ImageUrls ImageUrls `json:"image_urls"`
 }
 type GameLeaders struct {
-	PointsLeader       PointsLeader       `json:"points_leader"`
-	ReboundLeader      ReboundLeader      `json:"rebound_leader"`
-	AssistLeader       AssistLeader       `json:"assist_leader"`
-	BlockedShotsLeader BlockedShotsLeader `json:"blocked_shots_leader"`
-	StealsLeader       StealsLeader       `json:"steals_leader"`
-	TurnoversLeader    TurnoversLeader    `json:"turnovers_leader"`
+	PointsLeader       GameLeaderStat `json:"points_leader"`
+	ReboundLeader      GameLeaderStat `json:"rebound_leader"`
+	AssistLeader       GameLeaderStat `json:"assist_leader"`
+	BlockedShotsLeader GameLeaderStat `json:"blocked_shots_leader"`
+	StealsLeader       GameLeaderStat `json:"steals_leader"`
+	TurnoversLeader    GameLeaderStat `json:"turnovers_leader"`
 }
 type PointsPerGameLeader struct {
 	ID        int       `json:"id"`
