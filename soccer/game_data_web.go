@@ -1,51 +1,10 @@
 package soccer
 
 type GameDataWeb struct {
-	Details      DetailsWeb `json:"details"`
-	VisitingTeam TeamWeb    `json:"visiting_team"`
-	HomeTeam     TeamWeb    `json:"home_team"`
-	Periods      []struct {
-		VisitingTeamScore int `json:"visiting_team_score"`
-		HomeTeamScore     int `json:"home_team_score"`
-		Goals             []struct {
-			PlayerID       int    `json:"player_id"`
-			TeamID         int    `json:"team_id"`
-			FirstName      string `json:"first_name"`
-			LastName       string `json:"last_name"`
-			Minutes        int    `json:"minutes"`
-			Seconds        int    `json:"seconds"`
-			AdditionalMins int    `json:"additional_mins"`
-			PenaltyKick    bool   `json:"penalty_kick"`
-			OwnGoal        bool   `json:"own_goal"`
-			ShootoutGoal   bool   `json:"shootout_goal"`
-		} `json:"goals"`
-		Cards []struct {
-			Type           string `json:"type"`
-			TeamID         int    `json:"team_id"`
-			PlayerID       int    `json:"player_id"`
-			FirstName      string `json:"first_name"`
-			LastName       string `json:"last_name"`
-			Minutes        int    `json:"minutes"`
-			Seconds        int    `json:"seconds"`
-			AdditionalMins int    `json:"additional_mins"`
-		} `json:"cards"`
-		Substitutions []struct {
-			TeamID         int `json:"team_id"`
-			Minutes        int `json:"minutes"`
-			Seconds        int `json:"seconds"`
-			AdditionalMins int `json:"additional_mins"`
-			In             struct {
-				ID        int    `json:"id"`
-				FirstName string `json:"first_name"`
-				LastName  string `json:"last_name"`
-			} `json:"in"`
-			Out struct {
-				ID        int    `json:"id"`
-				FirstName string `json:"first_name"`
-				LastName  string `json:"last_name"`
-			} `json:"out"`
-		} `json:"substitutions"`
-	} `json:"periods"`
+	Details      DetailsWeb     `json:"details"`
+	VisitingTeam TeamWeb        `json:"visiting_team"`
+	HomeTeam     TeamWeb        `json:"home_team"`
+	Periods      []SoccerPeriod `json:"periods"`
 }
 
 type DetailsWeb struct {
@@ -105,121 +64,181 @@ type TeamWeb struct {
 	} `json:"division"`
 	Conference struct {
 	} `json:"conference"`
-	Linescore struct {
-		Score int `json:"score"`
-		Shots int `json:"shots"`
-		Halfs []struct {
-			Half  int `json:"half"`
-			Score int `json:"score"`
-			Shots int `json:"shots"`
-		} `json:"halfs"`
-	} `json:"linescore"`
-	GameStats   GameStatistics `json:"game_stats"`
-	Goalkeepers []struct {
-		ID            int    `json:"id"`
-		FirstName     string `json:"first_name"`
-		LastName      string `json:"last_name"`
-		ImageURL      string `json:"image_url"`
-		Position      string `json:"position"`
-		ShortPosition string `json:"short_position"`
-		Number        int    `json:"number"`
-		GoalsAgainst  int    `json:"goals_against"`
-		Saves         int    `json:"saves"`
-		ShotsAgainst  int    `json:"shots_against"`
-		ShotsOnGoal   int    `json:"shots_on_goal"`
-	} `json:"goalkeepers"`
-	Defenders []struct {
-		ID            int    `json:"id"`
-		FirstName     string `json:"first_name"`
-		LastName      string `json:"last_name"`
-		ImageURL      string `json:"image_url"`
-		Position      string `json:"position"`
-		ShortPosition string `json:"short_position"`
-		Number        int    `json:"number"`
-		Goals         int    `json:"goals"`
-		Assists       int    `json:"assists"`
-		Shots         int    `json:"shots"`
-		ShotsOnGoal   int    `json:"shots_on_goal"`
-		Crosses       int    `json:"crosses"`
-		Tackles       int    `json:"tackles"`
-		Blocks        int    `json:"blocks"`
-		Touches       int    `json:"touches"`
-		Passes        int    `json:"passes"`
-		Fouls         int    `json:"fouls"`
-		Offsides      int    `json:"offsides"`
-		CornerKicks   int    `json:"corner_kicks"`
-		YellowCards   int    `json:"yellow_cards"`
-		RedCards      int    `json:"red_cards"`
-		Starter       bool   `json:"starter"`
-		OwnGoals      int    `json:"own_goals"`
-	} `json:"defenders"`
-	Midfielders []struct {
-		ID            int    `json:"id"`
-		FirstName     string `json:"first_name"`
-		LastName      string `json:"last_name"`
-		ImageURL      string `json:"image_url"`
-		Position      string `json:"position"`
-		ShortPosition string `json:"short_position"`
-		Number        int    `json:"number"`
-		Goals         int    `json:"goals"`
-		Assists       int    `json:"assists"`
-		Shots         int    `json:"shots"`
-		ShotsOnGoal   int    `json:"shots_on_goal"`
-		Crosses       int    `json:"crosses"`
-		Tackles       int    `json:"tackles"`
-		Blocks        int    `json:"blocks"`
-		Touches       int    `json:"touches"`
-		Passes        int    `json:"passes"`
-		Fouls         int    `json:"fouls"`
-		Offsides      int    `json:"offsides"`
-		CornerKicks   int    `json:"corner_kicks"`
-		YellowCards   int    `json:"yellow_cards"`
-		RedCards      int    `json:"red_cards"`
-		Starter       bool   `json:"starter"`
-		OwnGoals      int    `json:"own_goals"`
-	} `json:"midfielders"`
-	Forwards []struct {
-		ID            int    `json:"id"`
-		FirstName     string `json:"first_name"`
-		LastName      string `json:"last_name"`
-		ImageURL      string `json:"image_url"`
-		Position      string `json:"position"`
-		ShortPosition string `json:"short_position"`
-		Number        int    `json:"number"`
-		Goals         int    `json:"goals"`
-		Assists       int    `json:"assists"`
-		Shots         int    `json:"shots"`
-		ShotsOnGoal   int    `json:"shots_on_goal"`
-		Crosses       int    `json:"crosses"`
-		Tackles       int    `json:"tackles"`
-		Blocks        int    `json:"blocks"`
-		Touches       int    `json:"touches"`
-		Passes        int    `json:"passes"`
-		Fouls         int    `json:"fouls"`
-		Offsides      int    `json:"offsides"`
-		CornerKicks   int    `json:"corner_kicks"`
-		YellowCards   int    `json:"yellow_cards"`
-		RedCards      int    `json:"red_cards"`
-		Starter       bool   `json:"starter"`
-		OwnGoals      int    `json:"own_goals"`
-	} `json:"forwards"`
-	SeasonStats struct {
-		Wins   int `json:"wins"`
-		Ties   int `json:"ties"`
-		Losses int `json:"losses"`
-		Points int `json:"points"`
-	} `json:"season_stats"`
-	LeagueRank int `json:"league_rank"`
-	TeamStats  struct {
-		GoalsPerGame            string `json:"goals_per_game"`
-		GoalsPerGameRank        int    `json:"goals_per_game_rank"`
-		GoalsAgainstPerGame     string `json:"goals_against_per_game"`
-		GoalsAgainstPerGameRank int    `json:"goals_against_per_game_rank"`
-		GoalDifferential        int    `json:"goal_differential"`
-		GoalDifferentialRank    int    `json:"goal_differential_rank"`
-		Shutouts                int    `json:"shutouts"`
-		ShutoutsRank            int    `json:"shutouts_rank"`
-	} `json:"team_stats"`
+	Linescore   SoccerLineScore        `json:"linescore"`
+	GameStats   GameStatistics         `json:"game_stats"`
+	Goalkeepers []SoccerGoalKeeper     `json:"goalkeepers"`
+	Defenders   []SoccerDefender       `json:"defenders"`
+	Midfielders []SoccerMidfielder     `json:"midfielders"`
+	Forwards    []SoccerForward        `json:"forwards"`
+	SeasonStats SoccerSeasonStatistics `json:"season_stats"`
+	LeagueRank  int                    `json:"league_rank"`
+	TeamStats   SoccerTeamStatistics   `json:"team_stats"`
+}
+type SoccerCard struct {
+	Type           string `json:"type"`
+	TeamID         int    `json:"team_id"`
+	PlayerID       int    `json:"player_id"`
+	FirstName      string `json:"first_name"`
+	LastName       string `json:"last_name"`
+	Minutes        int    `json:"minutes"`
+	Seconds        int    `json:"seconds"`
+	AdditionalMins int    `json:"additional_mins"`
+}
+
+type SoccerGoal struct {
+	PlayerID       int    `json:"player_id"`
+	TeamID         int    `json:"team_id"`
+	FirstName      string `json:"first_name"`
+	LastName       string `json:"last_name"`
+	Minutes        int    `json:"minutes"`
+	Seconds        int    `json:"seconds"`
+	AdditionalMins int    `json:"additional_mins"`
+	PenaltyKick    bool   `json:"penalty_kick"`
+	OwnGoal        bool   `json:"own_goal"`
+	ShootoutGoal   bool   `json:"shootout_goal"`
+}
+
+type SoccerSubstitution struct {
+	TeamID         int                     `json:"team_id"`
+	Minutes        int                     `json:"minutes"`
+	Seconds        int                     `json:"seconds"`
+	AdditionalMins int                     `json:"additional_mins"`
+	In             SoccerSubstitutedPlayer `json:"in"`
+	Out            SoccerSubstitutedPlayer `json:"out"`
+}
+type SoccerSubstitutedPlayer struct {
+	ID        int    `json:"id"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+}
+
+type SoccerPeriod struct {
+	VisitingTeamScore int                  `json:"visiting_team_score"`
+	HomeTeamScore     int                  `json:"home_team_score"`
+	Goals             []SoccerGoal         `json:"goals"`
+	Cards             []SoccerCard         `json:"cards"`
+	Substitutions     []SoccerSubstitution `json:"substitutions"`
+}
+
+type SoccerLineScore struct {
+	Score int          `json:"score"`
+	Shots int          `json:"shots"`
+	Halfs []SoccerHalf `json:"halfs"`
+}
+
+type SoccerHalf struct {
+	Half  int `json:"half"`
+	Score int `json:"score"`
+	Shots int `json:"shots"`
+}
+
+type SoccerGoalKeeper struct {
+	ID            int    `json:"id"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	ImageURL      string `json:"image_url"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	Number        int    `json:"number"`
+	GoalsAgainst  int    `json:"goals_against"`
+	Saves         int    `json:"saves"`
+	ShotsAgainst  int    `json:"shots_against"`
+	ShotsOnGoal   int    `json:"shots_on_goal"`
+}
+
+type SoccerDefender struct {
+	ID            int    `json:"id"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	ImageURL      string `json:"image_url"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	Number        int    `json:"number"`
+	Goals         int    `json:"goals"`
+	Assists       int    `json:"assists"`
+	Shots         int    `json:"shots"`
+	ShotsOnGoal   int    `json:"shots_on_goal"`
+	Crosses       int    `json:"crosses"`
+	Tackles       int    `json:"tackles"`
+	Blocks        int    `json:"blocks"`
+	Touches       int    `json:"touches"`
+	Passes        int    `json:"passes"`
+	Fouls         int    `json:"fouls"`
+	Offsides      int    `json:"offsides"`
+	CornerKicks   int    `json:"corner_kicks"`
+	YellowCards   int    `json:"yellow_cards"`
+	RedCards      int    `json:"red_cards"`
+	Starter       bool   `json:"starter"`
+	OwnGoals      int    `json:"own_goals"`
+}
+
+type SoccerMidfielder struct {
+	ID            int    `json:"id"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	ImageURL      string `json:"image_url"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	Number        int    `json:"number"`
+	Goals         int    `json:"goals"`
+	Assists       int    `json:"assists"`
+	Shots         int    `json:"shots"`
+	ShotsOnGoal   int    `json:"shots_on_goal"`
+	Crosses       int    `json:"crosses"`
+	Tackles       int    `json:"tackles"`
+	Blocks        int    `json:"blocks"`
+	Touches       int    `json:"touches"`
+	Passes        int    `json:"passes"`
+	Fouls         int    `json:"fouls"`
+	Offsides      int    `json:"offsides"`
+	CornerKicks   int    `json:"corner_kicks"`
+	YellowCards   int    `json:"yellow_cards"`
+	RedCards      int    `json:"red_cards"`
+	Starter       bool   `json:"starter"`
+	OwnGoals      int    `json:"own_goals"`
+}
+type SoccerForward struct {
+	ID            int    `json:"id"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	ImageURL      string `json:"image_url"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	Number        int    `json:"number"`
+	Goals         int    `json:"goals"`
+	Assists       int    `json:"assists"`
+	Shots         int    `json:"shots"`
+	ShotsOnGoal   int    `json:"shots_on_goal"`
+	Crosses       int    `json:"crosses"`
+	Tackles       int    `json:"tackles"`
+	Blocks        int    `json:"blocks"`
+	Touches       int    `json:"touches"`
+	Passes        int    `json:"passes"`
+	Fouls         int    `json:"fouls"`
+	Offsides      int    `json:"offsides"`
+	CornerKicks   int    `json:"corner_kicks"`
+	YellowCards   int    `json:"yellow_cards"`
+	RedCards      int    `json:"red_cards"`
+	Starter       bool   `json:"starter"`
+	OwnGoals      int    `json:"own_goals"`
+}
+
+type SoccerSeasonStatistics struct {
+	Wins   int `json:"wins"`
+	Ties   int `json:"ties"`
+	Losses int `json:"losses"`
+	Points int `json:"points"`
+}
+
+type SoccerTeamStatistics struct {
+	GoalsPerGame            string `json:"goals_per_game"`
+	GoalsPerGameRank        int    `json:"goals_per_game_rank"`
+	GoalsAgainstPerGame     string `json:"goals_against_per_game"`
+	GoalsAgainstPerGameRank int    `json:"goals_against_per_game_rank"`
+	GoalDifferential        int    `json:"goal_differential"`
+	GoalDifferentialRank    int    `json:"goal_differential_rank"`
+	Shutouts                int    `json:"shutouts"`
+	ShutoutsRank            int    `json:"shutouts_rank"`
 }
 
 type GameStatistics struct {
