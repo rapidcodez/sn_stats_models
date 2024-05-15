@@ -118,6 +118,21 @@ type SoccerPeriod struct {
 	Goals             []SoccerGoal         `json:"goals"`
 	Cards             []SoccerCard         `json:"cards"`
 	Substitutions     []SoccerSubstitution `json:"substitutions"`
+	ShootOutAttemps   []SoccerSOAttempt    `json:"shootout_attempts"`
+}
+
+type SoccerSOAttempt struct {
+	PlayerID              int    `json:"player_id"`
+	TeamID                int    `json:"team_id"`
+	FirstName             string `json:"first_name"`
+	LastName              string `json:"last_name"`
+	Minutes               int    `json:"minutes"`
+	Seconds               int    `json:"seconds"`
+	AdditionalMins        int    `json:"additional_mins"`
+	Description           string `json:"description"`
+	ShotResultID          int    `json:"shot_result_id"`
+	ShotResultDescription string `json:"shot_result_description"`
+	ShotDescription       string `json:"shot_description"`
 }
 
 type SoccerLineScore struct {
