@@ -26,6 +26,7 @@ type RecentGames struct {
 	Date              string `json:"date"`
 	Location          string `json:"location"`
 	GameID            string `json:"game_id,omitempty"`
+	SeasonType        int    `json:"season_type,omitempty"`
 	ID                string `json:"id"`
 	SrGameId          string `json:"sr_game_id"`
 	VisitingTeamScore int    `json:"visiting_team_score"`

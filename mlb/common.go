@@ -150,6 +150,7 @@ type Player struct {
 	DisplayName   string    `json:"display_name"`
 	PlayerCodeID  int       `json:"player_code_id"`
 	Uniform       int       `json:"uniform"`
+	PitcherNumber int       `json:"pitcher_number,omitempty"`
 	ImageUrls     ImageUrls `json:"image_urls"`
 
 	AtBats             int    `json:"at_bats"`
@@ -178,30 +179,30 @@ type Player struct {
 
 	InningsPitched            string `json:"innings_pitched,omitempty"`
 	EarnedRuns                int    `json:"earned_runs,omitempty"`
-	HomeRunsAllowed           int    `json:"home_runs_allowed,omitempty"`
+	HomeRunsAllowed           int    `json:"home_runs_allowed"`
 	PitchCount                int    `json:"pitch_count,omitempty"`
 	Strikes                   int    `json:"strikes,omitempty"`
 	BattersFaced              int    `json:"batters_faced,omitempty"`
 	GroundBalls               int    `json:"ground_balls,omitempty"`
 	FlyBalls                  int    `json:"fly_balls,omitempty"`
-	WildPitches               int    `json:"wild_pitches,omitempty"`
+	WildPitches               int    `json:"wild_pitches"`
 	EarnedRunAverage          string `json:"earned_run_average,omitempty"`
 	Wins                      int    `json:"wins,omitempty"`
-	Losses                    int    `json:"losses,omitempty"`
-	Saves                     int    `json:"saves,omitempty"`
-	Home                      bool   `json:"home,omitempty"`
+	Losses                    int    `json:"losses"`
+	Saves                     int    `json:"saves"`
+	Home                      bool   `json:"home"`
 	PitcherID                 int    `json:"pitcher_id,omitempty"`
 	PitcherFirstName          string `json:"pitcher_first_name,omitempty"`
 	PitcherLastName           string `json:"pitcher_last_name,omitempty"`
 	Throwing                  string `json:"throwing,omitempty"`
-	Holds                     int    `json:"holds,omitempty"`
-	GameCreditedWin           bool   `json:"game_credited_win,omitempty,omitempty"`
-	BlownSaves                int    `json:"blown_saves,omitempty"`
+	Holds                     int    `json:"holds"`
+	GameCreditedWin           bool   `json:"game_credited_win"`
+	BlownSaves                int    `json:"blown_saves"`
 	SequenceNumber            int    `json:"sequence_number,omitempty"`
 	OpponentBattingAverage    string `json:"opponent_batting_average,omitempty"`
 	StrikeOutsSeason          int    `json:"strike_outs_season,omitempty"`
 	WalksHitsPerInningAverage string `json:"walks_hits_per_inning_average,omitempty"`
-	GameCreditedLoss          bool   `json:"game_credited_loss,omitempty,omitempty"`
+	GameCreditedLoss          bool   `json:"game_credited_loss"`
 }
 
 type BaseRunning struct {
