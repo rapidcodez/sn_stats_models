@@ -39,6 +39,7 @@ type Pitch struct {
 	Strikes       int     `json:"strikes"`
 	Balls         int     `json:"balls"`
 	CurrentCount  string  `json:"current_count"`
+	PitchId       string  `json:"pitch_id"`
 }
 type CurrentInningPbp struct {
 	EventID       string    `json:"event_id"`
@@ -178,16 +179,16 @@ type Player struct {
 	RunsBattedInSeason int    `json:"runs_batted_in_season"`
 
 	InningsPitched            string `json:"innings_pitched,omitempty"`
-	EarnedRuns                int    `json:"earned_runs,omitempty"`
+	EarnedRuns                int    `json:"earned_runs"`
 	HomeRunsAllowed           int    `json:"home_runs_allowed"`
-	PitchCount                int    `json:"pitch_count,omitempty"`
-	Strikes                   int    `json:"strikes,omitempty"`
-	BattersFaced              int    `json:"batters_faced,omitempty"`
-	GroundBalls               int    `json:"ground_balls,omitempty"`
-	FlyBalls                  int    `json:"fly_balls,omitempty"`
+	PitchCount                int    `json:"pitch_count"`
+	Strikes                   int    `json:"strikes"`
+	BattersFaced              int    `json:"batters_faced"`
+	GroundBalls               int    `json:"ground_balls"`
+	FlyBalls                  int    `json:"fly_balls"`
 	WildPitches               int    `json:"wild_pitches"`
-	EarnedRunAverage          string `json:"earned_run_average,omitempty"`
-	Wins                      int    `json:"wins,omitempty"`
+	EarnedRunAverage          string `json:"earned_run_average"`
+	Wins                      int    `json:"wins"`
 	Losses                    int    `json:"losses"`
 	Saves                     int    `json:"saves"`
 	Home                      bool   `json:"home"`
@@ -199,9 +200,9 @@ type Player struct {
 	GameCreditedWin           bool   `json:"game_credited_win"`
 	BlownSaves                int    `json:"blown_saves"`
 	SequenceNumber            int    `json:"sequence_number,omitempty"`
-	OpponentBattingAverage    string `json:"opponent_batting_average,omitempty"`
-	StrikeOutsSeason          int    `json:"strike_outs_season,omitempty"`
-	WalksHitsPerInningAverage string `json:"walks_hits_per_inning_average,omitempty"`
+	OpponentBattingAverage    string `json:"opponent_batting_average"`
+	StrikeOutsSeason          int    `json:"strike_outs_season"`
+	WalksHitsPerInningAverage string `json:"walks_hits_per_inning_average"`
 	GameCreditedLoss          bool   `json:"game_credited_loss"`
 }
 

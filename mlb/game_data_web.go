@@ -32,13 +32,13 @@ type DetailsWeb struct {
 	WinningPitcher       *Player                `json:"winning_pitcher,omitempty"`
 	LosingPitcher        *Player                `json:"losing_pitcher,omitempty"`
 	SavingPitcher        *Player                `json:"saving_pitcher,omitempty"`
-	CurrentBatter        int                    `json:"current_batter"`
+	CurrentBatter        string                 `json:"current_batter"`
 	LastPlay             string                 `json:"last_play"`
 	LocationImageMed     string                 `json:"location_image_med"`
 	LocationImageSml     string                 `json:"location_image_sml"`
 	Weather              string                 `json:"weather"`
 	Wind                 string                 `json:"wind"`
-	Umpires              *[]Umpires             `json:"umpires,omitempty"`
+	Umpires              []Umpires              `json:"umpires,omitempty"`
 	ExtraInnings         bool                   `json:"extra_innings"`
 	SeriesMatchupsResult string                 `json:"series_matchups_result"`
 	SeasonSeries         []common.RecentGames   `json:"season_series,omitempty"`
@@ -93,7 +93,7 @@ type TeamWeb struct {
 	Pitchers             []Player          `json:"pitchers"`
 	StartingPitcher      *StartingPitcher  `json:"starting_pitcher,omitempty"`
 	Color                string            `json:"color"`
-	CurrentPitcher       int               `json:"current_pitcher"`
+	CurrentPitcher       string            `json:"current_pitcher"`
 	AtBat                bool              `json:"at_bat"`
 	WinsLeader           *Leader           `json:"wins_leader"`
 	SavesLeader          *Leader           `json:"saves_leader"`
@@ -107,4 +107,5 @@ type TeamWeb struct {
 	TeamStandings        TeamStandings     `json:"team_standings"`
 	Injuries             []common.Injuries `json:"injuries"`
 	BaseRunning          BaseRunning       `json:"base_running"`
+	DueUp                []Player          `json:"due_up"`
 }
