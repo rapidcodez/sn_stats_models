@@ -225,7 +225,7 @@ type Batting struct {
 
 type Pitching struct {
 	IntentionalWalks  []string `json:"intentional_walks,omitempty"`
-	Pickoffs          []string `json:"intentional_walks,omitempty"`
+	Pickoffs          []string `json:"pickoffs,omitempty"`
 	HitByPitch        []string `json:"hit_by_pitch,omitempty"`
 	BattersFaced      []string `json:"batters_faced,omitempty"`
 	GroundFlyBalls    []string `json:"ground_fly_balls,omitempty"`
