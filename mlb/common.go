@@ -44,6 +44,7 @@ type Pitch struct {
 type CurrentInningPbp struct {
 	EventID       string    `json:"event_id"`
 	EventCode     int       `json:"event_code"`
+	PlayerId      string    `json:"player_id"`
 	FirstName     string    `json:"first_name"`
 	LastName      string    `json:"last_name"`
 	ImageURL      string    `json:"image_url,omitempty"`
