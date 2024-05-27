@@ -1,5 +1,9 @@
 package nba
 
+import (
+	"github.com/digitalmedia/sn_stats_models/common"
+)
+
 type GameDataWeb struct {
 	Details      DetailsWeb `json:"details"`
 	VisitingTeam TeamWeb    `json:"visiting_team"`
@@ -132,40 +136,41 @@ type CurrentLine struct {
 	DrawMoney     int    `json:"draw_money"`
 }
 type DetailsWeb struct {
-	LeagueShortName      string           `json:"league_short_name"`
-	ID                   string           `json:"id"`
-	SrGameUuid           string           `json:"sr_game_uuid"`
-	SrGameId             string           `json:"sr_game_id"`
-	Quarter              int              `json:"quarter"`
-	IsActive             bool             `json:"is_active"`
-	Clock                string           `json:"clock"`
-	Type                 string           `json:"type"`
-	Timestamp            int              `json:"timestamp"`
-	Status               string           `json:"status"`
-	Location             string           `json:"location"`
-	LocationImageURL     string           `json:"location_image_url"`
-	Overtime             int              `json:"overtime"`
-	HomeSeriesWins       int              `json:"home_series_wins"`
-	VisitingSeriesWins   int              `json:"visiting_series_wins"`
-	IsAllStar            bool             `json:"is_all_star"`
-	LocationImageMed     string           `json:"location_image_med"`
-	LocationImageSml     string           `json:"location_image_sml"`
-	Story                Story            `json:"story"`
-	Last5Meetings        []Last5Meetings  `json:"last_5_meetings"`
-	SeriesMatchupsResult string           `json:"series_matchups_result"`
-	Last9Events          []Last9Events    `json:"last_9_events"`
-	PlayersOnCourt       []PlayersOnCourt `json:"players_on_court"`
-	PlayersList          []PlayersList    `json:"players_list"`
-	Timeout              string           `json:"timeout"`
-	City                 string           `json:"city"`
-	Country              string           `json:"country"`
-	IfNecessary          bool             `json:"if_necessary"`
-	HomePlayoffSeed      int              `json:"home_playoff_seed"`
-	VisitingPlayoffSeed  int              `json:"visiting_playoff_seed"`
-	State                string           `json:"state"`
-	OpeningLine          OpeningLine      `json:"opening_line"`
-	CurrentLine          CurrentLine      `json:"current_line"`
-	SimMode              bool             `json:"sim_mode"`
+	LeagueShortName      string                 `json:"league_short_name"`
+	ID                   string                 `json:"id"`
+	SrGameUuid           string                 `json:"sr_game_uuid"`
+	SrGameId             string                 `json:"sr_game_id"`
+	Quarter              int                    `json:"quarter"`
+	IsActive             bool                   `json:"is_active"`
+	Clock                string                 `json:"clock"`
+	Type                 string                 `json:"type"`
+	Timestamp            int                    `json:"timestamp"`
+	Status               string                 `json:"status"`
+	Location             string                 `json:"location"`
+	LocationImageURL     string                 `json:"location_image_url"`
+	Broadcast            []common.GameBroadcast `json:"broadcast"`
+	Overtime             int                    `json:"overtime"`
+	HomeSeriesWins       int                    `json:"home_series_wins"`
+	VisitingSeriesWins   int                    `json:"visiting_series_wins"`
+	IsAllStar            bool                   `json:"is_all_star"`
+	LocationImageMed     string                 `json:"location_image_med"`
+	LocationImageSml     string                 `json:"location_image_sml"`
+	Story                Story                  `json:"story"`
+	Last5Meetings        []Last5Meetings        `json:"last_5_meetings"`
+	SeriesMatchupsResult string                 `json:"series_matchups_result"`
+	Last9Events          []Last9Events          `json:"last_9_events"`
+	PlayersOnCourt       []PlayersOnCourt       `json:"players_on_court"`
+	PlayersList          []PlayersList          `json:"players_list"`
+	Timeout              string                 `json:"timeout"`
+	City                 string                 `json:"city"`
+	Country              string                 `json:"country"`
+	IfNecessary          bool                   `json:"if_necessary"`
+	HomePlayoffSeed      int                    `json:"home_playoff_seed"`
+	VisitingPlayoffSeed  int                    `json:"visiting_playoff_seed"`
+	State                string                 `json:"state"`
+	OpeningLine          OpeningLine            `json:"opening_line"`
+	CurrentLine          CurrentLine            `json:"current_line"`
+	SimMode              bool                   `json:"sim_mode"`
 }
 type Division struct {
 	ID        string `json:"id"`
@@ -233,7 +238,7 @@ type GameStats struct {
 }
 
 type GameLeaderStat struct {
-	ID        string       `json:"id"`
+	ID        string    `json:"id"`
 	FirstName string    `json:"first_name"`
 	LastName  string    `json:"last_name"`
 	ImageURL  string    `json:"image_url"`
