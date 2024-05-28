@@ -20,6 +20,7 @@ type DetailsMobile struct {
 	Status             string `json:"status"`
 	IsHalfTime         bool   `json:"ishalftime"`
 	HasAggregateScores bool   `json:"hasAggregateScores"`
+	AggregateWinner    string `json:"aggregate_winner"`
 	Overtime           int    `json:"overtime"`
 	PenaltyKicks       bool   `json:"penalty_kicks"`
 }

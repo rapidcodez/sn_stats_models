@@ -35,6 +35,7 @@ type RecentGames struct {
 	VisitingTeamID    string `json:"visiting_team_id,omitempty"`
 	HomeTeam          string `json:"home_team,omitempty"`
 	HomeTeamID        string `json:"home_team_id,omitempty"`
+	SeasonType        int    `json:"season_type,omitempty"`
 }
 
 type Story struct {
