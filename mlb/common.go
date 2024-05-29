@@ -36,6 +36,7 @@ type Pitch struct {
 	PitchVelocity float64 `json:"pitch_velocity"`
 	PitchX        float64 `json:"pitch_x"`
 	PitchY        float64 `json:"pitch_y"`
+	PitchZone     int     `json:"pitch_zone"`
 	Strikes       int     `json:"strikes"`
 	Balls         int     `json:"balls"`
 	CurrentCount  string  `json:"current_count"`
