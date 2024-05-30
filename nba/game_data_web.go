@@ -2,6 +2,7 @@ package nba
 
 import (
 	"github.com/digitalmedia/sn_stats_models/common"
+	"time"
 )
 
 type GameDataWeb struct {
@@ -43,12 +44,13 @@ type Last9Events struct {
 	PlayerDisplayName string    `json:"player_display_name"`
 	EventID           string    `json:"event_id"`
 	Event             string    `json:"event"`
-	DetailID          string    `json:"detail_id"`
+	DetailID          int       `json:"detail_id"`
 	Detail            string    `json:"detail"`
 	ImageURL          string    `json:"image_url"`
 	ID                int       `json:"id"`
 	ImageUrls         ImageUrls `json:"image_urls"`
 	Position          string    `json:"position"`
+	Sequence          int64     `json:"sequence"`
 }
 type PlayersOnCourt struct {
 	ID                     string    `json:"id"`
@@ -138,14 +140,14 @@ type CurrentLine struct {
 type DetailsWeb struct {
 	LeagueShortName      string                 `json:"league_short_name"`
 	ID                   string                 `json:"id"`
-	SrGameUuid           string                 `json:"sr_game_uuid"`
-	SrGameId             string                 `json:"sr_game_id"`
 	Quarter              int                    `json:"quarter"`
 	IsActive             bool                   `json:"is_active"`
 	Clock                string                 `json:"clock"`
 	Type                 string                 `json:"type"`
 	Timestamp            int                    `json:"timestamp"`
+	Datetime             time.Time              `json:"datetime"`
 	Status               string                 `json:"status"`
+	SrStatus             string                 `json:"sr_status"`
 	Location             string                 `json:"location"`
 	LocationImageURL     string                 `json:"location_image_url"`
 	Broadcast            []common.GameBroadcast `json:"broadcast"`
@@ -153,6 +155,7 @@ type DetailsWeb struct {
 	HomeSeriesWins       int                    `json:"home_series_wins"`
 	VisitingSeriesWins   int                    `json:"visiting_series_wins"`
 	IsAllStar            bool                   `json:"is_all_star"`
+	SeriesRound          int                    `json:"series_round"`
 	LocationImageMed     string                 `json:"location_image_med"`
 	LocationImageSml     string                 `json:"location_image_sml"`
 	Story                Story                  `json:"story"`
@@ -223,6 +226,7 @@ type GameStats struct {
 	ReboundsOffensive        int    `json:"rebounds_offensive"`
 	ReboundsDefensive        int    `json:"rebounds_defensive"`
 	PersonalFouls            int    `json:"personal_fouls"`
+	TotalFouls               int    `json:"total_fouls"`
 	FreeThrowsMade           int    `json:"free_throws_made"`
 	FreeThrowsMissed         int    `json:"free_throws_missed"`
 	FreeThrowsAttempted      int    `json:"free_throws_attempted"`
