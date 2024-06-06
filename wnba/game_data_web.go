@@ -1,5 +1,11 @@
 package wnba
 
+import (
+	"time"
+
+	"github.com/digitalmedia/sn_stats_models/common"
+)
+
 type GameDataWeb struct {
 	Details      DetailsWeb `json:"details"`
 	VisitingTeam TeamWeb    `json:"visiting_team"`
@@ -29,15 +35,15 @@ type ImageUrls struct {
 	Xs string `json:"xs"`
 }
 type Last9Events struct {
-	PlayerID          int       `json:"player_id"`
+	PlayerID          string    `json:"player_id"`
 	PlayerFirstName   string    `json:"player_first_name"`
 	PlayerLastName    string    `json:"player_last_name"`
 	Description       string    `json:"description"`
 	Quarter           int       `json:"quarter"`
 	Time              string    `json:"time"`
-	TeamID            int       `json:"team_id"`
+	TeamID            string    `json:"team_id"`
 	PlayerDisplayName string    `json:"player_display_name"`
-	EventID           int       `json:"event_id"`
+	EventID           string    `json:"event_id"`
 	Event             string    `json:"event"`
 	DetailID          int       `json:"detail_id"`
 	Detail            string    `json:"detail"`
@@ -45,9 +51,10 @@ type Last9Events struct {
 	ID                int       `json:"id"`
 	ImageUrls         ImageUrls `json:"image_urls"`
 	Position          string    `json:"position"`
+	Sequence          int64     `json:"sequence"`
 }
 type PlayersOnCourt struct {
-	ID                     int       `json:"id"`
+	ID                     string    `json:"id"`
 	FirstName              string    `json:"first_name"`
 	LastName               string    `json:"last_name"`
 	ImageURL               string    `json:"image_url"`
@@ -72,11 +79,11 @@ type PlayersOnCourt struct {
 	PersonalFouls          int       `json:"personal_fouls"`
 	Games                  int       `json:"games"`
 	Reason                 string    `json:"reason"`
-	TeamID                 int       `json:"team_id"`
+	TeamID                 string    `json:"team_id"`
 	ImageUrls              ImageUrls `json:"image_urls"`
 }
 type PlayersList struct {
-	ID                     int       `json:"id"`
+	ID                     string    `json:"id"`
 	FirstName              string    `json:"first_name"`
 	LastName               string    `json:"last_name"`
 	ImageURL               string    `json:"image_url"`
@@ -101,7 +108,7 @@ type PlayersList struct {
 	PersonalFouls          int       `json:"personal_fouls"`
 	Games                  int       `json:"games"`
 	Reason                 string    `json:"reason"`
-	TeamID                 int       `json:"team_id"`
+	TeamID                 string    `json:"team_id"`
 	SecondaryPosition      string    `json:"secondary_position"`
 	ImageUrls              ImageUrls `json:"image_urls"`
 }
@@ -132,39 +139,44 @@ type CurrentLine struct {
 	DrawMoney     int    `json:"draw_money"`
 }
 type DetailsWeb struct {
-	LeagueShortName      string           `json:"league_short_name"`
-	ID                   string           `json:"id"`
-	SrGameUuid           string           `json:"sr_game_uuid"`
-	SrGameId             string           `json:"sr_game_id"`
-	Quarter              int              `json:"quarter"`
-	IsActive             bool             `json:"is_active"`
-	Clock                string           `json:"clock"`
-	Type                 string           `json:"type"`
-	Timestamp            int              `json:"timestamp"`
-	Status               string           `json:"status"`
-	Location             string           `json:"location"`
-	LocationImageURL     string           `json:"location_image_url"`
-	Overtime             int              `json:"overtime"`
-	HomeSeriesWins       int              `json:"home_series_wins"`
-	VisitingSeriesWins   int              `json:"visiting_series_wins"`
-	IsAllStar            bool             `json:"is_all_star"`
-	LocationImageMed     string           `json:"location_image_med"`
-	LocationImageSml     string           `json:"location_image_sml"`
-	Story                Story            `json:"story"`
-	Last5Meetings        []Last5Meetings  `json:"last_5_meetings"`
-	SeriesMatchupsResult string           `json:"series_matchups_result"`
-	Last9Events          []Last9Events    `json:"last_9_events"`
-	PlayersOnCourt       []PlayersOnCourt `json:"players_on_court"`
-	PlayersList          []PlayersList    `json:"players_list"`
-	Timeout              string           `json:"timeout"`
-	City                 string           `json:"city"`
-	Country              string           `json:"country"`
-	IfNecessary          bool             `json:"if_necessary"`
-	HomePlayoffSeed      int              `json:"home_playoff_seed"`
-	VisitingPlayoffSeed  int              `json:"visiting_playoff_seed"`
-	State                string           `json:"state"`
-	OpeningLine          OpeningLine      `json:"opening_line"`
-	CurrentLine          CurrentLine      `json:"current_line"`
+	LeagueShortName      string                 `json:"league_short_name"`
+	ID                   string                 `json:"id"`
+	SrGameId             string                 `json:"sr_game_id"`
+	SrGameUuid           string                 `json:"sr_game_uuid"`
+	Quarter              int                    `json:"quarter"`
+	IsActive             bool                   `json:"is_active"`
+	Clock                string                 `json:"clock"`
+	Type                 string                 `json:"type"`
+	Timestamp            int                    `json:"timestamp"`
+	Datetime             time.Time              `json:"datetime"`
+	Status               string                 `json:"status"`
+	SrStatus             string                 `json:"sr_status"`
+	Location             string                 `json:"location"`
+	LocationImageURL     string                 `json:"location_image_url"`
+	Broadcast            []common.GameBroadcast `json:"broadcast"`
+	Overtime             int                    `json:"overtime"`
+	HomeSeriesWins       int                    `json:"home_series_wins"`
+	VisitingSeriesWins   int                    `json:"visiting_series_wins"`
+	IsAllStar            bool                   `json:"is_all_star"`
+	SeriesRound          int                    `json:"series_round"`
+	LocationImageMed     string                 `json:"location_image_med"`
+	LocationImageSml     string                 `json:"location_image_sml"`
+	Story                Story                  `json:"story"`
+	Last5Meetings        []Last5Meetings        `json:"last_5_meetings"`
+	SeriesMatchupsResult string                 `json:"series_matchups_result"`
+	Last9Events          []Last9Events          `json:"last_9_events"`
+	PlayersOnCourt       []PlayersOnCourt       `json:"players_on_court"`
+	PlayersList          []PlayersList          `json:"players_list"`
+	Timeout              string                 `json:"timeout"`
+	City                 string                 `json:"city"`
+	Country              string                 `json:"country"`
+	IfNecessary          bool                   `json:"if_necessary"`
+	HomePlayoffSeed      int                    `json:"home_playoff_seed"`
+	VisitingPlayoffSeed  int                    `json:"visiting_playoff_seed"`
+	State                string                 `json:"state"`
+	OpeningLine          OpeningLine            `json:"opening_line"`
+	CurrentLine          CurrentLine            `json:"current_line"`
+	SimMode              bool                   `json:"sim_mode"`
 }
 type Division struct {
 	ID        string `json:"id"`
@@ -217,6 +229,7 @@ type GameStats struct {
 	ReboundsOffensive        int    `json:"rebounds_offensive"`
 	ReboundsDefensive        int    `json:"rebounds_defensive"`
 	PersonalFouls            int    `json:"personal_fouls"`
+	TotalFouls               int    `json:"total_fouls"`
 	FreeThrowsMade           int    `json:"free_throws_made"`
 	FreeThrowsMissed         int    `json:"free_throws_missed"`
 	FreeThrowsAttempted      int    `json:"free_throws_attempted"`
@@ -230,51 +243,9 @@ type GameStats struct {
 	ThreePointGoalsPct       string `json:"three_point_goals_pct"`
 	Minutes                  int    `json:"minutes"`
 }
-type PointsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Points    int       `json:"points"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type ReboundLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Rebounds  int       `json:"rebounds"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type AssistLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	Assists   int       `json:"assists"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type BlockedShotsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type StealsLeader struct {
-	ID        int       `json:"id"`
-	FirstName string    `json:"first_name"`
-	LastName  string    `json:"last_name"`
-	ImageURL  string    `json:"image_url"`
-	Total     int       `json:"total"`
-	ImageUrls ImageUrls `json:"image_urls"`
-}
-type TurnoversLeader struct {
-	ID        int       `json:"id"`
+
+type GameLeaderStat struct {
+	ID        string    `json:"id"`
 	FirstName string    `json:"first_name"`
 	LastName  string    `json:"last_name"`
 	ImageURL  string    `json:"image_url"`
@@ -282,12 +253,12 @@ type TurnoversLeader struct {
 	ImageUrls ImageUrls `json:"image_urls"`
 }
 type GameLeaders struct {
-	PointsLeader       PointsLeader       `json:"points_leader"`
-	ReboundLeader      ReboundLeader      `json:"rebound_leader"`
-	AssistLeader       AssistLeader       `json:"assist_leader"`
-	BlockedShotsLeader BlockedShotsLeader `json:"blocked_shots_leader"`
-	StealsLeader       StealsLeader       `json:"steals_leader"`
-	TurnoversLeader    TurnoversLeader    `json:"turnovers_leader"`
+	PointsLeader       GameLeaderStat `json:"points_leader"`
+	ReboundLeader      GameLeaderStat `json:"rebound_leader"`
+	AssistLeader       GameLeaderStat `json:"assist_leader"`
+	BlockedShotsLeader GameLeaderStat `json:"blocked_shots_leader"`
+	StealsLeader       GameLeaderStat `json:"steals_leader"`
+	TurnoversLeader    GameLeaderStat `json:"turnovers_leader"`
 }
 type PointsPerGameLeader struct {
 	ID        int       `json:"id"`
@@ -355,8 +326,8 @@ type SeasonLeaders struct {
 	StealsPerGameLeader       PerGameLeader `json:"steals_per_game_leader"`
 	ThreePointPCTLeader       PerGameLeader `json:"three_point_percentage_leader"`
 }
-type Starters struct {
-	ID                     int       `json:"id"`
+type PlayerStats struct {
+	ID                     string    `json:"id"`
 	FirstName              string    `json:"first_name"`
 	LastName               string    `json:"last_name"`
 	ImageURL               string    `json:"image_url"`
@@ -381,36 +352,7 @@ type Starters struct {
 	PersonalFouls          int       `json:"personal_fouls"`
 	Games                  int       `json:"games"`
 	Reason                 string    `json:"reason"`
-	TeamID                 int       `json:"team_id"`
-	ImageUrls              ImageUrls `json:"image_urls"`
-}
-type Bench struct {
-	ID                     int       `json:"id"`
-	FirstName              string    `json:"first_name"`
-	LastName               string    `json:"last_name"`
-	ImageURL               string    `json:"image_url"`
-	Position               string    `json:"position"`
-	ShortPosition          string    `json:"short_position"`
-	Number                 int       `json:"number"`
-	Mins                   string    `json:"mins"`
-	Points                 int       `json:"points"`
-	ReboundsTotal          int       `json:"rebounds_total"`
-	Assists                int       `json:"assists"`
-	Steals                 int       `json:"steals"`
-	BlockedShots           int       `json:"blocked_shots"`
-	OffensiveRebounds      int       `json:"offensive_rebounds"`
-	DefensiveRebounds      int       `json:"defensive_rebounds"`
-	FieldGoalsMade         int       `json:"field_goals_made"`
-	FieldGoalsAttempted    int       `json:"field_goals_attempted"`
-	ThreePointersMade      int       `json:"three_pointers_made"`
-	ThreePointersAttempted int       `json:"three_pointers_attempted"`
-	FreeThrowsMade         int       `json:"free_throws_made"`
-	FreeThrowsAttempted    int       `json:"free_throws_attempted"`
-	Turnovers              int       `json:"turnovers"`
-	PersonalFouls          int       `json:"personal_fouls"`
-	Games                  int       `json:"games"`
-	Reason                 string    `json:"reason"`
-	TeamID                 int       `json:"team_id"`
+	TeamID                 string    `json:"team_id"`
 	ImageUrls              ImageUrls `json:"image_urls"`
 }
 type BoxscoreTotals struct {
@@ -460,8 +402,8 @@ type TeamWeb struct {
 	GameStats        GameStats      `json:"game_stats"`
 	GameLeaders      GameLeaders    `json:"game_leaders"`
 	SeasonLeaders    SeasonLeaders  `json:"season_leaders"`
-	Starters         []Starters     `json:"starters"`
-	Bench            []Bench        `json:"bench"`
+	Starters         []PlayerStats  `json:"starters"`
+	Bench            []PlayerStats  `json:"bench"`
 	Color            string         `json:"color"`
 	BoxscoreTotals   BoxscoreTotals `json:"boxscore_totals"`
 	FullTimeoutsLeft int            `json:"full_timeouts_left"`
