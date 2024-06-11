@@ -215,7 +215,7 @@ type BaseRunning struct {
 
 type Batting struct {
 	Doubles                 []string `json:"doubles,omitempty"`
-	Tripples                []string `json:"tripples,omitempty"`
+	Triples                 []string `json:"tripples,omitempty"`
 	HomeRuns                []string `json:"home_runs,omitempty"`
 	SacrificeHits           []string `json:"sacrifice_hits,omitempty"`
 	RunsBattedIn            []string `json:"runs_batted_in,omitempty"`
