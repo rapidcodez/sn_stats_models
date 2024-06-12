@@ -377,7 +377,7 @@ type TeamStandings struct {
 	Wins                  int     `json:"wins"`
 	Losses                int     `json:"losses"`
 	GamesBehind           float64 `json:"games_behind"`
-	ConferenceGamesBehind int     `json:"conference_games_behind"`
+	ConferenceGamesBehind float64     `json:"conference_games_behind"`
 	WinPercentage         string  `json:"win_percentage"`
 	HomeRecord            string  `json:"home_record"`
 	RoadRecord            string  `json:"road_record"`
