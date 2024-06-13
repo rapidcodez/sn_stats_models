@@ -35,6 +35,7 @@ type DetailsWeb struct {
 	LocationDetails    SoccerLocationDetails  `json:"location_details"`
 	Tbd                bool                   `json:"tbd"`
 	Attendance         int                    `json:"attendance"`
+	SimMode            bool                   `json:"sim_mode"`
 	StatusLabel        int                    `json:"status_label"`
 }
 
