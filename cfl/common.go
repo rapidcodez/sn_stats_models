@@ -1,5 +1,7 @@
 package cfl
 
+import "github.com/digitalmedia/sn_stats_models/common"
+
 type Quarter struct {
 	Plays []struct {
 		VisitingTeamScore int    `json:"visiting_team_score"`
@@ -24,7 +26,7 @@ type TeamMobile struct {
 }
 
 type TeamWeb struct {
-	Id         int    `json:"id"`
+	Id         string `json:"id"`
 	Name       string `json:"name"`
 	ShortName  string `json:"short_name"`
 	City       string `json:"city"`
@@ -32,13 +34,13 @@ type TeamWeb struct {
 	Score      int    `json:"score"`
 	ImageUrl90 string `json:"image_url_90"`
 	Division   struct {
-		Id        int    `json:"id"`
+		Id        string `json:"id"`
 		Name      string `json:"name"`
 		ShortName string `json:"short_name"`
 		Rank      int    `json:"rank"`
 	} `json:"division"`
 	Injuries []struct {
-		PlayerId  int    `json:"player_id"`
+		PlayerId  string `json:"player_id"`
 		FirstName string `json:"first_name"`
 		LastName  string `json:"last_name"`
 		Position  string `json:"position"`
@@ -110,7 +112,7 @@ type TeamWeb struct {
 	} `json:"season_stats"`
 	GameLeaders struct {
 		PassingLeader struct {
-			Id                   int    `json:"id"`
+			Id                   string `json:"id"`
 			PassesAttempted      int    `json:"passes_attempted"`
 			PassesCompleted      int    `json:"passes_completed"`
 			Interceptions        int    `json:"interceptions"`
@@ -132,7 +134,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"passing_leader"`
 		RushingLeader struct {
-			Id              int    `json:"id"`
+			Id              string `json:"id"`
 			RushesAttempted int    `json:"rushes_attempted"`
 			LongestRush     int    `json:"longest_rush"`
 			Number          int    `json:"number"`
@@ -151,7 +153,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"rushing_leader"`
 		ReceivingLeader struct {
-			Id               int    `json:"id"`
+			Id               string `json:"id"`
 			Receptions       int    `json:"receptions"`
 			LongestReceiving int    `json:"longest_receiving"`
 			Number           int    `json:"number"`
@@ -171,7 +173,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"receiving_leader"`
 		InterceptionsLeader struct {
-			Id         int    `json:"id"`
+			Id         string `json:"id"`
 			Number     int    `json:"number"`
 			Touchdowns int    `json:"touchdowns"`
 			Yards      int    `json:"yards"`
@@ -187,7 +189,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"interceptions_leader"`
 		FieldGoalsSinglesLeader struct {
-			Id               int    `json:"id"`
+			Id               string `json:"id"`
 			Made             int    `json:"made"`
 			Attempted        int    `json:"attempted"`
 			Percentage       string `json:"percentage"`
@@ -208,7 +210,7 @@ type TeamWeb struct {
 			ExtraPointsAttempted int `json:"extra_points_attempted"`
 		} `json:"field_goals_singles_leader"`
 		KickoffsSinglesLeader struct {
-			Id               int    `json:"id"`
+			Id               string `json:"id"`
 			Made             int    `json:"made"`
 			Attempted        int    `json:"attempted"`
 			Percentage       string `json:"percentage"`
@@ -231,7 +233,7 @@ type TeamWeb struct {
 	} `json:"game_leaders"`
 	SeasonLeaders struct {
 		PassingLeader struct {
-			Id            int     `json:"id"`
+			Id            string  `json:"id"`
 			Interceptions int     `json:"interceptions"`
 			Number        int     `json:"number"`
 			Touchdowns    int     `json:"touchdowns"`
@@ -254,7 +256,7 @@ type TeamWeb struct {
 			RushingYards int `json:"rushing_yards"`
 		} `json:"passing_leader"`
 		RushingLeader struct {
-			Id              int     `json:"id"`
+			Id              string  `json:"id"`
 			Number          int     `json:"number"`
 			Touchdowns      int     `json:"touchdowns"`
 			Yards           int     `json:"yards"`
@@ -275,7 +277,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"rushing_leader"`
 		ReceivingLeader struct {
-			Id                int     `json:"id"`
+			Id                string  `json:"id"`
 			Receptions        int     `json:"receptions"`
 			Number            int     `json:"number"`
 			Touchdowns        int     `json:"touchdowns"`
@@ -297,7 +299,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"receiving_leader"`
 		TacklesLeader struct {
-			Id                      int     `json:"id"`
+			Id                      string  `json:"id"`
 			Interceptions           int     `json:"interceptions"`
 			Tackles                 int     `json:"tackles"`
 			Sacks                   float64 `json:"sacks"`
@@ -321,7 +323,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"tackles_leader"`
 		SacksLeader struct {
-			Id                      int    `json:"id"`
+			Id                      string `json:"id"`
 			Interceptions           int    `json:"interceptions"`
 			Tackles                 int    `json:"tackles"`
 			Sacks                   int    `json:"sacks"`
@@ -345,7 +347,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"sacks_leader"`
 		InterceptionsLeader struct {
-			Id                      int    `json:"id"`
+			Id                      string `json:"id"`
 			Interceptions           int    `json:"interceptions"`
 			Tackles                 int    `json:"tackles"`
 			Sacks                   int    `json:"sacks"`
@@ -369,7 +371,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"interceptions_leader"`
 		ForcedFumblesLeader struct {
-			Id                      int     `json:"id"`
+			Id                      string  `json:"id"`
 			Interceptions           int     `json:"interceptions"`
 			Tackles                 int     `json:"tackles"`
 			Sacks                   float64 `json:"sacks"`
@@ -393,7 +395,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"forced_fumbles_leader"`
 		FieldGoalsMadeLeader struct {
-			Id                   int     `json:"id"`
+			Id                   string  `json:"id"`
 			Number               int     `json:"number"`
 			FirstName            string  `json:"first_name"`
 			LastName             string  `json:"last_name"`
@@ -415,7 +417,7 @@ type TeamWeb struct {
 	} `json:"season_leaders"`
 	Players struct {
 		Passing []struct {
-			Id                   int    `json:"id"`
+			Id                   string `json:"id"`
 			PassesAttempted      int    `json:"passes_attempted"`
 			PassesCompleted      int    `json:"passes_completed"`
 			Interceptions        int    `json:"interceptions"`
@@ -437,7 +439,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"passing"`
 		Rushing []struct {
-			Id              int    `json:"id"`
+			Id              string `json:"id"`
 			RushesAttempted int    `json:"rushes_attempted"`
 			LongestRush     int    `json:"longest_rush"`
 			Number          int    `json:"number"`
@@ -456,7 +458,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"rushing"`
 		Receiving []struct {
-			Id               int    `json:"id"`
+			Id               string `json:"id"`
 			Receptions       int    `json:"receptions"`
 			LongestReceiving int    `json:"longest_receiving"`
 			Number           int    `json:"number"`
@@ -476,7 +478,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"receiving"`
 		Interceptions []struct {
-			Id         int    `json:"id"`
+			Id         string `json:"id"`
 			Number     int    `json:"number"`
 			Touchdowns int    `json:"touchdowns"`
 			Yards      int    `json:"yards"`
@@ -492,7 +494,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"interceptions"`
 		PuntReturns []struct {
-			Id                int    `json:"id"`
+			Id                string `json:"id"`
 			Returns           int    `json:"returns"`
 			LongestPuntReturn int    `json:"longest_punt_return"`
 			Number            int    `json:"number"`
@@ -511,7 +513,7 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"punt_returns"`
 		Kickings []struct {
-			Id               int    `json:"id"`
+			Id               string `json:"id"`
 			Made             int    `json:"made"`
 			Attempted        int    `json:"attempted"`
 			Percentage       string `json:"percentage"`
@@ -532,7 +534,7 @@ type TeamWeb struct {
 			ExtraPointsAttempted int `json:"extra_points_attempted"`
 		} `json:"kickings"`
 		Defense []struct {
-			Id            int     `json:"id"`
+			Id            string  `json:"id"`
 			Interceptions int     `json:"interceptions"`
 			Tackles       int     `json:"tackles"`
 			Sacks         float64 `json:"sacks"`
@@ -552,7 +554,7 @@ type TeamWeb struct {
 			SpTackles      int `json:"sp_tackles"`
 		} `json:"defense"`
 		Fumbles []struct {
-			Id        int    `json:"id"`
+			Id        string `json:"id"`
 			Number    int    `json:"number"`
 			FirstName string `json:"first_name"`
 			LastName  string `json:"last_name"`
@@ -615,26 +617,28 @@ type DetailsMobile struct {
 }
 
 type DetailsWeb struct {
-	Id               int    `json:"id"`
-	LeagueShortName  string `json:"league_short_name"`
-	Quarter          int    `json:"quarter"`
-	IsActive         bool   `json:"is_active"`
-	Clock            string `json:"clock"`
-	Type             string `json:"type"`
-	Timestamp        int    `json:"timestamp"`
-	Status           string `json:"status"`
-	BallLocation     string `json:"ball_location"`
-	TeamPossessionId int    `json:"team_possession_id"`
-	Down             int    `json:"down"`
-	Distance         int    `json:"distance"`
-	Location         string `json:"location"`
-	LocationImageUrl string `json:"location_image_url"`
-	Attendance       int    `json:"attendance"`
-	GameName         string `json:"game_name"`
-	Tbd              bool   `json:"tbd"`
-	LocationImageMed string `json:"location_image_med"`
-	LocationImageSml string `json:"location_image_sml"`
-	Story            struct {
+	Id                   string                 `json:"id"`
+	LeagueShortName      string                 `json:"league_short_name"`
+	Quarter              int                    `json:"quarter"`
+	IsActive             bool                   `json:"is_active"`
+	Clock                string                 `json:"clock"`
+	Type                 string                 `json:"type"`
+	Timestamp            int                    `json:"timestamp"`
+	Broadcast            []common.GameBroadcast `json:"broadcast"`
+	Status               string                 `json:"status"`
+	BallLocation         string                 `json:"ball_location"`
+	TeamPossessionId     int                    `json:"team_possession_id"`
+	Down                 int                    `json:"down"`
+	Distance             int                    `json:"distance"`
+	Location             string                 `json:"location"`
+	SeriesMatchupsResult string                 `json:"series_matchups_result"`
+	LocationImageUrl     string                 `json:"location_image_url"`
+	Attendance           int                    `json:"attendance"`
+	GameName             string                 `json:"game_name"`
+	Tbd                  bool                   `json:"tbd"`
+	LocationImageMed     string                 `json:"location_image_med"`
+	LocationImageSml     string                 `json:"location_image_sml"`
+	Story                struct {
 		Type     string `json:"type"`
 		Headline string `json:"headline"`
 		Content  string `json:"content"`

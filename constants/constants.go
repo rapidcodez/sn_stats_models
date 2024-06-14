@@ -26,12 +26,14 @@ var SEASON_TYPES = map[string]int{
 	"SIM":            10,
 	"PIT":            5,
 	"CT":             7,
+	"division":       4,
 }
 
 var SEASON_TYPES_R = map[int]string{
 	1:  "PRE",
 	2:  "REG",
 	3:  "PST",
+	4:  "PST",
 	10: "SIM",
 	5:  "PIT",
 	7:  "CT",
