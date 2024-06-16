@@ -97,7 +97,7 @@ type SoccerDivision struct {
 
 type SoccerCard struct {
 	Type           string `json:"type"`
-	TeamID         int    `json:"team_id"`
+	TeamID         string `json:"team_id"`
 	PlayerID       int    `json:"player_id"`
 	FirstName      string `json:"first_name"`
 	LastName       string `json:"last_name"`
@@ -108,7 +108,7 @@ type SoccerCard struct {
 
 type SoccerGoal struct {
 	PlayerID       int    `json:"player_id"`
-	TeamID         int    `json:"team_id"`
+	TeamID         string `json:"team_id"`
 	FirstName      string `json:"first_name"`
 	LastName       string `json:"last_name"`
 	Minutes        int    `json:"minutes"`
@@ -120,7 +120,7 @@ type SoccerGoal struct {
 }
 
 type SoccerSubstitution struct {
-	TeamID         int                     `json:"team_id"`
+	TeamID         string                  `json:"team_id"`
 	Minutes        int                     `json:"minutes"`
 	Seconds        int                     `json:"seconds"`
 	AdditionalMins int                     `json:"additional_mins"`
@@ -144,7 +144,7 @@ type SoccerPeriod struct {
 
 type SoccerSOAttempt struct {
 	PlayerID              int    `json:"player_id"`
-	TeamID                int    `json:"team_id"`
+	TeamID                string `json:"team_id"`
 	FirstName             string `json:"first_name"`
 	LastName              string `json:"last_name"`
 	Minutes               int    `json:"minutes"`
