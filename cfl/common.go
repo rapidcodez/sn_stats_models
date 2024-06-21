@@ -624,6 +624,8 @@ type DetailsWeb struct {
 	Clock                string                 `json:"clock"`
 	Type                 string                 `json:"type"`
 	Timestamp            int                    `json:"timestamp"`
+	Overtime             int                    `json:"overtime"`
+	IsIntermission       bool                   `json:"is_intermission"`
 	Broadcast            []common.GameBroadcast `json:"broadcast"`
 	Status               string                 `json:"status"`
 	BallLocation         string                 `json:"ball_location"`
