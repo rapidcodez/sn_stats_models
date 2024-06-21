@@ -1,87 +1,49 @@
-package sportradar
+package golf
 
-import "time"
-
-type TournamentSummary struct {
-	CourseTimezone string                     `json:"course_timezone"`
-	Coverage       string                     `json:"coverage"`
-	Currency       string                     `json:"currency"`
-	EndDate        string                     `json:"end_date"`
-	EventType      string                     `json:"event_type"`
-	Field          []TournamentSummaryField   `json:"field"`
-	ID             string                     `json:"id"`
-	Name           string                     `json:"name"`
-	ParentID       string                     `json:"parent_id"`
-	Points         int                        `json:"points"`
-	Purse          int                        `json:"purse"`
-	Rounds         []TournamentSummaryRounds  `json:"rounds"`
-	Seasons        []TournamentSummarySeasons `json:"seasons"`
-	StartDate      string                     `json:"start_date"`
-	Status         string                     `json:"status"`
-	Venue          TournamentSummaryVenue     `json:"venue"`
-	WinningShare   int                        `json:"winning_share"`
+type Tournament struct {
+	ID                 string   `json:"id"`
+	Course             string   `json:"course"`
+	CurrentChampions   []Player `json:"current_champions"`
+	DefendingChampion  Player   `json:"defending_champion"`
+	DefendingChampions []Player `json:"defending_champions"`
+	EndDate            string   `json:"end_date"`
+	End                int      `json:"end"`
+	Location           string   `json:"location"`
+	Name               string   `json:"name"`
+	Prize              int      `json:"prize"`
+	Result             Result   `json:"result,omitempty"`
+	ShortName          string   `json:"short_name"`
+	Start              int      `json:"start"`
+	StartDate          string   `json:"start_date"`
+	Status             string   `json:"status"`
+	Par                int      `json:"par,omitempty"`
+	Yards              int      `json:"yards,omitempty"`
 }
-type TournamentSummaryField struct {
-	AbbrName  string `json:"abbr_name"`
-	Amateur   bool   `json:"amateur,omitempty"`
-	Country   string `json:"country"`
-	FirstName string `json:"first_name"`
+
+type Player struct {
+	ID              string `json:"id"`
+	FirstName       string `json:"first_name"`
+	FlagURL         string `json:"flag_url"`
+	LastName        string `json:"last_name"`
+	MadeCut         bool   `json:"made_cut,omitempty"`
+	Playoff         bool   `json:"playoff,omitempty"`
+	Rank            string `json:"rank,omitempty"`
+	Round           int    `json:"round,omitempty"`
+	RoundHoles      int    `json:"round_holes,omitempty"`
+	RoundScore      int    `json:"round_score,omitempty"`
+	Rounds          []int  `json:"rounds,omitempty"`
+	TeeTime         int    `json:"tee_time,omitempty"`
+	TotalScore      int    `json:"total_score,omitempty"`
+	TotalStrokes    int    `json:"total_strokes,omitempty"`
+	TotalStrokesWeb int    `json:"total_strokes_web,omitempty"`
+	Withdrawn       bool   `json:"withdrawn,omitempty"`
+}
+
+type Result struct {
 	ID        string `json:"id"`
+	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
-}
-type TournamentSummaryBroadcasts struct {
-	EndAt    time.Time `json:"end_at"`
-	Radio    string    `json:"radio,omitempty"`
-	StartAt  time.Time `json:"start_at"`
-	Network  string    `json:"network,omitempty"`
-	Internet string    `json:"internet,omitempty"`
-}
-type TournamentSummaryWind struct {
-	Direction string `json:"direction"`
-	Speed     int    `json:"speed"`
-}
-type TournamentSummaryWeather struct {
-	Condition string                `json:"condition"`
-	Temp      int                   `json:"temp"`
-	Wind      TournamentSummaryWind `json:"wind"`
-}
-type TournamentSummaryRounds struct {
-	Broadcasts []TournamentSummaryBroadcasts `json:"broadcasts"`
-	ID         string                        `json:"id"`
-	Number     int                           `json:"number"`
-	Status     string                        `json:"status"`
-	Weather    TournamentSummaryWeather      `json:"weather"`
-}
-type TournamentSummaryTour struct {
-	Alias string `json:"alias"`
-	ID    string `json:"id"`
-	Name  string `json:"name"`
-}
-type TournamentSummarySeasons struct {
-	ID   string                `json:"id"`
-	Tour TournamentSummaryTour `json:"tour"`
-	Year int                   `json:"year"`
-}
-type TournamentSummaryHoles struct {
-	Number  int `json:"number"`
-	Par     int `json:"par"`
-	Yardage int `json:"yardage"`
-}
-type TournamentSummaryCourses struct {
-	Holes   []TournamentSummaryHoles `json:"holes"`
-	ID      string                   `json:"id"`
-	Name    string                   `json:"name"`
-	Par     int                      `json:"par"`
-	Yardage int                      `json:"yardage"`
-}
-type TournamentSummaryVenue struct {
-	City      string                     `json:"city"`
-	Country   string                     `json:"country"`
-	Courses   []TournamentSummaryCourses `json:"courses"`
-	ID        string                     `json:"id"`
-	Latitude  string                     `json:"latitude"`
-	Longitude string                     `json:"longitude"`
-	Name      string                     `json:"name"`
-	State     string                     `json:"state"`
-	Zipcode   string                     `json:"zipcode"`
+	Purse     int    `json:"purse"`
+	Score     int    `json:"score"`
+	Strokes   int    `json:"strokes"`
 }
