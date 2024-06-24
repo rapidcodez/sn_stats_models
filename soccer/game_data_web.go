@@ -61,21 +61,21 @@ type TeamWeb struct {
 	ImageURL90       string                  `json:"image_url_90"`
 	ImageURL25       string                  `json:"image_url_25"`
 	ImageURL59       string                  `json:"image_url_59"`
-	Division         SoccerDivision          `json:"division"`
-	Conference       SoccerConference        `json:"conference"`
-	Linescore        SoccerLineScore         `json:"linescore"`
-	GameStats        GameStatistics          `json:"game_stats"`
+	Division         *SoccerDivision         `json:"division"`
+	Conference       *SoccerConference       `json:"conference"`
+	Linescore        *SoccerLineScore        `json:"linescore"`
+	GameStats        *GameStatistics         `json:"game_stats"`
 	Goalkeepers      []SoccerGoalKeeper      `json:"goalkeepers"`
 	Defenders        []SoccerDefender        `json:"defenders"`
 	Midfielders      []SoccerMidfielder      `json:"midfielders"`
 	Forwards         []SoccerForward         `json:"forwards"`
-	SeasonStats      SoccerSeasonStatistics  `json:"season_stats"`
-	LeagueRank       int                     `json:"league_rank"`
-	TeamStats        SoccerTeamStatistics    `json:"team_stats"`
+	SeasonStats      *SoccerSeasonStatistics `json:"season_stats"`
+	LeagueRank       *int                    `json:"league_rank"`
+	TeamStats        *SoccerTeamStatistics   `json:"team_stats"`
 	BenchPlayers     []SoccerBenchPlayer     `json:"bench_players"`
 	BenchGoalKeepers []SoccerBenchGoalKeeper `json:"bench_goalkeepers"`
-	TeamStanding     SoccerTeamStanding      `json:"team_standings"`
-	BoxScoreTotal    SoccerBoxScoreTotal     `json:"boxscore_totals"`
+	TeamStanding     *SoccerTeamStanding     `json:"team_standings"`
+	BoxScoreTotal    *SoccerBoxScoreTotal    `json:"boxscore_totals"`
 }
 
 type SoccerConference struct {
