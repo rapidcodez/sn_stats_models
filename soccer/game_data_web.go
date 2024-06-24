@@ -51,6 +51,7 @@ type TeamWeb struct {
 	Name             string                  `json:"name"`
 	ShortName        string                  `json:"short_name"`
 	City             string                  `json:"city"`
+	Tbd              bool                    `json:"tbd"` // Assign Virtual flag here
 	Country          string                  `json:"country"`
 	ImageURL         string                  `json:"image_url"`
 	Color            string                  `json:"color"`
