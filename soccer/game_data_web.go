@@ -179,7 +179,7 @@ type SoccerSeasonStatistics struct {
 	Ties                    int     `json:"ties"`
 	Losses                  int     `json:"losses"`
 	Points                  int     `json:"points"`
-	Pct                     int     `json:"pct"`
+	Pct                     float64 `json:"pct"`
 	Fouls                   int     `json:"fouls"`
 	YellowCards             int     `json:"yellow_cards"`
 	RedCards                int     `json:"red_cards"`
