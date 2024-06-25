@@ -175,26 +175,26 @@ type SoccerHalfShootOut struct {
 }
 
 type SoccerSeasonStatistics struct {
-	Wins                    int    `json:"wins"`
-	Ties                    int    `json:"ties"`
-	Losses                  int    `json:"losses"`
-	Points                  int    `json:"points"`
-	Pct                     int    `json:"pct"`
-	Fouls                   int    `json:"fouls"`
-	YellowCards             int    `json:"yellow_cards"`
-	RedCards                int    `json:"red_cards"`
-	PointsPerGame           string `json:"points_per_game"`
-	PointsTeam              int    `json:"points_team"`
-	GoalsPerGame            string `json:"goals_per_game"`
-	GoalsPerGameRank        int    `json:"goals_per_game_rank"`
-	GoalsAgainstPerGame     string `json:"goals_against_per_game"`
-	GoalsAgainstPerGameRank int    `json:"goals_against_per_game_rank"`
-	GoalDifferential        int    `json:"goal_differential"`
-	GoalDifferentialRank    int    `json:"goal_differential_rank"`
-	Shutouts                int    `json:"shutouts"`
-	ShutoutsRank            int    `json:"shutouts_rank"`
-	Minutes                 int    `json:"minutes"`
-	Tackles                 int    `json:"tackles"`
+	Wins                    int     `json:"wins"`
+	Ties                    int     `json:"ties"`
+	Losses                  int     `json:"losses"`
+	Points                  int     `json:"points"`
+	Pct                     int     `json:"pct"`
+	Fouls                   int     `json:"fouls"`
+	YellowCards             int     `json:"yellow_cards"`
+	RedCards                int     `json:"red_cards"`
+	PointsPerGame           float64 `json:"points_per_game"`
+	PointsTeam              int     `json:"points_team"`
+	GoalsPerGame            string  `json:"goals_per_game"`
+	GoalsPerGameRank        int     `json:"goals_per_game_rank"`
+	GoalsAgainstPerGame     string  `json:"goals_against_per_game"`
+	GoalsAgainstPerGameRank int     `json:"goals_against_per_game_rank"`
+	GoalDifferential        int     `json:"goal_differential"`
+	GoalDifferentialRank    int     `json:"goal_differential_rank"`
+	Shutouts                int     `json:"shutouts"`
+	ShutoutsRank            int     `json:"shutouts_rank"`
+	Minutes                 int     `json:"minutes"`
+	Tackles                 int     `json:"tackles"`
 }
 
 type SoccerTeamStatistics struct {
