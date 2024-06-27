@@ -26,18 +26,18 @@ type Player struct {
 	FirstName       string `json:"first_name"`
 	FlagURL         string `json:"flag_url"`
 	LastName        string `json:"last_name"`
-	MadeCut         bool   `json:"made_cut,omitempty"`
-	Playoff         bool   `json:"playoff,omitempty"`
-	Rank            string `json:"rank,omitempty"`
-	Round           int    `json:"round,omitempty"`
-	RoundHoles      int    `json:"round_holes,omitempty"`
-	RoundScore      int    `json:"round_score,omitempty"`
-	Rounds          []int  `json:"rounds,omitempty"`
+	MadeCut         bool   `json:"made_cut"`
+	Playoff         bool   `json:"playoff"`
+	Rank            string `json:"rank"`
+	Round           int    `json:"round"`
+	RoundHoles      int    `json:"round_holes"`
+	RoundScore      int    `json:"round_score"`
+	Rounds          []int  `json:"rounds"`
 	TeeTime         int    `json:"tee_time,omitempty"`
-	TotalScore      int    `json:"total_score,omitempty"`
-	TotalStrokes    int    `json:"total_strokes,omitempty"`
-	TotalStrokesWeb int    `json:"total_strokes_web,omitempty"`
-	Withdrawn       bool   `json:"withdrawn,omitempty"`
+	TotalScore      int    `json:"total_score"`
+	TotalStrokes    int    `json:"total_strokes"`
+	TotalStrokesWeb int    `json:"total_strokes_web"`
+	Withdrawn       bool   `json:"withdrawn"`
 }
 
 type Result struct {
