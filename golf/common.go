@@ -13,6 +13,8 @@ type Tournament struct {
 	Players            []Player `json:"players"`
 	Prize              float64  `json:"prize"`
 	Result             Result   `json:"result,omitempty"`
+	Rounds             []Round  `json:"rounds"`
+	CurrentRound       Round    `json:"current_round"`
 	ShortName          string   `json:"short_name"`
 	Start              int      `json:"start"`
 	StartDate          string   `json:"start_date"`
@@ -47,4 +49,10 @@ type Result struct {
 	Purse     float64 `json:"purse"`
 	Score     int     `json:"score"`
 	Strokes   int     `json:"strokes"`
+}
+
+type Round struct {
+    ID     string `json:"id"`
+	Number int    `json:"number"`
+	Status string `json:"status"`
 }
