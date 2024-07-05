@@ -160,6 +160,7 @@ type Player struct {
 	Runs               int    `json:"runs"`
 	HomeRuns           int    `json:"home_runs"`
 	Hits               int    `json:"hits"`
+	HitsSeason         int    `json:"hits_season"`
 	RunsBattedIn       int    `json:"runs_batted_in"`
 	Walks              int    `json:"walks"`
 	StrikeOuts         int    `json:"strike_outs"`
