@@ -36,6 +36,7 @@ type Player struct {
 	RoundScore      int    `json:"round_score"`
 	Rounds          []int  `json:"rounds"`
 	TeeTime         int    `json:"tee_time,omitempty"`
+	TeeDateTime		string `json:"tee_datetime,omitempty"`
 	TotalScore      int    `json:"total_score"`
 	TotalStrokes    int    `json:"total_strokes"`
 	TotalStrokesWeb int    `json:"total_strokes_web"`
