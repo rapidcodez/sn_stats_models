@@ -9,6 +9,7 @@ type TennisTournamentMatchPlayer struct {
 	TieBreakScore  []int  `json:"tie_break_score"`
 	Winner         bool   `json:"winner"`
 	TournamentRank int    `json:"tournament_rank"`
+	Seed           int    `json:"seed,omitempty"`
 }
 
 type TennisTournamentMatch struct {
