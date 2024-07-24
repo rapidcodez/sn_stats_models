@@ -1,5 +1,7 @@
 package nfl
 
+import "github.com/digitalmedia/sn_stats_models/common"
+
 type Quarter struct {
 	Plays []struct {
 		VisitingTeamScore int    `json:"visiting_team_score"`
@@ -24,7 +26,7 @@ type TeamMobile struct {
 }
 
 type TeamWeb struct {
-	Id         int    `json:"id"`
+	Id         string `json:"id"`
 	Name       string `json:"name"`
 	ShortName  string `json:"short_name"`
 	City       string `json:"city"`
@@ -615,26 +617,30 @@ type DetailsMobile struct {
 }
 
 type DetailsWeb struct {
-	Id               int    `json:"id"`
-	LeagueShortName  string `json:"league_short_name"`
-	Quarter          int    `json:"quarter"`
-	IsActive         bool   `json:"is_active"`
-	Clock            string `json:"clock"`
-	Type             string `json:"type"`
-	Timestamp        int    `json:"timestamp"`
-	Status           string `json:"status"`
-	BallLocation     string `json:"ball_location"`
-	TeamPossessionId int    `json:"team_possession_id"`
-	Down             int    `json:"down"`
-	Distance         int    `json:"distance"`
-	Location         string `json:"location"`
-	LocationImageUrl string `json:"location_image_url"`
-	Attendance       int    `json:"attendance"`
-	GameName         string `json:"game_name"`
-	Tbd              bool   `json:"tbd"`
-	LocationImageMed string `json:"location_image_med"`
-	LocationImageSml string `json:"location_image_sml"`
-	Story            struct {
+	Id                   string                 `json:"id"`
+	LeagueShortName      string                 `json:"league_short_name"`
+	Quarter              int                    `json:"quarter"`
+	IsActive             bool                   `json:"is_active"`
+	Clock                string                 `json:"clock"`
+	Type                 string                 `json:"type"`
+	Timestamp            int                    `json:"timestamp"`
+	Overtime             int                    `json:"overtime"`
+	IsIntermission       bool                   `json:"is_intermission"`
+	Broadcast            []common.GameBroadcast `json:"broadcast"`
+	Status               string                 `json:"status"`
+	BallLocation         string                 `json:"ball_location"`
+	TeamPossessionId     int                    `json:"team_possession_id"`
+	Down                 int                    `json:"down"`
+	Distance             int                    `json:"distance"`
+	Location             string                 `json:"location"`
+	SeriesMatchupsResult string                 `json:"series_matchups_result"`
+	LocationImageUrl     string                 `json:"location_image_url"`
+	Attendance           int                    `json:"attendance"`
+	GameName             string                 `json:"game_name"`
+	Tbd                  bool                   `json:"tbd"`
+	LocationImageMed     string                 `json:"location_image_med"`
+	LocationImageSml     string                 `json:"location_image_sml"`
+	Story                struct {
 		Type     string `json:"type"`
 		Headline string `json:"headline"`
 		Content  string `json:"content"`
