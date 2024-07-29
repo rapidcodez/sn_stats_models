@@ -21,7 +21,7 @@ type DetailsMobile struct {
 	LosingPitcher      *Player    `json:"losing_pitcher,omitempty"`
 	Outs               int        `json:"outs"`
 	IsActive           bool       `json:"is_active"`
-	Sequence           int64      `json:"sequence"`
+	LastScoreSequence  int64      `json:"score_sequence_last"`
 	RunnerOnFirstBase  bool       `json:"runner_on_first_base"`
 	RunnerOnSecondBase bool       `json:"runner_on_second_base"`
 	RunnerOnThirdBase  bool       `json:"runner_on_third_base"`
@@ -33,9 +33,10 @@ type DetailsMobile struct {
 }
 
 type ScoreLog struct {
-	ScoreHash string `json:"score_hash"`
-	HomeScore int    `json:"home_score"`
-	AwayScore int    `json:"away_score"`
+	ScoreSequence int    `json:"score_sequence"`
+	ScoreHash     string `json:"score_hash"`
+	HomeScore     int    `json:"home_score"`
+	AwayScore     int    `json:"away_score"`
 }
 
 type TeamMobile struct {
