@@ -25,6 +25,66 @@ type TeamMobile struct {
 	Score      int    `json:"score"`
 }
 
+type SeasonStats struct {
+	Wins                          int     `json:"wins"`
+	Losses                        int     `json:"losses"`
+	Ties                          int     `json:"ties"`
+	PassingYardsPerGame           float64 `json:"passing_yards_per_game"`
+	NetPassingYardsPerGame        float64 `json:"net_passing_yards_per_game"`
+	RushingYardsPerGame           float64 `json:"rushing_yards_per_game"`
+	OffenseYardsPerGame           float64 `json:"offense_yards_per_game"`
+	DefenseYardsPerGame           float64 `json:"defense_yards_per_game"`
+	Tackles                       int     `json:"tackles"`
+	Interceptions                 int     `json:"interceptions"`
+	FumblesRecovered              int     `json:"fumbles_recovered"`
+	PointsScored                  int     `json:"points_scored"`
+	PenaltiesPerGame              float64 `json:"penalties_per_game"`
+	Touchdowns                    int     `json:"touchdowns"`
+	ReturnYards                   int     `json:"return_yards"`
+	Sacks                         int     `json:"sacks"`
+	YardsPerGame                  float64 `json:"yards_per_game"`
+	YardsAllowedPerGame           float64 `json:"yards_allowed_per_game"`
+	ReturnYardsPerGame            float64 `json:"return_yards_per_game"`
+	InterceptionsThrown           int     `json:"interceptions_thrown"`
+	FumblesLost                   int     `json:"fumbles_lost"`
+	PointsScoredPerGame           float64 `json:"points_scored_per_game"`
+	PointsAllowedPerGame          float64 `json:"points_allowed_per_game"`
+	SacksAllowed                  int     `json:"sacks_allowed"`
+	PuntingSingles                int     `json:"punting_singles"`
+	FieldGoalsSingles             int     `json:"field_goals_singles"`
+	KickoffsSingles               int     `json:"kickoffs_singles"`
+	ThirdDownEfficiencyPercentage float64 `json:"third_down_efficiency_percentage"`
+	Takeaways                     int     `json:"takeaways"`
+	ScoringEfficiencyPercentage   float64 `json:"scoring_efficiency_percentage"`
+	HundredYardGamesRushing       int     `json:"hundred_yard_games_rushing"`
+	HundredYardGamesReceiving     int     `json:"hundred_yard_games_receiving"`
+	ThreeHundredYardGamesPassing  int     `json:"three_hundred_yard_games_passing"`
+}
+
+type TeamStandings struct {
+	Wins                   int     `json:"wins"`
+	Losses                 int     `json:"losses"`
+	Ties                   int     `json:"ties"`
+	WinPercentage          float64 `json:"win_percentage"`
+	Points                 int     `json:"points"`
+	PointsAgainst          int     `json:"points_against"`
+	HomeRecord             string  `json:"home_record"`
+	RoadRecord             string  `json:"road_record"`
+	DivisionRecord         string  `json:"division_record"`
+	ConferenceRecord       string  `json:"conference_record"`
+	PointsFor              int     `json:"points_for"`
+	HomeWins               int     `json:"home_wins"`
+	HomeLosses             int     `json:"home_losses"`
+	HomeTies               int     `json:"home_ties"`
+	AwayWins               int     `json:"away_wins"`
+	AwayLosses             int     `json:"away_losses"`
+	AwayTies               int     `json:"away_ties"`
+	Last5Wins              int     `json:"last_5_wins"`
+	Last5Losses            int     `json:"last_5_losses"`
+	Last5Ties              int     `json:"last_5_ties"`
+	StrengthOfScheduleRank int     `json:"strength_of_schedule_rank"`
+}
+
 type TeamWeb struct {
 	Id         string `json:"id"`
 	Name       string `json:"name"`
@@ -34,20 +94,12 @@ type TeamWeb struct {
 	Score      int    `json:"score"`
 	ImageUrl90 string `json:"image_url_90"`
 	Division   struct {
-		Id        int    `json:"id"`
+		Id        string `json:"id"`
 		Name      string `json:"name"`
 		ShortName string `json:"short_name"`
 		Rank      int    `json:"rank"`
 	} `json:"division"`
-	Injuries []struct {
-		PlayerId  int    `json:"player_id"`
-		FirstName string `json:"first_name"`
-		LastName  string `json:"last_name"`
-		Position  string `json:"position"`
-		Status    string `json:"status"`
-		Timestamp int    `json:"timestamp"`
-		Type      string `json:"type"`
-	} `json:"injuries"`
+	Injuries  []common.Injuries `json:"injuries"`
 	GameStats struct {
 		FirstDowns                    int    `json:"first_downs"`
 		RushingYards                  int    `json:"rushing_yards"`
@@ -75,41 +127,7 @@ type TeamWeb struct {
 		GameTotalAverage              string `json:"game_total_average"`
 		PassingSacks                  int    `json:"passing_sacks"`
 	} `json:"game_stats"`
-	SeasonStats struct {
-		Wins                          int     `json:"wins"`
-		Losses                        int     `json:"losses"`
-		Ties                          int     `json:"ties"`
-		PassingYardsPerGame           float64 `json:"passing_yards_per_game"`
-		NetPassingYardsPerGame        float64 `json:"net_passing_yards_per_game"`
-		RushingYardsPerGame           float64 `json:"rushing_yards_per_game"`
-		OffenseYardsPerGame           float64 `json:"offense_yards_per_game"`
-		DefenseYardsPerGame           float64 `json:"defense_yards_per_game"`
-		Tackles                       int     `json:"tackles"`
-		Interceptions                 int     `json:"interceptions"`
-		FumblesRecovered              int     `json:"fumbles_recovered"`
-		PointsScored                  int     `json:"points_scored"`
-		PenaltiesPerGame              float64 `json:"penalties_per_game"`
-		Touchdowns                    int     `json:"touchdowns"`
-		ReturnYards                   int     `json:"return_yards"`
-		Sacks                         int     `json:"sacks"`
-		YardsPerGame                  float64 `json:"yards_per_game"`
-		YardsAllowedPerGame           float64 `json:"yards_allowed_per_game"`
-		ReturnYardsPerGame            int     `json:"return_yards_per_game"`
-		InterceptionsThrown           int     `json:"interceptions_thrown"`
-		FumblesLost                   int     `json:"fumbles_lost"`
-		PointsScoredPerGame           float64 `json:"points_scored_per_game"`
-		PointsAllowedPerGame          float64 `json:"points_allowed_per_game"`
-		SacksAllowed                  int     `json:"sacks_allowed"`
-		PuntingSingles                int     `json:"punting_singles"`
-		FieldGoalsSingles             int     `json:"field_goals_singles"`
-		KickoffsSingles               int     `json:"kickoffs_singles"`
-		ThirdDownEfficiencyPercentage float64 `json:"third_down_efficiency_percentage"`
-		Takeaways                     int     `json:"takeaways"`
-		ScoringEfficiencyPercentage   float64 `json:"scoring_efficiency_percentage"`
-		HundredYardGamesRushing       int     `json:"hundred_yard_games_rushing"`
-		HundredYardGamesReceiving     int     `json:"hundred_yard_games_receiving"`
-		ThreeHundredYardGamesPassing  int     `json:"three_hundred_yard_games_passing"`
-	} `json:"season_stats"`
+	SeasonStats *SeasonStats `json:"season_stats"`
 	GameLeaders struct {
 		PassingLeader struct {
 			Id                   int    `json:"id"`
@@ -568,35 +586,11 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"fumbles"`
 	} `json:"players"`
-	Color         string `json:"color"`
-	TimeoutsLeft  int    `json:"timeouts_left"`
-	ImageUrl25    string `json:"image_url_25"`
-	ImageUrl59    string `json:"image_url_59"`
-	TeamStandings struct {
-		Wins                   int     `json:"wins"`
-		Losses                 int     `json:"losses"`
-		Ties                   int     `json:"ties"`
-		WinPercentage          float64 `json:"win_percentage"`
-		Points                 int     `json:"points"`
-		PointsAgainst          int     `json:"points_against"`
-		HomeRecord             string  `json:"home_record"`
-		RoadRecord             string  `json:"road_record"`
-		DivisionRecord         string  `json:"division_record"`
-		ConferenceRecord       string  `json:"conference_record"`
-		PointsFor              int     `json:"points_for"`
-		HomeWins               int     `json:"home_wins"`
-		HomeLosses             int     `json:"home_losses"`
-		HomeTies               int     `json:"home_ties"`
-		AwayWins               int     `json:"away_wins"`
-		AwayLosses             int     `json:"away_losses"`
-		AwayTies               int     `json:"away_ties"`
-		Last5Wins              int     `json:"last_5_wins"`
-		Last5Losses            int     `json:"last_5_losses"`
-		Last5Ties              int     `json:"last_5_ties"`
-		StrengthOfScheduleRank int     `json:"strength_of_schedule_rank"`
-		StreakGames            int     `json:"streak_games"`
-		Streak                 string  `json:"streak"`
-	} `json:"team_standings"`
+	Color         string        `json:"color"`
+	TimeoutsLeft  int           `json:"timeouts_left"`
+	ImageUrl25    string        `json:"image_url_25"`
+	ImageUrl59    string        `json:"image_url_59"`
+	TeamStandings TeamStandings `json:"team_standings"`
 }
 
 type DetailsMobile struct {
@@ -608,7 +602,6 @@ type DetailsMobile struct {
 	Timestamp       int    `json:"timestamp"`
 	Status          string `json:"status"`
 	Overtime        int    `json:"overtime"`
-	IsIntermission  bool   `json:"is_intermission"`
 	Sequence        int64  `json:"sequence"`
 	ScoreSequence   int64  `json:"score_sequence"`
 	Downs           int    `json:"downs"`
@@ -689,30 +682,4 @@ type DetailsWeb struct {
 		Name   string `json:"name"`
 		Detail string `json:"detail"`
 	} `json:"game_type"`
-	OpeningLine struct {
-		FavId         int    `json:"fav_id"`
-		Name          string `json:"name"`
-		FavPoints     int    `json:"fav_points"`
-		FavMoney      int    `json:"fav_money"`
-		UnderdogMoney int    `json:"underdog_money"`
-		HomeMoney     int    `json:"home_money"`
-		AwayMoney     int    `json:"away_money"`
-		Total         int    `json:"total"`
-		OverMoney     int    `json:"over_money"`
-		UnderMoney    int    `json:"under_money"`
-		DrawMoney     int    `json:"draw_money"`
-	} `json:"opening_line"`
-	CurrentLine struct {
-		FavId         int    `json:"fav_id"`
-		Name          string `json:"name"`
-		FavPoints     int    `json:"fav_points"`
-		FavMoney      int    `json:"fav_money"`
-		UnderdogMoney int    `json:"underdog_money"`
-		HomeMoney     int    `json:"home_money"`
-		AwayMoney     int    `json:"away_money"`
-		Total         int    `json:"total"`
-		OverMoney     int    `json:"over_money"`
-		UnderMoney    int    `json:"under_money"`
-		DrawMoney     int    `json:"draw_money"`
-	} `json:"current_line"`
 }
