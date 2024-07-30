@@ -85,6 +85,75 @@ type TeamStandings struct {
 	StrengthOfScheduleRank int     `json:"strength_of_schedule_rank"`
 }
 
+type SeasonLeadersLeader struct {
+	Id            string `json:"id"`
+	FirstName     string `json:"first_name"`
+	LastName      string `json:"last_name"`
+	Number        int    `json:"number"`
+	Position      string `json:"position"`
+	ShortPosition string `json:"short_position"`
+	ImageUrl      string `json:"image_url"`
+	ImageUrls     struct {
+		Lg string `json:"lg"`
+		Md string `json:"md"`
+		Sm string `json:"sm"`
+		Xs string `json:"xs"`
+	} `json:"image_urls"`
+
+	Yards      int    `json:"yards"`
+	Average    string `json:"average"`
+	Touchdowns int    `json:"touchdowns"`
+	Attempts   int    `json:"attempts"`
+
+	QbRating float64 `json:"qb_rating"`
+
+	PassesAttempted int `json:"passes_attempted"`
+
+	Interceptions        int    `json:"interceptions"`
+	CompletionPercentage string `json:"completion_percentage"`
+	LongestPass          int    `json:"longest_pass"`
+
+	FieldGoalsAttempted  int     `json:"field_goals_attempted"`
+	FieldGoalsMade       int     `json:"field_goals_made"`
+	FieldGoalsPercentage float64 `json:"field_goals_percentage"`
+	ExtraPointsMade      int     `json:"extra_points_made"`
+
+	Tackles int     `json:"tackles"`
+	Sacks   float64 `json:"sacks"`
+
+	ForcedFumbles           int `json:"forced_fumbles"`
+	Assists                 int `json:"assists"`
+	TotalTackles            int `json:"total_tackles"`
+	InterceptionsYards      int `json:"interceptions_yards"`
+	InterceptionsTouchdowns int `json:"interceptions_touchdowns"`
+
+	Receptions        int     `json:"receptions"`
+	LongestReceiving  int     `json:"longest_receiving"`
+	YardsPerReception float64 `json:"yards_per_reception"`
+	Targets           int     `json:"targets"`
+
+	YardsPerGame    float64 `json:"yards_per_game"`
+	YardsPerAttempt float64 `json:"yards_per_attempt"`
+
+	Completions  int `json:"completions"`
+	GamesStarted int `json:"games_started"`
+	RushingYards int `json:"rushing_yards"`
+}
+
+type SeasonPassingLeader struct {
+}
+
+type SeasonLeaders struct {
+	PassingLeader        *SeasonLeadersLeader `json:"passing_leader"`
+	RushingLeader        *SeasonLeadersLeader `json:"rushing_leader"`
+	ReceivingLeader      *SeasonLeadersLeader `json:"receiving_leader"`
+	TacklesLeader        *SeasonLeadersLeader `json:"tackles_leader"`
+	SacksLeader          *SeasonLeadersLeader `json:"sacks_leader"`
+	InterceptionsLeader  *SeasonLeadersLeader `json:"interceptions_leader"`
+	ForcedFumblesLeader  *SeasonLeadersLeader `json:"forced_fumbles_leader"`
+	FieldGoalsMadeLeader *SeasonLeadersLeader `json:"field_goals_made_leader"`
+}
+
 type TeamWeb struct {
 	Id         string `json:"id"`
 	Name       string `json:"name"`
@@ -249,191 +318,8 @@ type TeamWeb struct {
 			ExtraPointsAttempted int `json:"extra_points_attempted"`
 		} `json:"kickoffs_singles_leader"`
 	} `json:"game_leaders"`
-	SeasonLeaders struct {
-		PassingLeader struct {
-			Id            int     `json:"id"`
-			Interceptions int     `json:"interceptions"`
-			Number        int     `json:"number"`
-			Touchdowns    int     `json:"touchdowns"`
-			Yards         int     `json:"yards"`
-			FirstName     string  `json:"first_name"`
-			LastName      string  `json:"last_name"`
-			ImageUrl      string  `json:"image_url"`
-			Position      string  `json:"position"`
-			QbRating      float64 `json:"qb_rating"`
-			ShortPosition string  `json:"short_position"`
-			Attempts      int     `json:"attempts"`
-			Completions   int     `json:"completions"`
-			GamesStarted  int     `json:"games_started"`
-			ImageUrls     struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-			RushingYards int `json:"rushing_yards"`
-		} `json:"passing_leader"`
-		RushingLeader struct {
-			Id              int     `json:"id"`
-			Number          int     `json:"number"`
-			Touchdowns      int     `json:"touchdowns"`
-			Yards           int     `json:"yards"`
-			FirstName       string  `json:"first_name"`
-			LastName        string  `json:"last_name"`
-			ImageUrl        string  `json:"image_url"`
-			Position        string  `json:"position"`
-			ShortPosition   string  `json:"short_position"`
-			Attempts        int     `json:"attempts"`
-			YardsPerGame    float64 `json:"yards_per_game"`
-			YardsPerAttempt float64 `json:"yards_per_attempt"`
-			GamesStarted    int     `json:"games_started"`
-			ImageUrls       struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"rushing_leader"`
-		ReceivingLeader struct {
-			Id                int     `json:"id"`
-			Receptions        int     `json:"receptions"`
-			Number            int     `json:"number"`
-			Touchdowns        int     `json:"touchdowns"`
-			Yards             int     `json:"yards"`
-			FirstName         string  `json:"first_name"`
-			LastName          string  `json:"last_name"`
-			ImageUrl          string  `json:"image_url"`
-			Position          string  `json:"position"`
-			ShortPosition     string  `json:"short_position"`
-			YardsPerGame      float64 `json:"yards_per_game"`
-			YardsPerReception float64 `json:"yards_per_reception"`
-			Targets           int     `json:"targets"`
-			GamesStarted      int     `json:"games_started"`
-			ImageUrls         struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"receiving_leader"`
-		TacklesLeader struct {
-			Id                      int     `json:"id"`
-			Interceptions           int     `json:"interceptions"`
-			Tackles                 int     `json:"tackles"`
-			Sacks                   float64 `json:"sacks"`
-			Number                  int     `json:"number"`
-			ForcedFumbles           int     `json:"forced_fumbles"`
-			FirstName               string  `json:"first_name"`
-			LastName                string  `json:"last_name"`
-			ImageUrl                string  `json:"image_url"`
-			Position                string  `json:"position"`
-			ShortPosition           string  `json:"short_position"`
-			Assists                 int     `json:"assists"`
-			GamesStarted            int     `json:"games_started"`
-			TotalTackles            int     `json:"total_tackles"`
-			InterceptionsYards      int     `json:"interceptions_yards"`
-			InterceptionsTouchdowns int     `json:"interceptions_touchdowns"`
-			ImageUrls               struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"tackles_leader"`
-		SacksLeader struct {
-			Id                      int    `json:"id"`
-			Interceptions           int    `json:"interceptions"`
-			Tackles                 int    `json:"tackles"`
-			Sacks                   int    `json:"sacks"`
-			Number                  int    `json:"number"`
-			ForcedFumbles           int    `json:"forced_fumbles"`
-			FirstName               string `json:"first_name"`
-			LastName                string `json:"last_name"`
-			ImageUrl                string `json:"image_url"`
-			Position                string `json:"position"`
-			ShortPosition           string `json:"short_position"`
-			Assists                 int    `json:"assists"`
-			GamesStarted            int    `json:"games_started"`
-			TotalTackles            int    `json:"total_tackles"`
-			InterceptionsYards      int    `json:"interceptions_yards"`
-			InterceptionsTouchdowns int    `json:"interceptions_touchdowns"`
-			ImageUrls               struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"sacks_leader"`
-		InterceptionsLeader struct {
-			Id                      int    `json:"id"`
-			Interceptions           int    `json:"interceptions"`
-			Tackles                 int    `json:"tackles"`
-			Sacks                   int    `json:"sacks"`
-			Number                  int    `json:"number"`
-			ForcedFumbles           int    `json:"forced_fumbles"`
-			FirstName               string `json:"first_name"`
-			LastName                string `json:"last_name"`
-			ImageUrl                string `json:"image_url"`
-			Position                string `json:"position"`
-			ShortPosition           string `json:"short_position"`
-			Assists                 int    `json:"assists"`
-			GamesStarted            int    `json:"games_started"`
-			TotalTackles            int    `json:"total_tackles"`
-			InterceptionsYards      int    `json:"interceptions_yards"`
-			InterceptionsTouchdowns int    `json:"interceptions_touchdowns"`
-			ImageUrls               struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"interceptions_leader"`
-		ForcedFumblesLeader struct {
-			Id                      int     `json:"id"`
-			Interceptions           int     `json:"interceptions"`
-			Tackles                 int     `json:"tackles"`
-			Sacks                   float64 `json:"sacks"`
-			Number                  int     `json:"number"`
-			ForcedFumbles           int     `json:"forced_fumbles"`
-			FirstName               string  `json:"first_name"`
-			LastName                string  `json:"last_name"`
-			ImageUrl                string  `json:"image_url"`
-			Position                string  `json:"position"`
-			ShortPosition           string  `json:"short_position"`
-			Assists                 int     `json:"assists"`
-			GamesStarted            int     `json:"games_started"`
-			TotalTackles            int     `json:"total_tackles"`
-			InterceptionsYards      int     `json:"interceptions_yards"`
-			InterceptionsTouchdowns int     `json:"interceptions_touchdowns"`
-			ImageUrls               struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"forced_fumbles_leader"`
-		FieldGoalsMadeLeader struct {
-			Id                   int     `json:"id"`
-			Number               int     `json:"number"`
-			FirstName            string  `json:"first_name"`
-			LastName             string  `json:"last_name"`
-			ImageUrl             string  `json:"image_url"`
-			Position             string  `json:"position"`
-			ShortPosition        string  `json:"short_position"`
-			FieldGoalsAttempted  int     `json:"field_goals_attempted"`
-			FieldGoalsMade       int     `json:"field_goals_made"`
-			FieldGoalsPercentage float64 `json:"field_goals_percentage"`
-			ExtraPointsMade      int     `json:"extra_points_made"`
-			GamesStarted         int     `json:"games_started"`
-			ImageUrls            struct {
-				Lg string `json:"lg"`
-				Md string `json:"md"`
-				Sm string `json:"sm"`
-				Xs string `json:"xs"`
-			} `json:"image_urls"`
-		} `json:"field_goals_made_leader"`
-	} `json:"season_leaders"`
-	Players struct {
+	SeasonLeaders *SeasonLeaders `json:"season_leaders"`
+	Players       struct {
 		Passing []struct {
 			Id                   int    `json:"id"`
 			PassesAttempted      int    `json:"passes_attempted"`
@@ -586,11 +472,11 @@ type TeamWeb struct {
 			} `json:"image_urls"`
 		} `json:"fumbles"`
 	} `json:"players"`
-	Color         string        `json:"color"`
-	TimeoutsLeft  int           `json:"timeouts_left"`
-	ImageUrl25    string        `json:"image_url_25"`
-	ImageUrl59    string        `json:"image_url_59"`
-	TeamStandings TeamStandings `json:"team_standings"`
+	Color         string         `json:"color"`
+	TimeoutsLeft  int            `json:"timeouts_left"`
+	ImageUrl25    string         `json:"image_url_25"`
+	ImageUrl59    string         `json:"image_url_59"`
+	TeamStandings *TeamStandings `json:"team_standings"`
 }
 
 type DetailsMobile struct {
