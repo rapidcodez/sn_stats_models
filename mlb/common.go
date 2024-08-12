@@ -68,16 +68,17 @@ type RunnersOnBase struct {
 	Third  RunnersOnBaseNames `json:"third"`
 }
 type CurrentLine struct {
-	FavID      int     `json:"fav_id"`
-	Name       string  `json:"name"`
-	FavPoints  float64 `json:"fav_points"`
-	FavMoney   int     `json:"fav_money"`
-	HomeMoney  int     `json:"home_money"`
-	AwayMoney  int     `json:"away_money"`
-	Total      int     `json:"total"`
-	OverMoney  int     `json:"over_money"`
-	UnderMoney int     `json:"under_money"`
-	DrawMoney  int     `json:"draw_money"`
+	FavID         int     `json:"fav_id"`
+	Name          string  `json:"name"`
+	FavPoints     float64 `json:"fav_points"`
+	FavMoney      int     `json:"fav_money"`
+	HomeMoney     int     `json:"home_money"`
+	AwayMoney     int     `json:"away_money"`
+	Total         int     `json:"total"`
+	OverMoney     int     `json:"over_money"`
+	UnderMoney    int     `json:"under_money"`
+	DrawMoney     int     `json:"draw_money"`
+	UnderdogMoney int     `json:"underdog_money"`
 }
 type OpeningLine struct {
 	FavID         int     `json:"fav_id"`

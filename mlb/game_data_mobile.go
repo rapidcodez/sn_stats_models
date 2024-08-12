@@ -8,28 +8,29 @@ type GameDataMobile struct {
 }
 
 type DetailsMobile struct {
-	ID                 int        `json:"id"`
-	IsTBD              bool       `json:"is_tbd"`
-	SrGameUuid         string     `json:"sr_game_uuid"`
-	LeagueShortName    string     `json:"league_short_name"`
-	Status             string     `json:"status"`
-	SeriesStatus       string     `json:"seriesStatus"`
-	Timestamp          int        `json:"timestamp"`
-	Inning             int        `json:"inning"`
-	InningStatus       string     `json:"inning_status"`
-	WinningPitcher     *Player    `json:"winning_pitcher,omitempty"`
-	LosingPitcher      *Player    `json:"losing_pitcher,omitempty"`
-	Outs               int        `json:"outs"`
-	IsActive           bool       `json:"is_active"`
-	LastScoreSequence  int64      `json:"score_sequence_last"`
-	RunnerOnFirstBase  bool       `json:"runner_on_first_base"`
-	RunnerOnSecondBase bool       `json:"runner_on_second_base"`
-	RunnerOnThirdBase  bool       `json:"runner_on_third_base"`
-	HomeSeriesWins     *int       `json:"home_series_wins"`
-	VisitingSeriesWins *int       `json:"visiting_series_wins"`
-	Round              *string    `json:"round"`
-	SeriesWinner       *string    `json:"seriesWinner"`
-	ScoreLogs          []ScoreLog `json:"score_logs"`
+	ID                 int          `json:"id"`
+	IsTBD              bool         `json:"is_tbd"`
+	SrGameUuid         string       `json:"sr_game_uuid"`
+	LeagueShortName    string       `json:"league_short_name"`
+	Status             string       `json:"status"`
+	SeriesStatus       string       `json:"seriesStatus"`
+	Timestamp          int          `json:"timestamp"`
+	Inning             int          `json:"inning"`
+	InningStatus       string       `json:"inning_status"`
+	WinningPitcher     *Player      `json:"winning_pitcher,omitempty"`
+	LosingPitcher      *Player      `json:"losing_pitcher,omitempty"`
+	Outs               int          `json:"outs"`
+	IsActive           bool         `json:"is_active"`
+	LastScoreSequence  int64        `json:"score_sequence_last"`
+	RunnerOnFirstBase  bool         `json:"runner_on_first_base"`
+	RunnerOnSecondBase bool         `json:"runner_on_second_base"`
+	RunnerOnThirdBase  bool         `json:"runner_on_third_base"`
+	HomeSeriesWins     *int         `json:"home_series_wins"`
+	VisitingSeriesWins *int         `json:"visiting_series_wins"`
+	Round              *string      `json:"round"`
+	SeriesWinner       *string      `json:"seriesWinner"`
+	ScoreLogs          []ScoreLog   `json:"score_logs"`
+	CurrentLine        *CurrentLine `json:"current_line,omitempty"`
 }
 
 type ScoreLog struct {
