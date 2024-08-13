@@ -68,13 +68,13 @@ type RunnersOnBase struct {
 	Third  RunnersOnBaseNames `json:"third"`
 }
 type CurrentLine struct {
-	FavID         int     `json:"fav_id"`
+	FavID         string  `json:"fav_id"`
 	Name          string  `json:"name"`
 	FavPoints     float64 `json:"fav_points"`
 	FavMoney      int     `json:"fav_money"`
 	HomeMoney     int     `json:"home_money"`
 	AwayMoney     int     `json:"away_money"`
-	Total         int     `json:"total"`
+	Total         float64 `json:"total"`
 	OverMoney     int     `json:"over_money"`
 	UnderMoney    int     `json:"under_money"`
 	DrawMoney     int     `json:"draw_money"`
