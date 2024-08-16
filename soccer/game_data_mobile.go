@@ -16,6 +16,7 @@ type DetailsMobile struct {
 	Time               int    `json:"time"`           // "match_time":45,
 	StoppageClock      string `json:"stoppage_clock"` // "stoppage_time_clock":"45:00"
 	StoppageTime       int    `json:"stoppage_time"`  // "stoppage_time":45,
+	LastScoreSequence  int64  `json:"score_sequence_last"`
 	Timestamp          int    `json:"timestamp"`
 	Status             string `json:"status"`
 	IsHalfTime         bool   `json:"ishalftime"`
