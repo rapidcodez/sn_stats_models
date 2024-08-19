@@ -1,45 +1,47 @@
 package nhl
 
 type NhlPlayerSalary struct {
-	StatsGlobalId  int    `json:"stats_global_id"`
-	StatsTeamId    int    `json:"stats_team_id"`
-	PlayerId       int    `json:"player_id"`
-	Firstname      string `json:"firstname"`
-	Lastname       string `json:"lastname"`
-	FreeAgentType  int    `json:"free_agent_type"`
-	Birthday       string `json:"birthday"`
-	WaiversExempt  int    `json:"waivers_exempt"`
-	SlideRisk      int    `json:"slide_risk"`
-	TeamId         int    `json:"team_id"`
-	Position       int    `json:"position"`
-	CareerEarnings struct {
-		Salary struct {
-			Estimate int `json:"estimate"`
-		} `json:"salary"`
-	} `json:"career_earnings"`
+	Data struct {
+		Lastname       string `json:"lastname"`
+		Position       string `json:"position"`
+		Birthdate      string `json:"birthdate"`
+		Firstname      string `json:"firstname"`
+		PlayerId       int    `json:"player_id"`
+		SlideRisk      string `json:"slide_risk"`
+		NhlTeamId      string `json:"nhl_team_id"`
+		StatsTeamId    int    `json:"stats_team_id"`
+		WaiversExempt  int    `json:"waivers_exempt"`
+		CareerEarnings struct {
+			Salary struct {
+				Estimate int `json:"estimate"`
+			} `json:"salary"`
+		} `json:"career_earnings"`
+		FreeAgentType string `json:"free_agent_type"`
+		StatsGlobalId int    `json:"stats_global_id"`
+	} `json:"data"`
+	Meta struct {
+		Code         int    `json:"code"`
+		ErrorMessage string `json:"error_message"`
+	} `json:"meta"`
 	Salary struct {
-		Salary       int `json:"salary"`
-		SigningBonus int `json:"signing_bonus"`
-		BaseSalary   int `json:"base_salary"`
-		Caphit       struct {
-			Initial            int     `json:"initial"`
-			Retained           int     `json:"retained"`
-			RetainedPercentage float64 `json:"retained_percentage"`
+		Caphit struct {
 			Final              int     `json:"final"`
-			CeilingPercentage  float64 `json:"ceiling_percentage"`
+			Initial            string  `json:"initial"`
+			Retained           int     `json:"retained"`
+			CeilingPercentage  string  `json:"ceiling_percentage"`
+			RetainedPercentage float64 `json:"retained_percentage"`
 		} `json:"caphit"`
+		Salary       string `json:"salary"`
+		BaseSalary   string `json:"base_salary"`
+		SigningBonus string `json:"signing_bonus"`
 	} `json:"salary"`
 	ActiveContract struct {
-		FirstYear   int    `json:"first_year"`
+		Type        string `json:"type"`
+		Value       string `json:"value"`
 		LastYear    int    `json:"last_year"`
+		FirstYear   int    `json:"first_year"`
 		SigningDate string `json:"signing_date"`
-		Type        int    `json:"type"`
-		Value       int    `json:"value"`
 	} `json:"active_contract"`
-	Clauses map[string]struct {
-		Nmc int `json:"nmc"`
-		Ntc int `json:"ntc"`
-	} `json:"clauses"`
 }
 
 type NhlTeamSalary struct {
