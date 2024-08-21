@@ -360,6 +360,7 @@ type Last9Event struct {
 	EndPossession string              `json:"end_possession"`
 	PlayType      string              `json:"play_type"`
 	PlayTypeId    int                 `json:"play_type_id"`
+	Result        string              `json:"result"`
 	Players       []Last9EventsPlayer `json:"players"`
 }
 
