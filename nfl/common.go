@@ -385,7 +385,7 @@ type DetailsWeb struct {
 	SrStatus             string                 `json:"sr_status"`
 	SimMode              bool                   `json:"sim_mode"`
 	BallLocation         string                 `json:"ball_location"`
-	TeamPossessionId     int                    `json:"team_possession_id"`
+	TeamPossessionId     string                 `json:"team_possession_id"`
 	Down                 int                    `json:"down"`
 	Distance             int                    `json:"distance"`
 	Location             string                 `json:"location"`
