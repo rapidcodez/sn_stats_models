@@ -309,6 +309,7 @@ type TeamWeb struct {
 	SeasonLeaders *SeasonLeaders    `json:"season_leaders,omitempty"`
 	Players       *TeamWebPlayers   `json:"players,omitempty"`
 	Color         string            `json:"color"`
+	HasBall       bool              `json:"has_ball"`
 	TimeoutsLeft  int               `json:"timeouts_left"`
 	ImageUrl25    string            `json:"image_url_25"`
 	ImageUrl59    string            `json:"image_url_59"`
@@ -380,6 +381,7 @@ type DetailsWeb struct {
 	Timestamp            int                    `json:"timestamp"`
 	Overtime             int                    `json:"overtime"`
 	IsIntermission       bool                   `json:"is_intermission"`
+	Sequence             int64                  `json:"sequence"`
 	Broadcast            []common.GameBroadcast `json:"broadcast"`
 	Status               string                 `json:"status"`
 	SrStatus             string                 `json:"sr_status"`
@@ -390,6 +392,7 @@ type DetailsWeb struct {
 	Distance             int                    `json:"distance"`
 	Location             string                 `json:"location"`
 	SeriesMatchupsResult string                 `json:"series_matchups_result"`
+	Downs                int                    `json:"downs"`
 	LocationImageUrl     string                 `json:"location_image_url"`
 	Attendance           int                    `json:"attendance"`
 	GameName             string                 `json:"game_name"`
